@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<title>Gaon ka Ghar — Site Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────── SITE REGISTER · design tokens ─────────────────── */
+:root{
+  --ink0:#0A1422;        /* blueprint night canvas */
+  --ink1:#101D31;        /* card */
+  --ink2:#15253D;        /* raised surface */
+  --line:#20354F; --line2:#2C4568;
+  --txt:#E9F1FB; --mut:#8FA5C0; --dim:#5E769A;
+  --brick:#E8603A;       /* signature — fired brick */
+  --brick-soft:#E8603A26;
+  --amber:#F2A93B; --green:#34D399; --red:#FF6B66;
+  --blue:#5B9DFF; --blue2:#8FBCFF; --violet:#A78BFA; --steel:#A8B4C4; --teal:#2DD4BF; --pink:#EC4899;
+  --r:16px;
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --body:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --grid-line:#13233B;
+  --hd-grad:linear-gradient(180deg,#0C1828 0%,#0A1422 100%);
+  --spot-grad:linear-gradient(135deg,#1E1320,#101D31);
+  --tabbar-bg:#0C1828F2;
+}
+:root[data-theme="light"]{
+  --ink0:#F3F5F8;
+  --ink1:#FFFFFF;
+  --ink2:#EEF1F6;
+  --line:#DDE3EC; --line2:#C9D2DF;
+  --txt:#0F1E2E; --mut:#5C6E84; --dim:#8FA0B5;
+  --grid-line:#E3E8F0;
+  --hd-grad:linear-gradient(180deg,#FFFFFF 0%,#F3F5F8 100%);
+  --spot-grad:linear-gradient(135deg,#FCEBE8,#FFFFFF);
+  --tabbar-bg:#FFFFFFF2;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  background:var(--ink0);color:var(--txt);font-family:var(--body);
+  overscroll-behavior-y:none;
+  /* drafting grid backdrop */
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:48px 48px;
+  transition:background-color .25s ease,color .25s ease;
+}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.app{max-width:440px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column;position:relative;background:var(--ink0);box-shadow:0 0 0 1px var(--line),0 0 80px #00000066}
+
+/* ─────────────────── header · the site board ─────────────────── */
+.hd{background:var(--hd-grad);border-bottom:1px solid var(--line);padding:20px 18px 0;position:sticky;top:0;z-index:50}
+.hd-top{display:flex;justify-content:space-between;align-items:flex-start}
+.eyebrow{font-family:var(--disp);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);font-weight:700}
+.theme-tgl{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;border:1px solid var(--line2);background:var(--ink1);color:var(--mut);cursor:pointer;transition:color .15s,border-color .15s}
+.theme-tgl svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.theme-tgl:hover{color:var(--brick);border-color:#E8603A55}
+.theme-tgl .i-sun{display:none}
+:root[data-theme="light"] .theme-tgl .i-moon{display:none}
+:root[data-theme="light"] .theme-tgl .i-sun{display:block}
+.upd{text-align:right}
+.upd .l{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);font-weight:700}
+.upd .v{font-family:var(--mono);font-size:11px;color:var(--mut);font-weight:600;margin-top:2px}
+.title{font-family:var(--disp);font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1;margin-top:6px}
+.title .accent{color:var(--brick)}
+.pills{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+.pill{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:5px 11px;border:1px solid var(--line2);color:var(--mut);background:var(--ink1)}
+.pill.hot{color:var(--brick);border-color:#E8603A55;background:var(--brick-soft)}
+/* ledger ticker — three ruled figures */
+.ticker{display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:16px;border:1px solid var(--line);border-bottom:none;border-radius:14px 14px 0 0;overflow:hidden;background:var(--ink1)}
+.tk{padding:12px 14px;border-right:1px solid var(--line);position:relative}
+.tk:last-child{border-right:none}
+.tk .l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:4px}
+.tk .v{font-family:var(--mono);font-size:17px;font-weight:700}
+.tk::after{content:'';position:absolute;left:14px;bottom:0;width:26px;height:3px;border-radius:3px 3px 0 0}
+.tk.paid::after{background:var(--blue)} .tk.bill::after{background:var(--green)} .tk.due::after{background:var(--red)}
+.tk.due .v{color:var(--red)}
+
+/* ─────────────────── content ─────────────────── */
+.content{flex:1;overflow-y:auto;padding:18px 16px 104px;scroll-behavior:smooth}
+.view{display:none}.view.on{display:block}
+.sec{margin-bottom:24px;animation:rise .4s ease both}
+.sec:nth-child(2){animation-delay:.05s}.sec:nth-child(3){animation-delay:.1s}.sec:nth-child(4){animation-delay:.15s}.sec:nth-child(5){animation-delay:.2s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.st{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:11px}
+.st h2{font-family:var(--disp);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);font-weight:800;display:flex;align-items:center;gap:8px}
+.st h2::before{content:'';width:14px;height:3px;background:var(--brick);border-radius:2px}
+.st .hint{font-size:10px;color:var(--dim);font-family:var(--mono)}
+.card{background:var(--ink1);border:1px solid var(--line);border-radius:var(--r);padding:15px;margin-bottom:8px}
+
+/* due spotlight */
+.spot{border:1px solid #FF6B6640;border-left:4px solid var(--red);background:var(--spot-grad);border-radius:var(--r);padding:14px 15px;margin-bottom:20px}
+.spot b{font-family:var(--disp);font-size:11px;color:var(--red);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+.spot .main{font-size:13.5px;color:var(--txt);line-height:1.5}
+.spot .ok{font-size:12px;color:var(--green);margin-top:6px}
+
+/* KPIs */
+.kgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.kpi{background:var(--ink1);border:1px solid var(--line);border-radius:var(--r);padding:14px;transition:transform .12s ease,border-color .2s}
+.kpi:active{transform:scale(.97)}
+.kpi .l{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:8px;font-family:var(--disp)}
+.kpi .v{font-family:var(--mono);font-size:20px;font-weight:700;line-height:1}
+.kpi .s{font-size:10.5px;color:var(--dim);margin-top:6px}
+
+/* ───────── signature · brick advance wall ───────── */
+.wall-card{background:var(--ink1);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.wall{display:flex;flex-direction:column;gap:5px;margin:4px 0 14px}
+.wrow{display:flex;gap:5px}
+.wrow.off{padding-left:22px}
+.bk{height:18px;flex:1;border-radius:3px;border:1px solid var(--line2);background:var(--ink2);position:relative;transition:background .5s ease,border-color .5s ease}
+.bk.f{background:linear-gradient(180deg,#F07A52,#D44E28);border-color:#B23E1E;box-shadow:inset 0 1px 0 #FF9A75AA}
+.bk.partial{border-style:dashed;opacity:.65}
+.wall-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.ws{background:var(--ink2);border-radius:10px;padding:10px 8px;text-align:center}
+.ws .l{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:4px}
+.ws .v{font-family:var(--mono);font-size:13.5px;font-weight:700}
+.wall-cap{font-size:11px;color:var(--mut);margin-top:11px;line-height:1.5}
+.wleg{display:flex;gap:14px;margin-top:10px}
+.wleg span{font-size:10px;color:var(--dim);display:flex;align-items:center;gap:6px}
+.swatch{width:14px;height:10px;border-radius:2px}
+.swatch.f{background:linear-gradient(180deg,#F07A52,#D44E28)}
+.swatch.e{background:var(--ink2);border:1px solid var(--line2)}
+
+/* split bar + legend */
+.split{display:flex;height:10px;border-radius:6px;overflow:hidden;gap:2px;margin-bottom:13px}
+.split div{min-width:4px;transition:flex .8s cubic-bezier(.22,1,.36,1)}
+.lg{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line)}
+.lg:last-child{border-bottom:none}
+.lg .nm{display:flex;align-items:center;gap:9px;font-size:13px}
+.lg .nm small{color:var(--dim);font-size:10px}
+.dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.lg .amt{font-family:var(--mono);font-size:13.5px;font-weight:700}
+.lg .pc{font-size:10px;color:var(--dim);margin-left:6px;font-family:var(--mono)}
+
+/* monthly bars */
+.mrow{margin-bottom:13px}.mrow:last-child{margin-bottom:0}
+.mrow .r1{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.mrow .mn{font-family:var(--disp);font-size:13px;font-weight:700}
+.mrow .ma{font-family:var(--mono);font-size:13.5px;font-weight:700}
+.mbar{height:8px;border-radius:5px;background:var(--ink2);overflow:hidden}
+.mbar div{height:100%;border-radius:5px;background:linear-gradient(90deg,#3E7BD6,var(--blue));transition:width .9s cubic-bezier(.22,1,.36,1)}
+
+/* site register notes — red ledger spine */
+.reg{background:var(--ink1);border:1px solid var(--line);border-radius:var(--r);padding:4px 15px 4px 0;position:relative;overflow:hidden}
+.reg::before{content:'';position:absolute;left:40px;top:0;bottom:0;width:2px;background:#E8603A66}
+.note{display:flex;gap:0;padding:11px 0;border-bottom:1px dashed var(--line);position:relative}
+.note:last-child{border-bottom:none}
+.note i{font-family:var(--mono);font-style:normal;font-size:10px;font-weight:700;color:var(--brick);width:40px;text-align:center;flex-shrink:0;padding-top:2px}
+.note span{font-size:12.5px;color:var(--mut);line-height:1.55;padding-left:13px;flex:1}
+.note:first-child span{color:var(--txt)}
+
+/* chips */
+.chips{display:flex;gap:7px;margin-bottom:13px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{font-family:var(--disp);font-size:11px;font-weight:700;letter-spacing:.04em;padding:7px 14px;border-radius:999px;border:1px solid var(--line2);background:var(--ink1);color:var(--mut);white-space:nowrap;cursor:pointer;transition:all .15s}
+.chip.on{background:var(--brick);border-color:var(--brick);color:#fff}
+
+/* expandable */
+.xp{background:var(--ink1);border:1px solid var(--line);border-radius:var(--r);margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.xp.open{border-color:var(--line2)}
+.xph{display:flex;align-items:center;gap:11px;padding:14px 15px;cursor:pointer;user-select:none;transition:background .15s}
+.xph:active{background:#ffffff08}
+.xph .grow{flex:1;min-width:0}
+.chev{color:var(--dim);font-size:12px;transition:transform .25s ease;flex-shrink:0}
+.xp.open .chev{transform:rotate(180deg)}
+.xpb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.xp.open .xpb{grid-template-rows:1fr}
+.xpb>div{overflow:hidden}
+.xpb-in{border-top:1px solid var(--line);padding:13px 15px}
+
+/* ledger rows inside expandables */
+.row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12px}
+.row:last-child{border-bottom:none}
+.row .d{color:var(--mut);flex:1;line-height:1.5}
+.row .d em{font-style:normal;color:var(--dim);font-family:var(--mono);font-size:10.5px;margin-right:7px}
+.row .a{font-family:var(--mono);font-weight:700;white-space:nowrap}
+.tag{font-family:var(--disp);font-size:9.5px;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+.t-paid{background:#34D39920;color:var(--green)} .t-due{background:#FF6B6620;color:var(--red)} .t-adv{background:#F2A93B20;color:var(--amber)}
+.trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.mc{background:var(--ink2);border-radius:10px;padding:10px 8px;text-align:center}
+.mc .l{font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:4px}
+.mc .v{font-family:var(--mono);font-size:12.5px;font-weight:700}
+
+/* materials */
+.matbar{height:6px;border-radius:4px;background:var(--ink2);overflow:hidden;margin-top:7px}
+.matbar div{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.22,1,.36,1)}
+.flag{font-size:11px;margin-top:9px}
+.flag.ok{color:var(--green)} .flag.no{color:var(--red)}
+
+/* payments */
+.search{width:100%;background:var(--ink1);border:1px solid var(--line2);border-radius:12px;color:var(--txt);font-size:13px;padding:11px 14px;margin-bottom:12px;font-family:var(--body)}
+.search::placeholder{color:var(--dim)}
+.search:focus{outline:2px solid var(--brick);outline-offset:1px;border-color:transparent}
+.mhead{position:sticky;top:-19px;z-index:10;background:var(--ink0);padding:10px 2px 9px;margin:0 -2px}
+.mhead .r1{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+.mhead .mn{font-family:var(--disp);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.mhead .mt{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--mut)}
+.mprop{display:flex;height:5px;border-radius:3px;overflow:hidden;gap:1px}
+.mprop div{min-width:2px}
+.pay{display:flex;background:var(--ink1);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;overflow:hidden}
+.pay .bar{width:4px;flex-shrink:0}
+.pay .bd{padding:12px 14px;flex:1;min-width:0}
+.pay .r1{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+.pay .dt{font-size:10.5px;color:var(--dim);font-family:var(--mono);font-weight:600}
+.pay .am{font-family:var(--mono);font-size:15px;font-weight:700}
+.pay .vn{font-size:13px;font-weight:600;margin-bottom:2px}
+.pay .ds{font-size:11.5px;color:var(--mut);line-height:1.45;margin-bottom:7px}
+.unpaid-card{border:1px dashed #FF6B6650;background:#1A121A;border-radius:14px;padding:12px 14px;margin-bottom:14px}
+.unpaid-card .t{font-family:var(--disp);font-size:10px;color:var(--red);letter-spacing:.14em;text-transform:uppercase;font-weight:800;margin-bottom:7px}
+
+/* breakdown donut */
+.donut-wrap{display:flex;align-items:center;gap:18px;padding:6px 2px 14px}
+.donut{width:128px;height:128px;border-radius:50%;position:relative;flex-shrink:0}
+.donut::after{content:'';position:absolute;inset:17px;border-radius:50%;background:var(--ink1)}
+.donut .c{position:absolute;inset:17px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1}
+.donut .c .v{font-family:var(--mono);font-size:15px;font-weight:700}
+.donut .c .l{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-top:2px}
+.dleg{flex:1;min-width:0}
+.dleg .lg{padding:5px 0}
+.empty{text-align:center;color:var(--dim);font-size:12.5px;padding:26px 0}
+
+/* ─────────────────── bottom tab bar ─────────────────── */
+.tabbar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:440px;background:var(--tabbar-bg);backdrop-filter:blur(14px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:60}
+.tab{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:none;color:var(--dim);cursor:pointer;padding:5px 0;border-radius:10px;transition:color .15s}
+.tab svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tab span{font-family:var(--disp);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.tab.on{color:var(--brick)}
+.tab:focus-visible{outline:2px solid var(--brick);outline-offset:2px}
+.chip:focus-visible,.xph:focus-visible{outline:2px solid var(--brick);outline-offset:2px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="hd">
+    <div class="hd-top">
+      <div>
+        <div class="eyebrow">Site Ledger · Bihar</div>
+        <h1 class="title">Gaon ka <span class="accent">Ghar</span></h1>
+      </div>
+      <div class="upd">
+        <button class="theme-tgl" id="themeTgl" aria-label="Toggle theme" type="button">
+          <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <div class="l" style="margin-top:8px">Updated</div>
+        <div class="v" id="updDate">—</div>
+      </div>
+    </div>
+    <div class="pills">
+      <span class="pill hot" id="phasePill">—</span>
+      <span class="pill" id="dayPill">—</span>
+    </div>
+    <div class="ticker">
+      <div class="tk paid"><div class="l">Cash Paid</div><div class="v num" id="tkPaid">₹0</div></div>
+      <div class="tk bill"><div class="l">Billed</div><div class="v num" id="tkBilled">₹0</div></div>
+      <div class="tk due"><div class="l">Total Due</div><div class="v num" id="tkDue">₹0</div></div>
+    </div>
+  </header>
+
+  <main class="content" id="content">
+
+    <!-- ════ OVERVIEW ════ -->
+    <section class="view on" id="v-overview">
+      <div id="spotWrap"></div>
+
+      <div class="sec">
+        <div class="st"><h2>Who Paid</h2><span class="hint" id="payerHint"></span></div>
+        <div class="card">
+          <div class="split" id="payerSplit"></div>
+          <div id="payerRows"></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="st"><h2>Monthly Spend</h2><span class="hint">billed value</span></div>
+        <div class="card" id="monthly"></div>
+      </div>
+
+      <div class="sec">
+        <div class="st"><h2>Site Register</h2><span class="hint" id="noteHint"></span></div>
+        <div class="reg" id="notes"></div>
+      </div>
+    </section>
+
+    <!-- ════ VENDORS ════ -->
+    <section class="view" id="v-vendors">
+      <div class="chips" id="vChips">
+        <button class="chip on" data-vf="all">All</button>
+        <button class="chip" data-vf="due">Due</button>
+        <button class="chip" data-vf="advance">Advance</button>
+        <button class="chip" data-vf="paid">Settled</button>
+      </div>
+      <div id="vList"></div>
+    </section>
+
+    <!-- ════ MATERIALS ════ -->
+    <section class="view" id="v-materials">
+      <div class="sec"><div class="st"><h2>Materials on Ledger</h2><span class="hint" id="matHint"></span></div></div>
+      <div id="mList"></div>
+    </section>
+
+    <!-- ════ PAYMENTS ════ -->
+    <section class="view" id="v-payments">
+      <input class="search" id="pq" type="search" placeholder="Search vendor, item or amount…" aria-label="Search payments"/>
+      <div class="chips" id="pChips">
+        <button class="chip on" data-pf="all">All</button>
+        <button class="chip" data-pf="self">Avinash</button>
+        <button class="chip" data-pf="Papa">Papa</button>
+        <button class="chip" data-pf="Chota Bhai">Chota Bhai</button>
+      </div>
+      <div id="unpaidWrap"></div>
+      <div id="pList"></div>
+    </section>
+
+    <!-- ════ BREAKDOWN ════ -->
+    <section class="view" id="v-breakdown">
+      <div class="sec">
+        <div class="st"><h2>Cost Breakdown</h2><span class="hint">by category</span></div>
+        <div class="card">
+          <div class="donut-wrap">
+            <div class="donut" id="donut"><div class="c"><div class="v num" id="donutTot"></div><div class="l">Billed</div></div></div>
+            <div class="dleg" id="donutLeg"></div>
+          </div>
+        </div>
+      </div>
+      <div id="catList"></div>
+    </section>
+
+  </main>
+
+  <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+    <button class="tab on" data-view="overview" role="tab" aria-selected="true">
+      <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9h13v-9"/></svg><span>Overview</span>
+    </button>
+    <button class="tab" data-view="vendors" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M16 4.5a3.2 3.2 0 0 1 0 6.4M17.5 14c2 .6 3.2 2.3 3.6 5"/></svg><span>Vendors</span>
+    </button>
+    <button class="tab" data-view="materials" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24"><path d="M3 9.5h8v5H3zM13 9.5h8v5h-8zM8 4.5h8v5H8zM8 14.5h8v5H8z"/></svg><span>Materials</span>
+    </button>
+    <button class="tab" data-view="payments" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M7 15h4"/></svg><span>Payments</span>
+    </button>
+    <button class="tab" data-view="breakdown" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M15 3.6A9 9 0 0 1 20.4 9H15z"/></svg><span>Breakdown</span>
+    </button>
+  </nav>
+</div>
+
+<!-- ═══════════ EMBEDDED DATA (auto-generated from Excel — do not hand-edit) ═══════════ -->
+<script id="site-data" type="application/json">
+{"meta":{"version":"v11","projectName":"Gaon ka Ghar","phase":"Plinth Phase · Beam Work","startDate":"07-May-2026","lastUpdated":"12-Jun-2026","day":37,"validationStatus":"PASSED — vendors, categories & monthly all reconcile to ₹12,23,097"},"summary":{"totalPaid":1438297,"totalBilled":1223097,"paymentsCount":25,"entriesCount":68,"vendorsCount":10,"vendorAdvance":216000,"balanceDue":1300},"brickAdvance":{"advancePaid":369000,"deliveredValue":153000,"creditLeft":216000,"bricksDelivered":18000,"tractorsDelivered":12,"tractorCapacity":29,"ratePerBrick":8.5,"burnPct":41},"payers":[{"name":"Avinash","sub":"Self GPay + Bank","amount":1024162,"pct":71.2,"color":"#5B9DFF"},{"name":"Papa","sub":"GPay","amount":245135,"pct":17.0,"color":"#F2A93B"},{"name":"Chota Bhai","sub":"GPay","amount":169000,"pct":11.8,"color":"#A78BFA"}],"monthly":[{"month":"May-2026","billed":829592},{"month":"Jun-2026","billed":393505}],"vendors":[{"name":"Pappu Hardware","type":"Hardware · Steel · Cement","billed":451130,"paid":449830,"status":"due","tx":[["11–13 May","Bill 63: Cement 40B + Steel 250 pcs + Wire + DrFixit",183000],["19-May","Soft wire + cover blocks + labour",3500],["21-May","Cement 60B + transport + metal sheet",24800],["01-Jun","Bill 2: Steel 300 pcs + Cement 50B + DrFixit 20L",202830],["06-Jun","Bill 3: Cement 50B + Tiscon 6mm 70 pcs + transport",35700],["09-Jun","Soft wire 10 Kg — UNPAID (Bill 4)",1300]]},{"name":"Brick Company","type":"Bricks · prepaid advance","billed":153000,"paid":369000,"status":"advance","tx":[["14-May","Advance paid (Avinash ₹2L + Chota Bhai ₹1.69L)",369000],["14–26 May","12 tractors × 1,500 bricks @ ₹8.5",153000]]},{"name":"Econ Builder","type":"Engineering supervision","billed":226000,"paid":226000,"status":"paid","tx":[["07-May","Engineer visit advance",5000],["15-May","Layout / Naksha",11000],["16-May","Supervision advance",50000],["22-May","Bank transfer advance",50000],["25-May","Engineer payment",10000],["01-Jun","Engineer payment",100000]]},{"name":"Concrete Supplier","type":"Gitti / Concrete","billed":161982,"paid":161982,"status":"paid","tx":[["15-May","Gitti 27.5 T @ ₹2,400/ton",66000],["23-May","Gitti 37.64 T @ ₹2,550/ton",95982]]},{"name":"Sand Truck Wala","type":"Sand","billed":110000,"paid":110000,"status":"paid","tx":[["04-May","Truck 1 — 920 CFT",55000],["12-May","Truck 2 — 918 CFT",55000]]},{"name":"Mukesh Yadav","type":"JCB · Mitti · Movement","billed":62700,"paid":63200,"status":"advance","tx":[["12-May","JCB work 17.5 hrs @ ₹1,000",17500],["24-May","Mitti filling 19 trailers @ ₹600",11400],["26-May","Mitti filling 22 trailers @ ₹600",13200],["09-Jun","Mitti filling 19 trailers @ ₹600",11400],["10-Jun","Sand movement 26 trailers @ ₹200",5200],["10-Jun","Gitti movement 20 trailers @ ₹200",4000]]},{"name":"Daily Labour","type":"Earth filling labour","billed":33075,"paid":33075,"status":"paid","tx":[["01-Jun","66 labourers @ ₹350",23100],["09-Jun","Mitti bharai 28.5 @ ₹350",9975]]},{"name":"Naveen Hardware","type":"Cement","billed":18650,"paid":18650,"status":"paid","tx":[["25-May","Cement 50B + transport + labour",18650]]},{"name":"Local Purchase","type":"Site misc","billed":5060,"paid":5060,"status":"paid","tx":[["16-May","Panni + tools + food ration",5060]]},{"name":"Sonbhai-Coordinator","type":"Site cleaning","billed":1500,"paid":1500,"status":"paid","tx":[["07-May","Chanarveer adhoc",1500]]}],"materials":[{"name":"Tiscon 12mm","group":"steel","amount":174336,"qty":"200 Pcs","rate":"₹908","note":"₹7,264 saved","disc":true},{"name":"Concrete / Gitti","group":"building","amount":161982,"qty":"65.14 Ton","rate":"₹2,487 avg","note":"2 deliveries","disc":false},{"name":"Bricks","group":"building","amount":153000,"qty":"18,000 nos","rate":"₹8.5","note":"12 tractors","disc":false},{"name":"Tiscon 10mm","group":"steel","amount":123264,"qty":"200 Pcs","rate":"₹642","note":"₹5,136 saved","disc":true},{"name":"Sand","group":"building","amount":110000,"qty":"1,838 CFT","rate":"2 trucks","note":"—","disc":false},{"name":"Cement Ultratech Super","group":"cement","amount":90000,"qty":"250 Bags","rate":"₹360/bag","note":"—","disc":false},{"name":"Tiscon 6mm","group":"steel","amount":41820,"qty":"170 Pcs","rate":"₹246","note":"No discount (rule)","disc":false,"nodisc":true},{"name":"Tiscon 8mm","group":"steel","amount":20160,"qty":"50 Pcs","rate":"₹420","note":"₹840 saved","disc":true},{"name":"Dr Fixit","group":"chemical","amount":5400,"qty":"22 L","rate":"₹245 avg","note":"Waterproofing","disc":false},{"name":"Binding / Soft Wire","group":"building","amount":5000,"qty":"30 Kg + lots","rate":"mixed","note":"₹1,300 unpaid","disc":false}],"payments":[{"d":"04-May","m":"May-2026","by":"Papa","to":"Sand Truck Wala","a":55000,"ds":"Sand Truck 1 (920 CFT)","md":"GPay"},{"d":"07-May","m":"May-2026","by":"Papa","to":"Econ Builder","a":5000,"ds":"Advance to engineer","md":"GPay"},{"d":"07-May","m":"May-2026","by":"Self-GPay","to":"Sonbhai-Coordinator","a":1500,"ds":"Site cleaning","md":"GPay"},{"d":"11-May","m":"May-2026","by":"Self-GPay","to":"Pappu Hardware","a":90000,"ds":"Bill 63 — part 1","md":"GPay"},{"d":"12-May","m":"May-2026","by":"Papa","to":"Mukesh Yadav","a":5000,"ds":"JCB advance","md":"GPay"},{"d":"12-May","m":"May-2026","by":"Papa","to":"Sand Truck Wala","a":55000,"ds":"Sand Truck 2 (918 CFT)","md":"GPay"},{"d":"13-May","m":"May-2026","by":"Self-GPay","to":"Pappu Hardware","a":93000,"ds":"Bill 63 — part 2 final","md":"GPay"},{"d":"14-May","m":"May-2026","by":"Self-GPay","to":"Brick Company","a":200000,"ds":"Brick advance — Avinash share","md":"GPay"},{"d":"14-May","m":"May-2026","by":"Chota Bhai","to":"Brick Company","a":169000,"ds":"Brick advance — Chota Bhai share","md":"GPay"},{"d":"15-May","m":"May-2026","by":"Papa","to":"Concrete Supplier","a":66000,"ds":"Gitti 27.5T @ ₹2,400","md":"GPay"},{"d":"15-May","m":"May-2026","by":"Papa","to":"Econ Builder","a":11000,"ds":"Layout / Naksha","md":"GPay"},{"d":"16-May","m":"May-2026","by":"Self-GPay","to":"Econ Builder","a":50000,"ds":"Supervision advance","md":"GPay"},{"d":"16-May","m":"May-2026","by":"Papa","to":"Local Purchase","a":5060,"ds":"Panni + tools + food","md":"GPay"},{"d":"19-May","m":"May-2026","by":"Self-GPay","to":"Pappu Hardware","a":3500,"ds":"Soft wire + cover blocks","md":"GPay"},{"d":"21-May","m":"May-2026","by":"Self-GPay","to":"Pappu Hardware","a":24800,"ds":"Cement 60B + metal sheet","md":"GPay"},{"d":"22-May","m":"May-2026","by":"Self-Bank Transfer","to":"Econ Builder","a":50000,"ds":"Engineer advance — net banking","md":"Bank"},{"d":"23-May","m":"May-2026","by":"Self-GPay","to":"Concrete Supplier","a":95982,"ds":"Gitti 37.64T @ ₹2,550","md":"GPay"},{"d":"25-May","m":"May-2026","by":"Self-Bank Transfer","to":"Naveen Hardware","a":18650,"ds":"Cement 50B + transport + labour","md":"Bank"},{"d":"25-May","m":"May-2026","by":"Papa","to":"Econ Builder","a":10000,"ds":"Engineer payment","md":"GPay"},{"d":"01-Jun","m":"Jun-2026","by":"Self-Bank Transfer","to":"Pappu Hardware","a":202830,"ds":"Bill 2: steel + cement + DrFixit","md":"Bank"},{"d":"01-Jun","m":"Jun-2026","by":"Papa","to":"Daily Labour","a":23100,"ds":"Earth filling 66 labourers @ ₹350","md":"GPay"},{"d":"01-Jun","m":"Jun-2026","by":"Self-GPay","to":"Econ Builder","a":100000,"ds":"Engineer payment ₹1L","md":"GPay"},{"d":"06-Jun","m":"Jun-2026","by":"Self-Bank Transfer","to":"Pappu Hardware","a":35700,"ds":"Bill 3: cement 50B + 6mm 70 pcs + transport","md":"Bank"},{"d":"09-Jun","m":"Jun-2026","by":"Papa","to":"Daily Labour","a":9975,"ds":"Mitti bharai 28.5 labourers @ ₹350","md":"GPay"},{"d":"10-Jun","m":"Jun-2026","by":"Self-Bank Transfer","to":"Mukesh Yadav","a":58200,"ds":"Final settlement — JCB + Mitti + Sand + Gitti movement","md":"Bank"}],"unpaid":[{"d":"09-Jun","to":"Pappu Hardware","a":1300,"ds":"Soft wire 10 Kg @ ₹130 — Bill 4"}],"categories":[{"name":"Building Materials","color":"#E8603A","amount":529082,"subs":[["Concrete/Gitti · 65.14 Ton",161982],["Bricks · 18,000 nos",153000],["Sand · 1,838 CFT",110000],["Cement · 250 bags",90000],["Wire, DrFixit, blocks, nails",14100]]},{"name":"Steel / Iron","color":"#A8B4C4","amount":359580,"subs":[["Tiscon 12mm · 200 pcs · 4% disc",174336],["Tiscon 10mm · 200 pcs · 4% disc",123264],["Tiscon 6mm · 170 pcs · no disc",41820],["Tiscon 8mm · 50 pcs · 4% disc",20160]]},{"name":"Professional Fees","color":"#5B9DFF","amount":226000,"subs":[["Engineer supervision (Econ)",210000],["Layout / Naksha",11000],["Engineer visit",5000]]},{"name":"Land Development","color":"#2DD4BF","amount":53500,"subs":[["JCB 17.5 hrs",17500],["Mitti filling 60 trailers",36000]]},{"name":"Labour","color":"#EC4899","amount":45625,"subs":[["Earth filling 66 @ ₹350",23100],["Mitti bharai 28.5 @ ₹350",9975],["Sand movement 26 trailers",5200],["Gitti movement 20 trailers",4000],["Helper/skilled misc",3350]]},{"name":"Transport · Food · Misc","color":"#8FA5C0","amount":9310,"subs":[["Tools, panni, tar",4475],["Food / ration",3285],["Truck freight",1550]]}],"notes":["🏗️ BEAM CONSTRUCTION STARTED — 11-Jun-2026. Structural framework now underway.","🌧️ Rain + mixture machine operator delays impacting progress as of 11-Jun.","Pappu Hardware soft wire 10 Kg = ₹1,300 — UNPAID (Bill 4 pending).","Brick Company: ₹3,69,000 advance · 18,000 bricks (12 tractors) delivered = ₹1,53,000 · credit left ₹2,16,000.","Mukesh Yadav SETTLED 10-Jun: JCB ₹17,500 + Mitti ₹36,000 + Sand mvmt ₹5,200 + Gitti mvmt ₹4,000 = ₹62,700. Paid ₹5,000 advance + ₹58,200 final = ₹63,200 (₹500 overpaid).","4% discount only on Tiscon 12 / 10 / 8mm — 6mm gets NO discount.","On site: 250 bags Ultratech Super cement · 620 pcs Tiscon steel.","Cash out ₹14,38,297 vs billed ₹12,23,097 — gap ₹2,15,200 = brick credit ₹2,16,000 + ₹500 Mukesh overpaid − ₹1,300 Pappu unpaid.","Project started 07-May-2026 — foundation done, plinth phase ongoing."]}
+</script>
+
+<script>
+/* ═══════════ SITE REGISTER · renderer ═══════════
+   Data source order:
+   1. Embedded JSON above (always current — regenerated from Excel each update)
+   2. dashboard_data.json fetched at runtime (overrides if a NEWER version is deployed)        */
+
+let D = JSON.parse(document.getElementById('site-data').textContent);
+
+/* ───────── theme toggle (dark default) ───────── */
+(function initTheme(){
+  const saved = localStorage.getItem('theme');
+  if(saved === 'light') document.documentElement.setAttribute('data-theme','light');
+  document.getElementById('themeTgl').addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if(isLight){
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme','dark');
+    } else {
+      document.documentElement.setAttribute('data-theme','light');
+      localStorage.setItem('theme','light');
+    }
+  });
+})();
+
+const PAYER_COLOR = {'Self-GPay':'#5B9DFF','Self-Bank Transfer':'#8FBCFF','Papa':'#F2A93B','Chota Bhai':'#A78BFA'};
+const PAYER_SHORT = {'Self-GPay':'Self · GPay','Self-Bank Transfer':'Self · Bank','Papa':'Papa','Chota Bhai':'Chota Bhai'};
+const GROUP_COLOR = {building:'#E8603A',steel:'#A8B4C4',cement:'#5B9DFF',chemical:'#2DD4BF'};
+
+const fmtIN = n => '₹' + n.toLocaleString('en-IN');
+const fmtL  = n => n >= 100000 ? '₹' + (n/100000).toFixed(2) + 'L' : n >= 1000 ? '₹' + (n/1000).toFixed(1) + 'K' : '₹' + n;
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+/* count-up (runs once per element) */
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function countUp(el, target, fmt){
+  if(reduced){ el.textContent = fmt(target); return; }
+  const t0 = performance.now(), dur = 900;
+  (function step(t){
+    const p = Math.min((t - t0)/dur, 1), e = 1 - Math.pow(1-p, 3);
+    el.textContent = fmt(Math.round(target * e));
+    if(p < 1) requestAnimationFrame(step);
+  })(t0);
+}
+
+/* ───────── header ───────── */
+function renderHeader(){
+  document.getElementById('updDate').textContent = D.meta.lastUpdated;
+  document.getElementById('phasePill').textContent = D.meta.phase;
+  document.getElementById('dayPill').textContent = 'Day ' + D.meta.day;
+  countUp(document.getElementById('tkPaid'),   D.summary.totalPaid,  fmtL);
+  countUp(document.getElementById('tkBilled'), D.summary.totalBilled,fmtL);
+  countUp(document.getElementById('tkDue'),    D.summary.balanceDue, fmtL);
+}
+
+/* ───────── overview ───────── */
+function renderOverview(){
+  const s = D.summary;
+
+  /* due spotlight */
+  const spot = document.getElementById('spotWrap');
+  if(s.balanceDue > 0 && D.unpaid.length){
+    const u = D.unpaid[0];
+    spot.innerHTML = `<div class="spot"><b>Payment due</b>
+      <div class="main">${esc(u.to)} — <span class="num">${fmtIN(u.a)}</span> · ${esc(u.ds)}</div>
+      <div class="ok">✓ Mukesh Yadav fully settled 10-Jun (₹63,200 of ₹63,200)</div></div>`;
+  } else {
+    spot.innerHTML = `<div class="spot" style="border-color:#34D39940;border-left-color:var(--green)"><b style="color:var(--green)">All clear</b>
+      <div class="main">No vendor payments pending.</div></div>`;
+  }
+
+  /* who paid */
+  const totP = D.payers.reduce((a,p)=>a+p.amount,0);
+  document.getElementById('payerHint').textContent = fmtL(totP) + ' total';
+  document.getElementById('payerSplit').innerHTML = D.payers.map(p=>`<div style="flex:${p.amount};background:${p.color}"></div>`).join('');
+  document.getElementById('payerRows').innerHTML = D.payers.map(p=>`
+    <div class="lg"><span class="nm"><i class="dot" style="background:${p.color}"></i>${esc(p.name)} <small>${esc(p.sub)}</small></span>
+    <span><span class="amt num" style="color:${p.color}">${fmtIN(p.amount)}</span><span class="pc">${p.pct}%</span></span></div>`).join('');
+
+  /* monthly */
+  const mx = Math.max(...D.monthly.map(m=>m.billed));
+  document.getElementById('monthly').innerHTML = D.monthly.map(m=>`
+    <div class="mrow"><div class="r1"><span class="mn">${esc(m.month)}</span><span class="ma num">${fmtIN(m.billed)}</span></div>
+    <div class="mbar"><div style="width:${(m.billed/mx*100).toFixed(1)}%"></div></div></div>`).join('');
+
+  /* notes */
+  document.getElementById('noteHint').textContent = D.notes.length + ' entries';
+  document.getElementById('notes').innerHTML = D.notes.map((t,i)=>`
+    <div class="note"><i>${String(i+1).padStart(2,'0')}</i><span>${esc(t)}</span></div>`).join('');
+}
+
+/* ───────── vendors ───────── */
+function vendorCard(v){
+  const due = v.billed - v.paid;
+  const tag = v.status==='paid' ? '<span class="tag t-paid">✓ settled</span>'
+          : v.status==='advance' ? '<span class="tag t-adv">advance</span>'
+          : `<span class="tag t-due">${fmtIN(due)} due</span>`;
+  let extra = '';
+  if(v.name==='Brick Company' && v.status==='advance'){
+    const b = D.brickAdvance;
+    extra = `<div class="trio">
+      <div class="mc"><div class="l">Advance</div><div class="v" style="color:var(--blue2)">${fmtL(b.advancePaid)}</div></div>
+      <div class="mc"><div class="l">Delivered</div><div class="v" style="color:var(--brick)">${fmtL(b.deliveredValue)}</div></div>
+      <div class="mc"><div class="l">Credit left</div><div class="v" style="color:var(--amber)">${fmtL(b.creditLeft)}</div></div></div>`;
+  } else {
+    extra = `<div class="trio">
+      <div class="mc"><div class="l">Billed</div><div class="v">${fmtIN(v.billed)}</div></div>
+      <div class="mc"><div class="l">Paid</div><div class="v" style="color:var(--green)">${fmtIN(v.paid)}</div></div>
+      <div class="mc"><div class="l">${due > 0 ? 'Due' : 'Pending'}</div><div class="v" style="color:${due > 0 ? 'var(--red)' : 'var(--amber)'}">${fmtIN(Math.abs(due))}</div></div></div>`;
+  }
+  return `<div class="xp" data-status="${v.status}">
+    <div class="xph" tabindex="0" role="button" aria-expanded="false">
+      <div class="grow"><div style="font-size:14px;font-weight:700;font-family:var(--disp)">${esc(v.name)}</div>
+      <div style="font-size:11px;color:var(--dim);margin-top:2px">${esc(v.type)}</div></div>
+      <div style="text-align:right"><div class="num" style="font-size:14.5px;font-weight:700">${fmtIN(v.billed)}</div>
+      <div style="margin-top:4px">${tag}</div></div>
+      <span class="chev">▾</span></div>
+    <div class="xpb"><div><div class="xpb-in">${extra}
+      ${v.tx.map(t=>`<div class="row"><span class="d"><em>${esc(t[0])}</em>${esc(t[1])}</span><span class="a">${fmtIN(t[2])}</span></div>`).join('')}
+    </div></div></div></div>`;
+}
+function renderVendors(f){
+  const list = D.vendors.filter(v => f==='all' || v.status===f);
+  document.getElementById('vList').innerHTML = list.length ? list.map(vendorCard).join('') : '<div class="empty">No vendors in this filter</div>';
+}
+
+/* ───────── materials ───────── */
+function renderMaterials(){
+  const mx = Math.max(...D.materials.map(m=>m.amount));
+  document.getElementById('matHint').textContent = D.materials.length + ' items';
+  document.getElementById('mList').innerHTML = D.materials.map(m=>{
+    const c = GROUP_COLOR[m.group] || 'var(--steel)';
+    return `<div class="xp">
+      <div class="xph" tabindex="0" role="button" aria-expanded="false">
+        <div class="grow">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span style="display:flex;align-items:center;gap:8px"><i class="dot" style="background:${c}"></i><span style="font-size:13px;font-weight:700">${esc(m.name)}</span></span>
+            <span class="num" style="font-size:13.5px;font-weight:700;color:${c}">${fmtIN(m.amount)}</span></div>
+          <div class="matbar"><div style="width:${(m.amount/mx*100).toFixed(1)}%;background:${c}"></div></div></div>
+        <span class="chev">▾</span></div>
+      <div class="xpb"><div><div class="xpb-in">
+        <div class="trio" style="margin-bottom:0">
+          <div class="mc"><div class="l">Qty</div><div class="v">${esc(m.qty)}</div></div>
+          <div class="mc"><div class="l">Rate</div><div class="v">${esc(m.rate)}</div></div>
+          <div class="mc"><div class="l">Note</div><div class="v" style="font-size:10.5px">${esc(m.note)}</div></div></div>
+        ${m.disc ? '<div class="flag ok">✓ 4% Tiscon discount applied</div>' : ''}
+        ${m.nodisc ? '<div class="flag no">✗ 6mm excluded from the 4% discount rule</div>' : ''}
+      </div></div></div></div>`;
+  }).join('');
+}
+
+/* ───────── payments ───────── */
+let pf = 'all', pq = '';
+function payRow(p){
+  const c = PAYER_COLOR[p.by] || 'var(--steel)';
+  return `<div class="pay"><div class="bar" style="background:${c}"></div><div class="bd">
+    <div class="r1"><span class="dt">${esc(p.d)}</span><span class="am num">${fmtIN(p.a)}</span></div>
+    <div class="vn">${esc(p.to)}</div><div class="ds">${esc(p.ds)}</div>
+    <span class="tag" style="background:${c}22;color:${c}">${PAYER_SHORT[p.by] || esc(p.by)}</span>
+    <span class="tag" style="background:var(--ink2);color:var(--dim)">${esc(p.md)}</span>
+  </div></div>`;
+}
+function renderPays(){
+  const q = pq.toLowerCase();
+  const f = D.payments.filter(p =>
+    (pf==='all' || (pf==='self' ? p.by.startsWith('Self') : p.by===pf)) &&
+    (!q || p.to.toLowerCase().includes(q) || p.ds.toLowerCase().includes(q) || String(p.a).includes(q)));
+  const months = [...new Set(D.payments.map(p=>p.m))];
+  let html = '';
+  months.forEach(m=>{
+    const mp = f.filter(p=>p.m===m);
+    if(!mp.length) return;
+    const tot = mp.reduce((s,p)=>s+p.a,0);
+    const byPayer = {};
+    mp.forEach(p=>byPayer[p.by]=(byPayer[p.by]||0)+p.a);
+    html += `<div class="mhead"><div class="r1"><span class="mn">${esc(m)}</span><span class="mt num">${fmtIN(tot)} · ${mp.length} pay</span></div>
+      <div class="mprop">${Object.entries(byPayer).map(([k,v])=>`<div style="flex:${v};background:${PAYER_COLOR[k]||'#888'}"></div>`).join('')}</div></div>`;
+    html += mp.map(payRow).join('');
+  });
+  document.getElementById('pList').innerHTML = html || '<div class="empty">No payments match</div>';
+
+  document.getElementById('unpaidWrap').innerHTML = D.unpaid.length ? `
+    <div class="unpaid-card"><div class="t">Unpaid · not in payment tracker</div>
+    ${D.unpaid.map(u=>`<div class="row"><span class="d"><em>${esc(u.d)}</em>${esc(u.to)} — ${esc(u.ds)}</span><span class="a" style="color:var(--red)">${fmtIN(u.a)}</span></div>`).join('')}</div>` : '';
+}
+
+/* ───────── breakdown ───────── */
+function renderBreakdown(){
+  const tot = D.categories.reduce((s,c)=>s+c.amount,0);
+  let acc = 0;
+  const stops = D.categories.map(c=>{
+    const from = acc/tot*360; acc += c.amount;
+    return `${c.color} ${from.toFixed(1)}deg ${(acc/tot*360).toFixed(1)}deg`;
+  }).join(',');
+  document.getElementById('donut').style.background = `conic-gradient(${stops})`;
+  document.getElementById('donutTot').textContent = fmtL(tot);
+  document.getElementById('donutLeg').innerHTML = D.categories.map(c=>`
+    <div class="lg"><span class="nm" style="font-size:11.5px"><i class="dot" style="background:${c.color}"></i>${esc(c.name)}</span>
+    <span class="pc num">${(c.amount/tot*100).toFixed(1)}%</span></div>`).join('');
+
+  document.getElementById('catList').innerHTML = D.categories.map(c=>`
+    <div class="xp">
+      <div class="xph" tabindex="0" role="button" aria-expanded="false">
+        <div class="grow"><div style="display:flex;align-items:center;gap:9px">
+          <i class="dot" style="background:${c.color}"></i>
+          <span style="font-size:13.5px;font-weight:700;font-family:var(--disp)">${esc(c.name)}</span></div></div>
+        <span class="num" style="font-size:14px;font-weight:700;color:${c.color}">${fmtIN(c.amount)}</span>
+        <span class="chev">▾</span></div>
+      <div class="xpb"><div><div class="xpb-in">
+        ${c.subs.map(s=>`<div class="row"><span class="d">${esc(s[0])}</span><span class="a">${fmtIN(s[1])}</span></div>`).join('')}
+      </div></div></div></div>`).join('');
+}
+
+/* ───────── interactions ───────── */
+document.addEventListener('click', e=>{
+  const h = e.target.closest('.xph');
+  if(h){
+    const xp = h.parentElement;
+    xp.classList.toggle('open');
+    h.setAttribute('aria-expanded', xp.classList.contains('open'));
+  }
+});
+document.addEventListener('keydown', e=>{
+  if(e.key==='Enter' && e.target.classList.contains('xph')) e.target.click();
+});
+
+document.getElementById('vChips').addEventListener('click', e=>{
+  const b = e.target.closest('.chip'); if(!b) return;
+  document.querySelectorAll('#vChips .chip').forEach(c=>c.classList.remove('on'));
+  b.classList.add('on'); renderVendors(b.dataset.vf);
+});
+document.getElementById('pChips').addEventListener('click', e=>{
+  const b = e.target.closest('.chip'); if(!b) return;
+  document.querySelectorAll('#pChips .chip').forEach(c=>c.classList.remove('on'));
+  b.classList.add('on'); pf = b.dataset.pf; renderPays();
+});
+document.getElementById('pq').addEventListener('input', e=>{ pq = e.target.value; renderPays(); });
+
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click', ()=>{
+  document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false')});
+  t.classList.add('on'); t.setAttribute('aria-selected','true');
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.getElementById('v-'+t.dataset.view).classList.add('on');
+  document.getElementById('content').scrollTo({top:0});
+}));
+
+/* ───────── boot ───────── */
+function renderAll(){
+  renderHeader(); renderOverview(); renderVendors('all');
+  renderMaterials(); renderPays(); renderBreakdown();
+}
+renderAll();
+
+/* optional override: if a newer dashboard_data.json is deployed, use it */
+fetch('dashboard_data.json', {cache:'no-store'})
+  .then(r => r.ok ? r.json() : null)
+  .then(j => {
+    if(j && j.meta && j.meta.version && j.meta.version !== D.meta.version){
+      console.log('Newer data found:', j.meta.version, '— re-rendering');
+      D = j; renderAll();
+    } else {
+      console.log('Embedded data is current:', D.meta.version);
+    }
+  })
+  .catch(()=>console.log('Using embedded data (fetch unavailable):', D.meta.version));
+</script>
+</body>
+</html>

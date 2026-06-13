@@ -1,0 +1,1522 @@
+{
+  "updated": "01 Jun 2026",
+  "phase": "Plinth",
+  "phasesDone": [
+    "Land Development",
+    "Foundation"
+  ],
+  "estBudget": 2500000,
+  "kpis": {
+    "totalPaid": 1334422.0,
+    "materialBilled": 1155522.0,
+    "vendorAdvance": 216000.0,
+    "pending": 37100.0,
+    "txns": 58,
+    "payments": 22,
+    "vendors": 10
+  },
+  "alerts": [
+    {
+      "type": "orange",
+      "title": "₹37.1K Due — Mukesh Yadav",
+      "desc": "JCB + Mitti: billed ₹42100, paid ₹5000. Balance pending."
+    },
+    {
+      "type": "blue",
+      "title": "Brick Co. — 41.9% Delivered",
+      "desc": "18000 bricks received of ~43000. Advance remaining ₹216000."
+    }
+  ],
+  "payers": [
+    {
+      "name": "Avinash",
+      "color": "#007aff",
+      "amount": 930262.0,
+      "count": 12,
+      "payments": [
+        {
+          "date": "25-May",
+          "to": "Naveen Hardware",
+          "desc": "Cement 50 bags ₹18,000 + Transport ₹300 + Labour ₹350",
+          "amt": 18650.0,
+          "mode": "Bank Transfer"
+        },
+        {
+          "date": "23-May",
+          "to": "Concrete Supplier",
+          "desc": "Gitti 37.64 Ton @ ₹2,550/ton",
+          "amt": 95982.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "22-May",
+          "to": "Econ Builder",
+          "desc": "Engineer advance - Net Banking",
+          "amt": 50000.0,
+          "mode": "Bank Transfer"
+        },
+        {
+          "date": "21-May",
+          "to": "Pappu Hardware",
+          "desc": "Cement 60bags ₹21,600 + Transport ₹250 + Labour ₹250 + Metal sheet ₹2,700",
+          "amt": 24800.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "19-May",
+          "to": "Pappu Hardware",
+          "desc": "Soft wire ₹1,300 + Cover blocks 6×₹350 + Labour ₹100",
+          "amt": 3500.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "16-May",
+          "to": "Econ Builder",
+          "desc": "Engineer advance for construction supervision",
+          "amt": 50000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "14-May",
+          "to": "Brick Company",
+          "desc": "Brick advance - Self share (₹2L of ₹3.69L total)",
+          "amt": 200000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "13-May",
+          "to": "Pappu Hardware",
+          "desc": "Bill 63 - Part payment 2 of 2 (Final, incl ₹400 extra discount)",
+          "amt": 93000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "11-May",
+          "to": "Pappu Hardware",
+          "desc": "Bill 63 - Part payment 1 of 2 (Cement+Steel+Wire+DrFixit+Nails)",
+          "amt": 90000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "07-May",
+          "to": "Sonbhai-Coordinator",
+          "desc": "Chanarveer - adhoc labour site cleaning",
+          "amt": 1500.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "01-Jun",
+          "to": "Econ Builder",
+          "desc": "Engineer payment ₹1L",
+          "amt": 100000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "01-Jun",
+          "to": "Pappu Hardware",
+          "desc": "Bill 2: Steel 12/10/8/6mm + Cement 50bags + Dr Fixit 20L + Transport + Labour",
+          "amt": 202830.0,
+          "mode": "Bank Transfer"
+        }
+      ]
+    },
+    {
+      "name": "Papa",
+      "color": "#ff9500",
+      "amount": 235160.0,
+      "count": 9,
+      "payments": [
+        {
+          "date": "25-May",
+          "to": "Econ Builder",
+          "desc": "Engineer payment",
+          "amt": 10000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "16-May",
+          "to": "Local Purchase",
+          "desc": "Panni ₹600 + Tegadi/Kudal ₹1,175 + Food ration ₹3,285",
+          "amt": 5060.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "15-May",
+          "to": "Econ Builder",
+          "desc": "Layout mapping / Naksha",
+          "amt": 11000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "15-May",
+          "to": "Concrete Supplier",
+          "desc": "Crushed stone / Gitti 600 CFT - Full payment",
+          "amt": 66000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "12-May",
+          "to": "Mukesh Yadav",
+          "desc": "JCB work 17 hrs @ ₹1,000/hr - Advance payment",
+          "amt": 5000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "12-May",
+          "to": "Sand Truck Wala",
+          "desc": "Sand 2nd truck (918 CFT) - Full payment",
+          "amt": 55000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "07-May",
+          "to": "Econ Builder",
+          "desc": "Advance to Engineer for new construction",
+          "amt": 5000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "04-May",
+          "to": "Sand Truck Wala",
+          "desc": "Sand 1st truck (920 CFT) - Full payment",
+          "amt": 55000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "01-Jun",
+          "to": "Daily Labour",
+          "desc": "Earth filling labour - 66 labourers @ ₹350",
+          "amt": 23100.0,
+          "mode": "GPay"
+        }
+      ]
+    },
+    {
+      "name": "Chota Bhai",
+      "color": "#34c759",
+      "amount": 169000.0,
+      "count": 1,
+      "payments": [
+        {
+          "date": "14-May",
+          "to": "Brick Company",
+          "desc": "Brick advance - Chota Bhai share",
+          "amt": 169000.0,
+          "mode": "GPay"
+        }
+      ]
+    }
+  ],
+  "vendors": {
+    "action": [
+      {
+        "name": "Mukesh Yadav",
+        "cat": "JCB + Mitti filling",
+        "paid": 5000.0,
+        "badge": "₹37.1K DUE",
+        "badgeType": "y"
+      }
+    ],
+    "brick": {
+      "advance": 369000.0,
+      "received": 18000.0,
+      "total": 43000,
+      "rate": 8.5,
+      "lastDelivery": "Bricks - tractor 12 delivery (1500 pcs)",
+      "pct": 41.9
+    },
+    "mitti": {
+      "totalTrailers": 41.0,
+      "batch1": 19.0,
+      "batch2": 22.0,
+      "rate": 600.0,
+      "totalCost": 24600.0,
+      "paid": 5000.0,
+      "vendor": "Mukesh Yadav"
+    },
+    "settled": [
+      {
+        "name": "Pappu Hardware",
+        "cat": "Building Materials, Steel/Iron, Transport, Labour, Miscellaneous",
+        "amt": 414130.0,
+        "paid": 414130.0,
+        "items": [
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Ultratech Super 40 bags",
+            "qty": 40,
+            "unit": "Bags",
+            "rate": 360,
+            "total": 14400.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Tiscon 12mm 100pcs",
+            "qty": 100,
+            "unit": "Pcs",
+            "rate": 908,
+            "total": 87168.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Tiscon 10mm 100pcs",
+            "qty": 100,
+            "unit": "Pcs",
+            "rate": 642,
+            "total": 61632.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Tiscon 6mm 50pcs",
+            "qty": 50,
+            "unit": "Pcs",
+            "rate": 246,
+            "total": 12300.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Binding Wire 20kg",
+            "qty": 20,
+            "unit": "Kg",
+            "rate": 120,
+            "total": 2400.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Dr Fixit 10L x 2pcs",
+            "qty": 2,
+            "unit": "Litres",
+            "rate": 1400,
+            "total": 2800.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Transport from Pappu Hardware",
+            "qty": 1,
+            "unit": "Trips",
+            "rate": 250,
+            "total": 250.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Loading labour",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 450,
+            "total": 450.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Kanti (Nails) 2\"x1\" 1 bag",
+            "qty": 1,
+            "unit": "Kg/Bags",
+            "rate": 2000,
+            "total": 2000.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Additional discount from Pappu Hardware",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": -400,
+            "total": -400.0
+          },
+          {
+            "date": "19-May",
+            "item": "Soft wire",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 1300,
+            "total": 1300.0
+          },
+          {
+            "date": "19-May",
+            "item": "Cover blocks - 6 packets",
+            "qty": 6,
+            "unit": "Nos",
+            "rate": 350,
+            "total": 2100.0
+          },
+          {
+            "date": "19-May",
+            "item": "Labour charges",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 100,
+            "total": 100.0
+          },
+          {
+            "date": "21-May",
+            "item": "Cement Ultratech Super - 60 bags",
+            "qty": 60,
+            "unit": "Bags",
+            "rate": 360,
+            "total": 21600.0
+          },
+          {
+            "date": "21-May",
+            "item": "Cement transportation",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 250,
+            "total": 250.0
+          },
+          {
+            "date": "21-May",
+            "item": "Labour for cement unloading",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 250,
+            "total": 250.0
+          },
+          {
+            "date": "21-May",
+            "item": "Color metal sheet for temp toilet roof",
+            "qty": 1,
+            "unit": "Nos",
+            "rate": 2700,
+            "total": 2700.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Tiscon 12mm TMT - 100 PC @ ₹908 (Bill 2)",
+            "qty": 100,
+            "unit": "Pcs",
+            "rate": 908,
+            "total": 87168.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Tiscon 10mm TMT - 100 PC @ ₹642 (Bill 2)",
+            "qty": 100,
+            "unit": "Pcs",
+            "rate": 642,
+            "total": 61632.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Tiscon 8mm TMT - 50 PC @ ₹420 (NEW)",
+            "qty": 50,
+            "unit": "Pcs",
+            "rate": 420,
+            "total": 20160.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Tiscon 6mm TMT - 50 PC @ ₹246 (Bill 2)",
+            "qty": 50,
+            "unit": "Pcs",
+            "rate": 246,
+            "total": 12300.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Cement Ultratech Super - 50 bags (Bill 2)",
+            "qty": 50,
+            "unit": "Bags",
+            "rate": 360,
+            "total": 18000.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Dr Fixit 20 litre - 1 pack",
+            "qty": 20,
+            "unit": "L",
+            "rate": 130,
+            "total": 2600.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Transport (Gada) for Bill 2 delivery",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 500,
+            "total": 500.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Loading/unloading labour - Bill 2",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 470,
+            "total": 470.0
+          }
+        ]
+      },
+      {
+        "name": "Econ Builder",
+        "cat": "Professional Fees",
+        "amt": 226000.0,
+        "paid": 226000.0,
+        "items": [
+          {
+            "date": "07-May",
+            "item": "Advance to Engineer",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 5000,
+            "total": 5000.0
+          },
+          {
+            "date": "15-May",
+            "item": "Layout mapping / Naksha by Econ Builder",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 11000,
+            "total": 11000.0
+          },
+          {
+            "date": "16-May",
+            "item": "Engineer advance to Econ Builder (construction supervision)",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 50000,
+            "total": 50000.0
+          },
+          {
+            "date": "22-May",
+            "item": "Engineer advance to Econ Builder",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 50000,
+            "total": 50000.0
+          },
+          {
+            "date": "25-May",
+            "item": "Engineer payment to Econ Builder",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 10000,
+            "total": 10000.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Engineer payment to Econ Builder",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 100000,
+            "total": 100000.0
+          }
+        ]
+      },
+      {
+        "name": "Concrete Supplier",
+        "cat": "Building Materials",
+        "amt": 161982.0,
+        "paid": 161982.0,
+        "items": [
+          {
+            "date": "15-May",
+            "item": "Crushed stone / Gitti - 27.5 Ton (600 CFT)",
+            "qty": 27.5,
+            "unit": "Ton",
+            "rate": 2400,
+            "total": 66000.0
+          },
+          {
+            "date": "23-May",
+            "item": "Crushed stone / Gitti - 37.64 Ton @ ₹2,550/ton",
+            "qty": 37.64,
+            "unit": "Ton",
+            "rate": 2550,
+            "total": 95982.0
+          }
+        ]
+      },
+      {
+        "name": "Sand Truck Wala",
+        "cat": "Building Materials",
+        "amt": 110000.0,
+        "paid": 110000.0,
+        "items": [
+          {
+            "date": "04-May",
+            "item": "Sand 1st truck (920 CFT)",
+            "qty": 920,
+            "unit": "CFT",
+            "rate": 55000,
+            "total": 55000.0
+          },
+          {
+            "date": "12-May",
+            "item": "Sand 2nd truck (918 CFT)",
+            "qty": 918,
+            "unit": "CFT",
+            "rate": 55000,
+            "total": 55000.0
+          }
+        ]
+      },
+      {
+        "name": "Daily Labour",
+        "cat": "Labour",
+        "amt": 23100.0,
+        "paid": 23100.0,
+        "items": [
+          {
+            "date": "01-Jun",
+            "item": "Earth filling (mitti) labour - 66 labourers @ ₹350 each",
+            "qty": 66,
+            "unit": "Nos",
+            "rate": 350,
+            "total": 23100.0
+          }
+        ]
+      },
+      {
+        "name": "Naveen Hardware",
+        "cat": "Building Materials, Transport, Labour",
+        "amt": 18650.0,
+        "paid": 18650.0,
+        "items": [
+          {
+            "date": "25-May",
+            "item": "Cement Ultratech Super - 50 bags (Naveen Hardware)",
+            "qty": 50,
+            "unit": "Bags",
+            "rate": 360,
+            "total": 18000.0
+          },
+          {
+            "date": "25-May",
+            "item": "Cement transportation",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 300,
+            "total": 300.0
+          },
+          {
+            "date": "25-May",
+            "item": "Loading/unloading labour for cement",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 350,
+            "total": 350.0
+          }
+        ]
+      },
+      {
+        "name": "Local Purchase",
+        "cat": "Miscellaneous, Food/Provisions",
+        "amt": 5060.0,
+        "paid": 5060.0,
+        "items": [
+          {
+            "date": "16-May",
+            "item": "Polythene / Panni",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 600,
+            "total": 600.0
+          },
+          {
+            "date": "16-May",
+            "item": "Construction equipment - Tegadi & Kudal",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 1175,
+            "total": 1175.0
+          },
+          {
+            "date": "16-May",
+            "item": "Food ration for labour",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 3285,
+            "total": 3285.0
+          }
+        ]
+      },
+      {
+        "name": "Sonbhai-Coordinator",
+        "cat": "Labour",
+        "amt": 1500.0,
+        "paid": 1500.0,
+        "items": [
+          {
+            "date": "07-May",
+            "item": "Site cleaning by Chanarveer (adhoc labour)",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 1500,
+            "total": 1500.0
+          }
+        ]
+      }
+    ]
+  },
+  "materials": [
+    {
+      "name": "Engineering",
+      "amt": 221000.0,
+      "barColor": "#636366",
+      "detail": "5.0 Lumpsum @ ₹11000",
+      "purchases": [
+        {
+          "date": "15-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 11000,
+          "total": 11000.0,
+          "vendor": "Econ Builder"
+        },
+        {
+          "date": "16-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 50000,
+          "total": 50000.0,
+          "vendor": "Econ Builder"
+        },
+        {
+          "date": "22-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 50000,
+          "total": 50000.0,
+          "vendor": "Econ Builder"
+        },
+        {
+          "date": "25-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 10000,
+          "total": 10000.0,
+          "vendor": "Econ Builder"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 100000,
+          "total": 100000.0,
+          "vendor": "Econ Builder"
+        }
+      ]
+    },
+    {
+      "name": "Tiscon 12mm",
+      "amt": 174336.0,
+      "barColor": "#636366",
+      "detail": "200.0 Pcs @ ₹908",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 100,
+          "unit": "Pcs",
+          "rate": 908,
+          "total": 87168.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 100,
+          "unit": "Pcs",
+          "rate": 908,
+          "total": 87168.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Concrete/Gitti",
+      "amt": 161982.0,
+      "barColor": "#636366",
+      "detail": "65.14 Ton @ ₹2400",
+      "purchases": [
+        {
+          "date": "15-May",
+          "qty": 27.5,
+          "unit": "Ton",
+          "rate": 2400,
+          "total": 66000.0,
+          "vendor": "Concrete Supplier"
+        },
+        {
+          "date": "23-May",
+          "qty": 37.64,
+          "unit": "Ton",
+          "rate": 2550,
+          "total": 95982.0,
+          "vendor": "Concrete Supplier"
+        }
+      ]
+    },
+    {
+      "name": "Bricks",
+      "amt": 153000.0,
+      "barColor": "#636366",
+      "detail": "18000.0 Nos @ ₹8.5",
+      "purchases": [
+        {
+          "date": "14-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "15-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "15-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "15-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "15-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "20-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "20-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "23-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "24-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "25-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "26-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "26-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        }
+      ]
+    },
+    {
+      "name": "Tiscon 10mm",
+      "amt": 123264.0,
+      "barColor": "#636366",
+      "detail": "200.0 Pcs @ ₹642",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 100,
+          "unit": "Pcs",
+          "rate": 642,
+          "total": 61632.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 100,
+          "unit": "Pcs",
+          "rate": 642,
+          "total": 61632.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Sand",
+      "amt": 110000.0,
+      "barColor": "#636366",
+      "detail": "1838.0 CFT @ ₹55000",
+      "purchases": [
+        {
+          "date": "04-May",
+          "qty": 920,
+          "unit": "CFT",
+          "rate": 55000,
+          "total": 55000.0,
+          "vendor": "Sand Truck Wala"
+        },
+        {
+          "date": "12-May",
+          "qty": 918,
+          "unit": "CFT",
+          "rate": 55000,
+          "total": 55000.0,
+          "vendor": "Sand Truck Wala"
+        }
+      ]
+    },
+    {
+      "name": "Cement-Ultratech Super",
+      "amt": 72000.0,
+      "barColor": "#007aff",
+      "detail": "200.0 Bags @ ₹360",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 40,
+          "unit": "Bags",
+          "rate": 360,
+          "total": 14400.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "21-May",
+          "qty": 60,
+          "unit": "Bags",
+          "rate": 360,
+          "total": 21600.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "25-May",
+          "qty": 50,
+          "unit": "Bags",
+          "rate": 360,
+          "total": 18000.0,
+          "vendor": "Naveen Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 50,
+          "unit": "Bags",
+          "rate": 360,
+          "total": 18000.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Land Levelling/Filling",
+      "amt": 42100.0,
+      "barColor": "#636366",
+      "detail": "58.5 Hrs @ ₹1000",
+      "purchases": [
+        {
+          "date": "12-May",
+          "qty": 17.5,
+          "unit": "Hrs",
+          "rate": 1000,
+          "total": 17500.0,
+          "vendor": "Mukesh Yadav"
+        },
+        {
+          "date": "24-May",
+          "qty": 19,
+          "unit": "Nos",
+          "rate": 600,
+          "total": 11400.0,
+          "vendor": "Mukesh Yadav"
+        },
+        {
+          "date": "26-May",
+          "qty": 22,
+          "unit": "Nos",
+          "rate": 600,
+          "total": 13200.0,
+          "vendor": "Mukesh Yadav"
+        }
+      ]
+    },
+    {
+      "name": "Tiscon 6mm",
+      "amt": 24600.0,
+      "barColor": "#636366",
+      "detail": "100.0 Pcs @ ₹246",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 50,
+          "unit": "Pcs",
+          "rate": 246,
+          "total": 12300.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 50,
+          "unit": "Pcs",
+          "rate": 246,
+          "total": 12300.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Earth Filling Labour",
+      "amt": 23100.0,
+      "barColor": "#636366",
+      "detail": "66.0 Nos @ ₹350",
+      "purchases": [
+        {
+          "date": "01-Jun",
+          "qty": 66,
+          "unit": "Nos",
+          "rate": 350,
+          "total": 23100.0,
+          "vendor": "Daily Labour"
+        }
+      ]
+    },
+    {
+      "name": "Tiscon 8mm",
+      "amt": 20160.0,
+      "barColor": "#636366",
+      "detail": "50.0 Pcs @ ₹420",
+      "purchases": [
+        {
+          "date": "01-Jun",
+          "qty": 50,
+          "unit": "Pcs",
+          "rate": 420,
+          "total": 20160.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Dr Fixit",
+      "amt": 5400.0,
+      "barColor": "#30b0c7",
+      "detail": "22.0 Litres @ ₹1400",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 2,
+          "unit": "Litres",
+          "rate": 1400,
+          "total": 2800.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 20,
+          "unit": "L",
+          "rate": 130,
+          "total": 2600.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Engineer Visit Charge",
+      "amt": 5000.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹5000",
+      "purchases": [
+        {
+          "date": "07-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 5000,
+          "total": 5000.0,
+          "vendor": "Econ Builder"
+        }
+      ]
+    },
+    {
+      "name": "Binding Wire",
+      "amt": 3700.0,
+      "barColor": "#636366",
+      "detail": "21.0 Kg @ ₹120",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 20,
+          "unit": "Kg",
+          "rate": 120,
+          "total": 2400.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "19-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 1300,
+          "total": 1300.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Food/Ration",
+      "amt": 3285.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹3285",
+      "purchases": [
+        {
+          "date": "16-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 3285,
+          "total": 3285.0,
+          "vendor": "Local Purchase"
+        }
+      ]
+    },
+    {
+      "name": "Temp Construction",
+      "amt": 2700.0,
+      "barColor": "#636366",
+      "detail": "1.0 Nos @ ₹2700",
+      "purchases": [
+        {
+          "date": "21-May",
+          "qty": 1,
+          "unit": "Nos",
+          "rate": 2700,
+          "total": 2700.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Cover Block",
+      "amt": 2100.0,
+      "barColor": "#636366",
+      "detail": "6.0 Nos @ ₹350",
+      "purchases": [
+        {
+          "date": "19-May",
+          "qty": 6,
+          "unit": "Nos",
+          "rate": 350,
+          "total": 2100.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Nails",
+      "amt": 1600.0,
+      "barColor": "#636366",
+      "detail": "2.0 Kg/Bags @ ₹2000",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 1,
+          "unit": "Kg/Bags",
+          "rate": 2000,
+          "total": 2000.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "11-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": -400,
+          "total": -400.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Daily Labour-Mitti Bharai",
+      "amt": 1500.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹1500",
+      "purchases": [
+        {
+          "date": "07-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 1500,
+          "total": 1500.0,
+          "vendor": "Sonbhai-Coordinator"
+        }
+      ]
+    },
+    {
+      "name": "Tools/Equipment",
+      "amt": 1175.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹1175",
+      "purchases": [
+        {
+          "date": "16-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 1175,
+          "total": 1175.0,
+          "vendor": "Local Purchase"
+        }
+      ]
+    },
+    {
+      "name": "Helper Labour",
+      "amt": 1170.0,
+      "barColor": "#636366",
+      "detail": "4.0 Lumpsum @ ₹100",
+      "purchases": [
+        {
+          "date": "19-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 100,
+          "total": 100.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "21-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 250,
+          "total": 250.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "25-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 350,
+          "total": 350.0,
+          "vendor": "Naveen Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 470,
+          "total": 470.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Material Transport",
+      "amt": 1050.0,
+      "barColor": "#636366",
+      "detail": "3.0 Lumpsum @ ₹250",
+      "purchases": [
+        {
+          "date": "21-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 250,
+          "total": 250.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "25-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 300,
+          "total": 300.0,
+          "vendor": "Naveen Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 500,
+          "total": 500.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Kala Panni/Tar",
+      "amt": 600.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹600",
+      "purchases": [
+        {
+          "date": "16-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 600,
+          "total": 600.0,
+          "vendor": "Local Purchase"
+        }
+      ]
+    },
+    {
+      "name": "Skilled Labour",
+      "amt": 450.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹450",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 450,
+          "total": 450.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Truck/Tempo Freight",
+      "amt": 250.0,
+      "barColor": "#636366",
+      "detail": "1.0 Trips @ ₹250",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 1,
+          "unit": "Trips",
+          "rate": 250,
+          "total": 250.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "name": "Building Materials",
+      "icon": "🧱",
+      "amt": 509782.0,
+      "pct": 44.1,
+      "color": "#ff6b35",
+      "sub": "Concrete/Gitti, Bricks, Sand, Cement-Ultratech Super, Dr Fixit, Binding Wire, Cover Block, Nails",
+      "items": [
+        {
+          "name": "Concrete/Gitti",
+          "amt": 161982.0,
+          "detail": "Crushed stone / Gitti - 27.5 Ton (600 CFT)"
+        },
+        {
+          "name": "Bricks",
+          "amt": 153000.0,
+          "detail": "Bricks - tractor 1 delivery (1500 pcs)"
+        },
+        {
+          "name": "Sand",
+          "amt": 110000.0,
+          "detail": "Sand 1st truck (920 CFT)"
+        },
+        {
+          "name": "Cement-Ultratech Super",
+          "amt": 72000.0,
+          "detail": "Bill 63 - Ultratech Super 40 bags"
+        },
+        {
+          "name": "Dr Fixit",
+          "amt": 5400.0,
+          "detail": "Bill 63 - Dr Fixit 10L x 2pcs"
+        },
+        {
+          "name": "Binding Wire",
+          "amt": 3700.0,
+          "detail": "Bill 63 - Binding Wire 20kg"
+        },
+        {
+          "name": "Cover Block",
+          "amt": 2100.0,
+          "detail": "Cover blocks - 6 packets"
+        },
+        {
+          "name": "Nails",
+          "amt": 1600.0,
+          "detail": "Bill 63 - Kanti (Nails) 2\"x1\" 1 bag"
+        }
+      ]
+    },
+    {
+      "name": "Steel/Iron",
+      "icon": "🔩",
+      "amt": 342360.0,
+      "pct": 29.6,
+      "color": "#888",
+      "sub": "Tiscon 12mm, Tiscon 10mm, Tiscon 6mm, Tiscon 8mm",
+      "items": [
+        {
+          "name": "Tiscon 12mm",
+          "amt": 174336.0,
+          "detail": "Bill 63 - Tiscon 12mm 100pcs"
+        },
+        {
+          "name": "Tiscon 10mm",
+          "amt": 123264.0,
+          "detail": "Bill 63 - Tiscon 10mm 100pcs"
+        },
+        {
+          "name": "Tiscon 6mm",
+          "amt": 24600.0,
+          "detail": "Bill 63 - Tiscon 6mm 50pcs"
+        },
+        {
+          "name": "Tiscon 8mm",
+          "amt": 20160.0,
+          "detail": "Tiscon 8mm TMT - 50 PC @ ₹420 (NEW)"
+        }
+      ]
+    },
+    {
+      "name": "Professional Fees",
+      "icon": "👷",
+      "amt": 226000.0,
+      "pct": 19.6,
+      "color": "#007aff",
+      "sub": "Engineering, Engineer Visit Charge",
+      "items": [
+        {
+          "name": "Engineering",
+          "amt": 221000.0,
+          "detail": "Layout mapping / Naksha by Econ Builder"
+        },
+        {
+          "name": "Engineer Visit Charge",
+          "amt": 5000.0,
+          "detail": "Advance to Engineer"
+        }
+      ]
+    },
+    {
+      "name": "Land Development",
+      "icon": "🚜",
+      "amt": 42100.0,
+      "pct": 3.6,
+      "color": "#ff9500",
+      "sub": "Land Levelling/Filling",
+      "items": [
+        {
+          "name": "Land Levelling/Filling",
+          "amt": 42100.0,
+          "detail": "JCB work 17.5 hrs @ ₹1,000/hr"
+        }
+      ]
+    },
+    {
+      "name": "Labour",
+      "icon": "👥",
+      "amt": 26220.0,
+      "pct": 2.3,
+      "color": "#af52de",
+      "sub": "Earth Filling Labour, Daily Labour-Mitti Bharai, Helper Labour, Skilled Labour",
+      "items": [
+        {
+          "name": "Earth Filling Labour",
+          "amt": 23100.0,
+          "detail": "Earth filling (mitti) labour - 66 labourers @ ₹350 each"
+        },
+        {
+          "name": "Daily Labour-Mitti Bharai",
+          "amt": 1500.0,
+          "detail": "Site cleaning by Chanarveer (adhoc labour)"
+        },
+        {
+          "name": "Helper Labour",
+          "amt": 1170.0,
+          "detail": "Labour charges"
+        },
+        {
+          "name": "Skilled Labour",
+          "amt": 450.0,
+          "detail": "Bill 63 - Loading labour"
+        }
+      ]
+    },
+    {
+      "name": "Miscellaneous",
+      "icon": "📦",
+      "amt": 4475.0,
+      "pct": 0.4,
+      "color": "#636366",
+      "sub": "Temp Construction, Tools/Equipment, Kala Panni/Tar",
+      "items": [
+        {
+          "name": "Temp Construction",
+          "amt": 2700.0,
+          "detail": "Color metal sheet for temp toilet roof"
+        },
+        {
+          "name": "Tools/Equipment",
+          "amt": 1175.0,
+          "detail": "Construction equipment - Tegadi & Kudal"
+        },
+        {
+          "name": "Kala Panni/Tar",
+          "amt": 600.0,
+          "detail": "Polythene / Panni"
+        }
+      ]
+    },
+    {
+      "name": "Food/Provisions",
+      "icon": "🍚",
+      "amt": 3285.0,
+      "pct": 0.3,
+      "color": "#636366",
+      "sub": "Food/Ration",
+      "items": [
+        {
+          "name": "Food/Ration",
+          "amt": 3285.0,
+          "detail": "Food ration for labour"
+        }
+      ]
+    },
+    {
+      "name": "Transport",
+      "icon": "🚛",
+      "amt": 1300.0,
+      "pct": 0.1,
+      "color": "#636366",
+      "sub": "Material Transport, Truck/Tempo Freight",
+      "items": [
+        {
+          "name": "Material Transport",
+          "amt": 1050.0,
+          "detail": "Cement transportation"
+        },
+        {
+          "name": "Truck/Tempo Freight",
+          "amt": 250.0,
+          "detail": "Bill 63 - Transport from Pappu Hardware"
+        }
+      ]
+    }
+  ],
+  "notes": ""
+}
