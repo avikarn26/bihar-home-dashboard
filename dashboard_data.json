@@ -15,7 +15,7 @@
     "entriesCount": 68,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
-    "balanceDue": 1300
+    "balanceDue": 14000
   },
   "brickAdvance": {
     "advancePaid": 369000,
@@ -629,10 +629,16 @@
   ],
   "unpaid": [
     {
-      "d": "09-Jun",
+      "d": "10-Jun",
       "to": "Pappu Hardware",
       "a": 1300,
       "ds": "Soft wire 10 Kg @ ₹130 — Bill 4"
+    },
+    {
+      "d": "17-Jun",
+      "to": "Mukesh Yadav",
+      "a": 12700,
+      "ds": "Mitti delivery 16-17 Jun balance"
     }
   ],
   "categories": [
