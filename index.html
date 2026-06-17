@@ -480,7 +480,7 @@ function vendorCard(v){
       <div style="margin-top:4px">${tag}</div></div>
       <span class="chev">▾</span></div>
     <div class="xpb"><div><div class="xpb-in">${extra}
-      ${v.tx.map(t=>`<div class="row"><span class="d"><em>${esc(t[0])}</em>${esc(t[1])}</span><span class="a">${fmtIN(t[2])}</span></div>`).join('')}
+      ${[...v.tx].sort((a,b)=>{const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];const pa=/(\d+)-(\w+)/.exec(a[0]),pb=/(\d+)-(\w+)/.exec(b[0]);const da=mo.indexOf(pa[2])*32+parseInt(pa[1]),db=mo.indexOf(pb[2])*32+parseInt(pb[1]);return da-db;}).map(t=>`<div class="row"><span class="d"><em>${esc(t[0])}</em>${esc(t[1])}</span><span class="a">${fmtIN(t[2])}</span></div>`).join('')}
     </div></div></div></div>`;
 }
 function renderVendors(f){
