@@ -201,7 +201,7 @@
       "type": "JCB · Mitti · Movement",
       "billed": 75900,
       "paid": 63200,
-      "status": "advance",
+      "status": "due",
       "tx": [
         [
           "12-May",
@@ -772,7 +772,7 @@
     "🌧️ Rain + mixture machine operator delays impacting progress as of 11-Jun.",
     "Pappu Hardware soft wire 10 Kg = ₹1,300 — UNPAID (Bill 4 pending).",
     "Brick Company: ₹3,69,000 advance · 18,000 bricks (12 tractors) delivered = ₹1,53,000 · credit left ₹2,16,000.",
-    "Mukesh Yadav SETTLED 10-Jun + Mitti 16-17 Jun: JCB ₹17,500 + Mitti (May) ₹36,000 + Mitti (16-17 Jun) ₹13,200 + Sand mvmt ₹5,200 + Gitti mvmt ₹4,000 = ₹75,900. Paid ₹5,000 advance + ₹58,200 final = ₹63,200 (₹12,700 pending).",
+    "Mukesh Yadav: JCB ₹17,500 + Mitti (May) ₹36,000 + Mitti (16-17 Jun) ₹13,200 + Sand mvmt ₹5,200 + Gitti mvmt ₹4,000 = ₹75,900 total. Paid ₹5,000 advance (12-May) + ₹58,200 final (10-Jun) = ₹63,200. PENDING ₹12,700.",
     "4% discount only on Tiscon 12 / 10 / 8mm — 6mm gets NO discount.",
     "On site: 250 bags Ultratech Super cement · 620 pcs Tiscon steel.",
     "Cash out ₹14,38,297 vs billed ₹12,36,297 — gap ₹1,98,000 = brick credit ₹2,16,000 − Mukesh pending ₹12,700 − Pappu unpaid ₹1,300 − ₹3,000 buffer.",
