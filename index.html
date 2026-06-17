@@ -427,7 +427,7 @@ function renderOverview(){
     const u = D.unpaid[0];
     spot.innerHTML = `<div class="spot"><b>Payment due</b>
       <div class="main">${esc(u.to)} — <span class="num">${fmtIN(u.a)}</span> · ${esc(u.ds)}</div>
-      `}</div>`;
+    </div>`;
   } else {
     spot.innerHTML = `<div class="spot" style="border-color:#34D39940;border-left-color:var(--green)"><b style="color:var(--green)">All clear</b>
       <div class="main">No vendor payments pending.</div></div>`;
