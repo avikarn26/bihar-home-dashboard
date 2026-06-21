@@ -9,13 +9,13 @@
     "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹12,54,797"
   },
   "summary": {
-    "totalPaid": 1456797,
+    "totalPaid": 1458097,
     "totalBilled": 1254797,
     "paymentsCount": 25,
     "entriesCount": 68,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
-    "balanceDue": 14000
+    "balanceDue": 12700
   },
   "brickAdvance": {
     "advancePaid": 369000,
@@ -31,7 +31,7 @@
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 1042662,
+      "amount": 1043962,
       "pct": 71.6,
       "color": "#5B9DFF"
     },
@@ -65,8 +65,8 @@
       "name": "Pappu Hardware",
       "type": "Hardware · Steel · Cement",
       "billed": 469630,
-      "paid": 468330,
-      "status": "due",
+      "paid": 469630,
+      "status": "paid",
       "tx": [
         [
           "11–13 May",
@@ -634,12 +634,6 @@
   ],
   "unpaid": [
     {
-      "d": "10-Jun",
-      "to": "Pappu Hardware",
-      "a": 1300,
-      "ds": "Soft wire 10 Kg @ ₹130 — Bill 4"
-    },
-    {
       "d": "17-Jun",
       "to": "Mukesh Yadav",
       "a": 12700,
@@ -785,12 +779,12 @@
   "notes": [
     "🏗️ BEAM CONSTRUCTION COMPLETED — 15-Jun-2026. Structural framework done.",
     "🌧️ Rain + mixture machine operator delays impacting progress as of 11-Jun.",
-    "Pappu Hardware soft wire 10 Kg = ₹1,300 — UNPAID (Bill 4 pending).",
+    "Pappu Hardware Bill 4 (soft wire 10 Kg ₹1,300) — SETTLED 21-Jun.",
     "Brick Company: ₹3,69,000 advance · 18,000 bricks (12 tractors) delivered = ₹1,53,000 · credit left ₹2,16,000.",
     "Mukesh Yadav: JCB ₹17,500 + Mitti (May) ₹36,000 + Mitti (16-17 Jun) ₹13,200 + Sand mvmt ₹5,200 + Gitti mvmt ₹4,000 = ₹75,900 total. Paid ₹5,000 advance (12-May) + ₹58,200 final (10-Jun) = ₹63,200. PENDING ₹12,700.",
     "4% discount only on Tiscon 12 / 10 / 8mm — 6mm gets NO discount.",
     "On site: 300 bags Ultratech Super cement · 620 pcs Tiscon steel.",
-    "Cash out ₹14,56,797 vs billed ₹12,54,797 — gap ₹2,02,000 = brick credit ₹2,16,000 − Mukesh pending ₹12,700 − Pappu unpaid ₹1,300.",
+    "Cash out ₹14,58,097 vs billed ₹12,54,797 — gap ₹2,03,300 = brick credit ₹2,16,000 − Mukesh pending ₹12,700.",
     "Project started 07-May-2026 — foundation done, plinth & beam work ongoing. Mitti backfill 16-17 Jun (22 trailers total)."
   ]
 }
