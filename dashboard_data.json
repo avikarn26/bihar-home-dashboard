@@ -4,13 +4,13 @@
     "projectName": "Gaon ka Ghar",
     "phase": "Beam Work Completed · 15-Jun-2026",
     "startDate": "07-May-2026",
-    "lastUpdated": "17-Jun-2026",
+    "lastUpdated": "21-Jun-2026",
     "day": 37,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹12,36,297"
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹12,54,797"
   },
   "summary": {
-    "totalPaid": 1438297,
-    "totalBilled": 1236297,
+    "totalPaid": 1456797,
+    "totalBilled": 1254797,
     "paymentsCount": 25,
     "entriesCount": 68,
     "vendorsCount": 10,
@@ -31,8 +31,8 @@
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 1024162,
-      "pct": 71.2,
+      "amount": 1042662,
+      "pct": 71.6,
       "color": "#5B9DFF"
     },
     {
@@ -57,15 +57,15 @@
     },
     {
       "month": "Jun-2026",
-      "billed": 406705
+      "billed": 425205
     }
   ],
   "vendors": [
     {
       "name": "Pappu Hardware",
       "type": "Hardware · Steel · Cement",
-      "billed": 451130,
-      "paid": 449830,
+      "billed": 469630,
+      "paid": 468330,
       "status": "due",
       "tx": [
         [
@@ -97,6 +97,11 @@
           "09-Jun",
           "Soft wire 10 Kg — UNPAID (Bill 4)",
           1300
+        ],
+        [
+          "21-Jun",
+          "Ultratech Cement 50B @ ₹360 + transport ₹300 + labour ₹200",
+          18500
         ]
       ]
     },
@@ -645,7 +650,7 @@
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 529082,
+      "amount": 547082,
       "subs": [
         [
           "Concrete/Gitti · 65.14 Ton",
@@ -661,7 +666,7 @@
         ],
         [
           "Cement · 250 bags",
-          90000
+          108000
         ],
         [
           "Wire, DrFixit, blocks, nails",
@@ -729,7 +734,7 @@
     {
       "name": "Labour",
       "color": "#EC4899",
-      "amount": 45625,
+      "amount": 45825,
       "subs": [
         [
           "Earth filling 66 @ ₹350",
@@ -749,14 +754,14 @@
         ],
         [
           "Helper/skilled misc",
-          3350
+          3550
         ]
       ]
     },
     {
       "name": "Transport · Food · Misc",
       "color": "#8FA5C0",
-      "amount": 9310,
+      "amount": 9610,
       "subs": [
         [
           "Tools, panni, tar",
@@ -769,6 +774,10 @@
         [
           "Truck freight",
           1550
+        ],
+        [
+          "Cement transport 21-Jun",
+          300
         ]
       ]
     }
@@ -780,8 +789,8 @@
     "Brick Company: ₹3,69,000 advance · 18,000 bricks (12 tractors) delivered = ₹1,53,000 · credit left ₹2,16,000.",
     "Mukesh Yadav: JCB ₹17,500 + Mitti (May) ₹36,000 + Mitti (16-17 Jun) ₹13,200 + Sand mvmt ₹5,200 + Gitti mvmt ₹4,000 = ₹75,900 total. Paid ₹5,000 advance (12-May) + ₹58,200 final (10-Jun) = ₹63,200. PENDING ₹12,700.",
     "4% discount only on Tiscon 12 / 10 / 8mm — 6mm gets NO discount.",
-    "On site: 250 bags Ultratech Super cement · 620 pcs Tiscon steel.",
-    "Cash out ₹14,38,297 vs billed ₹12,36,297 — gap ₹1,98,000 = brick credit ₹2,16,000 − Mukesh pending ₹12,700 − Pappu unpaid ₹1,300 − ₹3,000 buffer.",
+    "On site: 300 bags Ultratech Super cement · 620 pcs Tiscon steel.",
+    "Cash out ₹14,56,797 vs billed ₹12,54,797 — gap ₹2,02,000 = brick credit ₹2,16,000 − Mukesh pending ₹12,700 − Pappu unpaid ₹1,300.",
     "Project started 07-May-2026 — foundation done, plinth & beam work ongoing. Mitti backfill 16-17 Jun (22 trailers total)."
   ]
 }
