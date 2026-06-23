@@ -9,13 +9,13 @@
     "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹13,99,047"
   },
   "summary": {
-    "totalPaid": 1460097,
+    "totalPaid": 1476397,
     "totalBilled": 1299047,
     "paymentsCount": 25,
     "entriesCount": 68,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
-    "balanceDue": 42200
+    "balanceDue": 25900
   },
   "brickAdvance": {
     "advancePaid": 369000,
@@ -38,8 +38,8 @@
     {
       "name": "Papa",
       "sub": "GPay",
-      "amount": 247135,
-      "pct": 16.9,
+      "amount": 263435,
+      "pct": 17.8,
       "color": "#F2A93B"
     },
     {
@@ -259,8 +259,8 @@
       "name": "Daily Labour",
       "type": "Earth filling labour",
       "billed": 51375,
-      "paid": 35075,
-      "status": "due",
+      "paid": 51375,
+      "status": "paid",
       "tx": [
         [
           "01-Jun",
@@ -653,12 +653,6 @@
       "to": "Mukesh Yadav",
       "a": 25900,
       "ds": "Mitti deliveries balance (May–Jun)"
-    },
-    {
-      "d": "22-Jun",
-      "to": "Daily Labour",
-      "a": 16300,
-      "ds": "Mitti bharai + kitchen labour balance"
     }
   ],
   "categories": [
@@ -813,7 +807,7 @@
     "Mukesh Yadav: total billed ₹89,100 (JCB + Mitti 104 trailers + movement). Paid ₹63,200. DUE ₹25,900.",
     "4% discount only on Tiscon 12 / 10 / 8mm — 6mm gets NO discount.",
     "On site: 300 bags Ultratech Super cement · 620 pcs Tiscon steel.",
-    "Cash out ₹1,460,097 vs billed ₹1,299,047 — gap ₹203,250 = brick credit ₹2,03,250 − Mukesh ₹25,900 − Labour ₹16,300.",
+    "Cash out ₹14,76,397 vs billed ₹13,99,047 — gap ₹77,350 = brick credit ₹2,03,250 − Mukesh due ₹25,900.",
     "Project started 07-May-2026 — foundation done, plinth & beam work ongoing. Mitti backfill 16-17 Jun (22 trailers total)."
   ]
 }
