@@ -6,16 +6,16 @@
     "startDate": "07-May-2026",
     "lastUpdated": "23-Jun-2026",
     "day": 37,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹13,99,047"
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹13,11,047"
   },
   "summary": {
     "totalPaid": 1476397,
-    "totalBilled": 1299047,
+    "totalBilled": 1311047,
     "paymentsCount": 25,
     "entriesCount": 68,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
-    "balanceDue": 25900
+    "balanceDue": 37900
   },
   "brickAdvance": {
     "advancePaid": 369000,
@@ -57,7 +57,7 @@
     },
     {
       "month": "Jun-2026",
-      "billed": 469455
+      "billed": 481455
     }
   ],
   "vendors": [
@@ -204,7 +204,7 @@
     {
       "name": "Mukesh Yadav",
       "type": "JCB · Mitti · Movement",
-      "billed": 89100,
+      "billed": 101100,
       "paid": 63200,
       "status": "due",
       "tx": [
@@ -252,6 +252,11 @@
           "22-Jun",
           "Mitti filling 22 trailers @ ₹600",
           13200
+        ],
+        [
+          "23-Jun",
+          "Mitti filling 20 trailers @ ₹600",
+          12000
         ]
       ]
     },
@@ -651,8 +656,8 @@
     {
       "d": "17-Jun",
       "to": "Mukesh Yadav",
-      "a": 25900,
-      "ds": "Mitti deliveries balance (May–Jun)"
+      "a": 37900,
+      "ds": "Mitti deliveries balance (May–Jun, 124 trailers total)"
     }
   ],
   "categories": [
@@ -728,15 +733,15 @@
     {
       "name": "Land Development",
       "color": "#2DD4BF",
-      "amount": 79900,
+      "amount": 91900,
       "subs": [
         [
           "JCB 17.5 hrs",
           17500
         ],
         [
-          "Mitti filling 104 trailers",
-          62400
+          "Mitti filling 124 trailers",
+          74400
         ]
       ]
     },
@@ -804,10 +809,10 @@
     "🌧️ Rain + mixture machine operator delays impacting progress as of 11-Jun.",
     "Pappu Hardware Bill 4 (soft wire 10 Kg ₹1,300) — SETTLED 21-Jun.",
     "Brick Company: ₹3,69,000 advance · 19,500 bricks (13 tractors) delivered = ₹1,65,750 · credit left ₹2,03,250.",
-    "Mukesh Yadav: total billed ₹89,100 (JCB + Mitti 104 trailers + movement). Paid ₹63,200. DUE ₹25,900.",
+    "Mukesh Yadav: total billed ₹1,01,100 (JCB + Mitti 124 trailers + movement). Paid ₹63,200. DUE ₹37,900.",
     "4% discount only on Tiscon 12 / 10 / 8mm — 6mm gets NO discount.",
     "On site: 300 bags Ultratech Super cement · 620 pcs Tiscon steel.",
-    "Cash out ₹14,76,397 vs billed ₹13,99,047 — gap ₹77,350 = brick credit ₹2,03,250 − Mukesh due ₹25,900.",
+    "Cash out ₹14,76,397 vs billed ₹13,11,047 — gap ₹1,65,350 = brick credit ₹2,03,250 − Mukesh due ₹37,900.",
     "Project started 07-May-2026 — foundation done, plinth & beam work ongoing. Mitti backfill 16-17 Jun (22 trailers total)."
   ]
 }
