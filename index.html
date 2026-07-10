@@ -361,20 +361,20 @@ body{
 <!-- ═══════════ EMBEDDED DATA (auto-generated from Excel — do not hand-edit) ═══════════ -->
 <script id="site-data" type="application/json">{
   "meta": {
-    "version": "v15",
+    "version": "v16",
     "projectName": "Gaon ka Ghar",
     "phase": "Beam Work Completed · 15-Jun-2026",
     "startDate": "07-May-2026",
     "lastUpdated": "05-Jul-2026",
     "day": 60,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹15,04,797"
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹15,46,447"
   },
   "summary": {
-    "totalPaid": 1698897,
-    "totalBilled": 1504797,
-    "paymentsCount": 31,
-    "entriesCount": 73,
-    "vendorsCount": 10,
+    "totalPaid": 1740547,
+    "totalBilled": 1546447,
+    "paymentsCount": 32,
+    "entriesCount": 79,
+    "vendorsCount": 11,
     "vendorAdvance": 216000,
     "balanceDue": 9150
   },
@@ -392,22 +392,22 @@ body{
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 1251462,
-      "pct": 73.7,
+      "amount": 1293112,
+      "pct": 74.3,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
       "amount": 278435,
-      "pct": 16.4,
+      "pct": 16.0,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 9.9,
+      "pct": 9.7,
       "color": "#A78BFA"
     }
   ],
@@ -422,7 +422,7 @@ body{
     },
     {
       "month": "Jul-2026",
-      "billed": 188750
+      "billed": 230400
     }
   ],
   "vendors": [
@@ -708,6 +708,45 @@ body{
       ]
     },
     {
+      "name": "Babloo Hardware",
+      "type": "Cement · Steel · Gitti · DrFixit",
+      "billed": 41650,
+      "paid": 41650,
+      "status": "paid",
+      "tx": [
+        [
+          "05-Jul",
+          "Ultratech Super Cement 30B @ ₹350",
+          10500
+        ],
+        [
+          "05-Jul",
+          "Ultratech Cement (PPC) 30B @ ₹330",
+          9900
+        ],
+        [
+          "05-Jul",
+          "6mm Tiscon Rod 50 pcs @ ₹228",
+          11400
+        ],
+        [
+          "05-Jul",
+          "Gitti 1 trailer @ ₹7,500",
+          7500
+        ],
+        [
+          "05-Jul",
+          "Dr Fixit 10L @ ₹140",
+          1400
+        ],
+        [
+          "05-Jul",
+          "Labour/unloading charges",
+          950
+        ]
+      ]
+    },
+    {
       "name": "Sonbhai-Coordinator",
       "type": "Site cleaning",
       "billed": 1500,
@@ -735,7 +774,7 @@ body{
     {
       "name": "Concrete / Gitti",
       "group": "building",
-      "amount": 161982,
+      "amount": 169482,
       "qty": "65.14 Ton",
       "rate": "₹2,487 avg",
       "note": "2 deliveries",
@@ -771,19 +810,19 @@ body{
     {
       "name": "Cement Ultratech Super",
       "group": "cement",
-      "amount": 108000,
-      "qty": "300 Bags",
-      "rate": "₹360/bag",
-      "note": "+50 bags 21-Jun",
+      "amount": 118500,
+      "qty": "330 Bags",
+      "rate": "₹360→₹350/bag",
+      "note": "+30 bags 5-Jul @ ₹350",
       "disc": false
     },
     {
       "name": "Tiscon 6mm",
       "group": "steel",
-      "amount": 41820,
-      "qty": "170 Pcs",
-      "rate": "₹246",
-      "note": "No discount (rule)",
+      "amount": 53220,
+      "qty": "220 Pcs",
+      "rate": "₹246→₹228",
+      "note": "+50 pcs 5-Jul @ ₹228",
       "disc": false,
       "nodisc": true
     },
@@ -799,10 +838,19 @@ body{
     {
       "name": "Dr Fixit",
       "group": "chemical",
-      "amount": 5400,
-      "qty": "22 L",
+      "amount": 6800,
+      "qty": "32 L",
       "rate": "₹245 avg",
       "note": "Waterproofing",
+      "disc": false
+    },
+    {
+      "name": "Cement Ultratech PPC",
+      "group": "cement",
+      "amount": 9900,
+      "qty": "30 Bags",
+      "rate": "₹330/bag",
+      "note": "5-Jul Babloo Hardware",
       "disc": false
     },
     {
@@ -1094,6 +1142,15 @@ body{
       "a": 56000,
       "ds": "Sand Truck 4 — 936 CFT",
       "md": "GPay"
+    },
+    {
+      "d": "05-Jul",
+      "m": "Jul-2026",
+      "by": "Self-GPay",
+      "to": "Babloo Hardware",
+      "a": 41650,
+      "ds": "Cement 60B + 6mm 50pcs + Gitti + DrFixit + Labour",
+      "md": "GPay"
     }
   ],
   "unpaid": [
@@ -1108,11 +1165,11 @@ body{
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 672332,
+      "amount": 701632,
       "subs": [
         [
-          "Concrete/Gitti · 65.14 Ton",
-          161982
+          "Concrete/Gitti",
+          169482
         ],
         [
           "Bricks · 19,500 nos",
@@ -1123,19 +1180,19 @@ body{
           222500
         ],
         [
-          "Cement · 300 bags",
-          108000
+          "Cement · 360 bags",
+          128400
         ],
         [
           "Wire, DrFixit, blocks, nails",
-          14100
+          15500
         ]
       ]
     },
     {
       "name": "Steel / Iron",
       "color": "#A8B4C4",
-      "amount": 359580,
+      "amount": 370980,
       "subs": [
         [
           "Tiscon 12mm · 200 pcs · 4% disc",
@@ -1146,8 +1203,8 @@ body{
           123264
         ],
         [
-          "Tiscon 6mm · 170 pcs · no disc",
-          41820
+          "Tiscon 6mm · 220 pcs",
+          53220
         ],
         [
           "Tiscon 8mm · 50 pcs · 4% disc",
@@ -1192,7 +1249,7 @@ body{
     {
       "name": "Labour",
       "color": "#EC4899",
-      "amount": 64125,
+      "amount": 65075,
       "subs": [
         [
           "Earth filling 66 @ ₹350",
@@ -1221,6 +1278,10 @@ body{
         [
           "Kitchen area labour (23-Jun)",
           2200
+        ],
+        [
+          "Unloading charges — Babloo Hardware (5-Jul)",
+          950
         ]
       ]
     },
@@ -1259,7 +1320,7 @@ body{
     "Mukesh Yadav: total billed ₹1,02,350 (JCB 18.75 hrs + Mitti 124 trailers + movement). Paid ₹93,200. DUE ₹9,150.",
     "4% discount only on Tiscon 12 / 10 / 8mm — 6mm gets NO discount.",
     "On site: 300 bags Ultratech Super cement · 620 pcs Tiscon steel.",
-    "Cash out ₹16,98,897 vs billed ₹15,04,797 — gap ₹1,94,100 = brick credit ₹2,03,250 − Mukesh due ₹9,150.",
+    "Cash out ₹17,40,547 vs billed ₹15,46,447 — gap ₹1,94,100 = brick credit ₹2,03,250 − Mukesh due ₹9,150.",
     "Project started 07-May-2026 — foundation done, plinth & beam work ongoing."
   ]
 }</script>
