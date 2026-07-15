@@ -11,7 +11,7 @@
   "summary": {
     "totalPaid": 1740547,
     "totalBilled": 1546447,
-    "paymentsCount": 32,
+    "paymentsCount": 36,
     "entriesCount": 79,
     "vendorsCount": 11,
     "vendorAdvance": 216000,
@@ -693,6 +693,42 @@
       "to": "Daily Labour",
       "a": 9975,
       "ds": "Mitti bharai 28.5 labourers @ ₹350",
+      "md": "GPay"
+    },
+    {
+      "d": "21-Jun",
+      "m": "Jun-2026",
+      "by": "Self-GPay",
+      "to": "Pappu Hardware",
+      "a": 1300,
+      "ds": "Bill 4: Soft wire 10 Kg — settlement",
+      "md": "GPay"
+    },
+    {
+      "d": "21-Jun",
+      "m": "Jun-2026",
+      "by": "Self-GPay",
+      "to": "Pappu Hardware",
+      "a": 18500,
+      "ds": "Ultratech Super 50B + transport + labour",
+      "md": "GPay"
+    },
+    {
+      "d": "22-Jun",
+      "m": "Jun-2026",
+      "by": "Papa",
+      "to": "Daily Labour",
+      "a": 16100,
+      "ds": "Mitti bharai 46 labourers @ ₹350",
+      "md": "GPay"
+    },
+    {
+      "d": "23-Jun",
+      "m": "Jun-2026",
+      "by": "Papa",
+      "to": "Daily Labour",
+      "a": 2200,
+      "ds": "Kitchen area labour",
       "md": "GPay"
     },
     {
