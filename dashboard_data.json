@@ -1,18 +1,18 @@
 {
   "meta": {
-    "version": "v17",
+    "version": "v18",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
     "lastUpdated": "17-Jul-2026",
     "day": 72,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹15,62,747"
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹15,80,747"
   },
   "summary": {
-    "totalPaid": 1756847,
-    "totalBilled": 1562747,
-    "paymentsCount": 38,
-    "entriesCount": 82,
+    "totalPaid": 1774847,
+    "totalBilled": 1580747,
+    "paymentsCount": 39,
+    "entriesCount": 83,
     "vendorsCount": 11,
     "vendorAdvance": 216000,
     "balanceDue": 9150
@@ -32,21 +32,21 @@
       "name": "Avinash",
       "sub": "Self GPay + Bank",
       "amount": 1293112,
-      "pct": 73.6,
+      "pct": 72.9,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
-      "amount": 294735,
-      "pct": 16.8,
+      "amount": 312735,
+      "pct": 17.6,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 9.6,
+      "pct": 9.5,
       "color": "#A78BFA"
     }
   ],
@@ -61,7 +61,7 @@
     },
     {
       "month": "Jul-2026",
-      "billed": 246700
+      "billed": 264700
     }
   ],
   "vendors": [
@@ -131,8 +131,8 @@
     {
       "name": "Econ Builder",
       "type": "Engineering supervision",
-      "billed": 321000,
-      "paid": 321000,
+      "billed": 339000,
+      "paid": 339000,
       "status": "paid",
       "tx": [
         [
@@ -179,6 +179,11 @@
           "17-Jul",
           "Engineer supervision — iron wiring works",
           15000
+        ],
+        [
+          "17-Jul",
+          "Payment to Santosh for shuttering work",
+          18000
         ]
       ]
     },
@@ -830,6 +835,15 @@
       "a": 1300,
       "ds": "Iron wire 2 Kg @ ₹600 + delivery ₹100",
       "md": "GPay"
+    },
+    {
+      "d": "17-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 18000,
+      "ds": "Payment to Santosh for shuttering work",
+      "md": "GPay"
     }
   ],
   "unpaid": [
@@ -894,11 +908,11 @@
     {
       "name": "Professional Fees",
       "color": "#5B9DFF",
-      "amount": 321000,
+      "amount": 339000,
       "subs": [
         [
           "Engineer supervision (Econ)",
-          305000
+          323000
         ],
         [
           "Layout / Naksha",
@@ -993,6 +1007,7 @@
     }
   ],
   "notes": [
+    "🪵 17-Jul: ₹18,000 paid to Econ Builder (Papa) — given to Santosh for shuttering work.",
     "🔌 17-Jul: ₹15,000 paid to Econ Builder (Papa) — for iron wiring works. Iron wire 2 Kg purchased ₹1,300.",
     "🧱 DPC COMPLETED — B-Unit. Brick work started for B-Unit (5-Jul-2026).",
     "⏸️ C-Unit ON HOLD — Pending wardrow location finalisation.",
@@ -1004,7 +1019,7 @@
     "Brick Company: ₹3,69,000 advance · 19,500 bricks (13 tractors) delivered = ₹1,65,750 · credit left ₹2,03,250.",
     "4% discount only on Tiscon 12 / 10 / 8mm — 6mm gets NO discount.",
     "On site: 330 bags Ultratech Super + 30 bags PPC cement · 620 pcs Tiscon steel.",
-    "Cash out ₹17,56,847 vs billed ₹15,62,747 — gap ₹1,94,100 = brick credit ₹2,03,250 − Mukesh due ₹9,150.",
+    "Cash out ₹17,74,847 vs billed ₹15,80,747 — gap ₹1,94,100 = brick credit ₹2,03,250 − Mukesh due ₹9,150.",
     "Project started 07-May-2026 — foundation done, plinth beam & DPC complete."
   ]
 }
