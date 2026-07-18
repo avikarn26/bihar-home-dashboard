@@ -1,21 +1,21 @@
 {
   "meta": {
-    "version": "v19",
+    "version": "v20",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "17-Jul-2026",
-    "day": 72,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹15,81,947"
+    "lastUpdated": "18-Jul-2026",
+    "day": 73,
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹16,44,547"
   },
   "summary": {
     "totalPaid": 1774847,
-    "totalBilled": 1581947,
+    "totalBilled": 1644547,
     "paymentsCount": 39,
-    "entriesCount": 83,
+    "entriesCount": 91,
     "vendorsCount": 11,
     "vendorAdvance": 216000,
-    "balanceDue": 10350
+    "balanceDue": 72950
   },
   "brickAdvance": {
     "advancePaid": 369000,
@@ -61,7 +61,7 @@
     },
     {
       "month": "Jul-2026",
-      "billed": 264700
+      "billed": 327300
     }
   ],
   "vendors": [
@@ -238,7 +238,7 @@
     {
       "name": "Mukesh Yadav",
       "type": "JCB · Mitti · Movement",
-      "billed": 103550,
+      "billed": 166150,
       "paid": 93200,
       "status": "due",
       "tx": [
@@ -296,6 +296,46 @@
           "04-Jul",
           "JCB work 1.25 hrs @ ₹1,000",
           1250
+        ],
+        [
+          "02-Jul",
+          "Mitti filling 20 trailers @ ₹600",
+          12000
+        ],
+        [
+          "05-Jul",
+          "JCB work 60 min (1 hr) @ ₹1,000/hr",
+          1000
+        ],
+        [
+          "05-Jul",
+          "Mitti filling 24 trailers @ ₹600",
+          14400
+        ],
+        [
+          "06-Jul",
+          "JCB work 60 min (1 hr) @ ₹1,000/hr",
+          1000
+        ],
+        [
+          "06-Jul",
+          "Mitti filling 42 trailers @ ₹600",
+          25200
+        ],
+        [
+          "07-Jul",
+          "JCB work 160 min (2h40m) @ ₹1,000/hr",
+          2667
+        ],
+        [
+          "14-Jul",
+          "Sand movement 30 trailers @ ₹200",
+          6000
+        ],
+        [
+          "16-Jul",
+          "JCB work 20 min @ ₹1,000/hr",
+          333
         ]
       ]
     },
@@ -368,12 +408,36 @@
       "paid": 41650,
       "status": "paid",
       "tx": [
-        ["05-Jul", "Ultratech Super Cement 30B @ ₹350", 10500],
-        ["05-Jul", "Ultratech Cement (PPC) 30B @ ₹330", 9900],
-        ["05-Jul", "6mm Tiscon Rod 50 pcs @ ₹228", 11400],
-        ["05-Jul", "Gitti 1 trailer @ ₹7,500", 7500],
-        ["05-Jul", "Dr Fixit 10L @ ₹140", 1400],
-        ["05-Jul", "Labour/unloading charges", 950]
+        [
+          "05-Jul",
+          "Ultratech Super Cement 30B @ ₹350",
+          10500
+        ],
+        [
+          "05-Jul",
+          "Ultratech Cement (PPC) 30B @ ₹330",
+          9900
+        ],
+        [
+          "05-Jul",
+          "6mm Tiscon Rod 50 pcs @ ₹228",
+          11400
+        ],
+        [
+          "05-Jul",
+          "Gitti 1 trailer @ ₹7,500",
+          7500
+        ],
+        [
+          "05-Jul",
+          "Dr Fixit 10L @ ₹140",
+          1400
+        ],
+        [
+          "05-Jul",
+          "Labour/unloading charges",
+          950
+        ]
       ]
     },
     {
@@ -848,10 +912,10 @@
   ],
   "unpaid": [
     {
-      "d": "17-Jul",
+      "d": "18-Jul",
       "to": "Mukesh Yadav",
-      "a": 10350,
-      "ds": "JCB + Mitti balance (126 trailers + 18.75 hrs JCB total)"
+      "a": 72950,
+      "ds": "JCB + Mitti + Sand balance (212 trailers + 23.75 hrs JCB total)"
     }
   ],
   "categories": [
@@ -927,22 +991,22 @@
     {
       "name": "Land Development",
       "color": "#2DD4BF",
-      "amount": 94350,
+      "amount": 150950,
       "subs": [
         [
-          "JCB 18.75 hrs",
-          18750
+          "JCB 23.75 hrs",
+          23750
         ],
         [
-          "Mitti filling 126 trailers",
-          75600
+          "Mitti filling 212 trailers",
+          127200
         ]
       ]
     },
     {
       "name": "Labour",
       "color": "#EC4899",
-      "amount": 65075,
+      "amount": 71075,
       "subs": [
         [
           "Earth filling 66 @ ₹350",
@@ -953,8 +1017,8 @@
           9975
         ],
         [
-          "Sand movement 26 trailers",
-          5200
+          "Sand/Gitti movement 76 trailers",
+          11200
         ],
         [
           "Gitti movement 20 trailers",
@@ -1019,7 +1083,7 @@
     "Brick Company: ₹3,69,000 advance · 19,500 bricks (13 tractors) delivered = ₹1,65,750 · credit left ₹2,03,250.",
     "4% discount only on Tiscon 12 / 10 / 8mm — 6mm gets NO discount.",
     "On site: 330 bags Ultratech Super + 30 bags PPC cement · 620 pcs Tiscon steel.",
-    "Cash out ₹17,74,847 vs billed ₹15,81,947 — gap ₹1,92,900 = brick credit ₹2,03,250 − Mukesh due ₹10,350.",
+    "Cash out ₹17,74,847 vs billed ₹16,44,547 — gap ₹1,30,300 = brick credit ₹2,03,250 − Mukesh due ₹72,950.",
     "Project started 07-May-2026 — foundation done, plinth beam & DPC complete."
   ]
 }
