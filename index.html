@@ -237,6 +237,12 @@ body{
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+.wstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.wtile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 10px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.wtile .wi{font-size:20px;margin-bottom:2px}
+.wtile .wv{font-size:19px;font-weight:700;color:var(--text)}
+.wtile .wu{font-size:10.5px;color:var(--dim)}
+.wtile .wl{font-size:11px;color:var(--muted);margin-top:3px}
 </style>
 </head>
 <body>
@@ -273,6 +279,11 @@ body{
     <!-- ════ OVERVIEW ════ -->
     <section class="view on" id="v-overview">
       <div id="spotWrap"></div>
+
+      <div class="sec">
+        <div class="st"><h2>Work Done</h2><span class="hint">site quantities</span></div>
+        <div class="wstats" id="workStats"></div>
+      </div>
 
       <div class="sec">
         <div class="st"><h2>Who Paid</h2><span class="hint" id="payerHint"></span></div>
@@ -361,7 +372,7 @@ body{
 <!-- ═══════════ EMBEDDED DATA (auto-generated from Excel — do not hand-edit) ═══════════ -->
 <script id="site-data" type="application/json">{
   "meta": {
-    "version": "v23",
+    "version": "v24",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
@@ -1719,6 +1730,38 @@ body{
     "On site: 330 bags Ultratech Super + 30 bags PPC cement · 620 pcs Tiscon steel.",
     "Cash out ₹18,14,847 vs billed ₹16,44,547 — gap ₹1,70,300 = brick credit ₹2,03,250 − Mukesh due ₹32,950.",
     "Project started 07-May-2026 — foundation done, plinth beam & DPC complete."
+  ],
+  "workStats": [
+    {
+      "label": "Mitti Filling",
+      "value": "212",
+      "unit": "trailers",
+      "icon": "🚜"
+    },
+    {
+      "label": "JCB Work",
+      "value": "23.75",
+      "unit": "hours",
+      "icon": "⛏️"
+    },
+    {
+      "label": "Sand Moved",
+      "value": "56",
+      "unit": "trailers",
+      "icon": "🏖️"
+    },
+    {
+      "label": "Gitti Moved",
+      "value": "20",
+      "unit": "trailers",
+      "icon": "🪨"
+    },
+    {
+      "label": "Bricks Delivered",
+      "value": "19,500",
+      "unit": "13 tractors",
+      "icon": "🧱"
+    }
   ]
 }</script>
 
@@ -1789,6 +1832,16 @@ function renderOverview(){
   } else {
     spot.innerHTML = `<div class="spot" style="border-color:#34D39940;border-left-color:var(--green)"><b style="color:var(--green)">All clear</b>
       <div class="main">No vendor payments pending.</div></div>`;
+  }
+
+  /* work done */
+  const wEl = document.getElementById('workStats');
+  if(wEl && D.workStats){
+    wEl.innerHTML = D.workStats.map(w=>`
+      <div class="wtile"><span class="wi">${w.icon}</span>
+        <span class="wv num">${esc(w.value)}</span>
+        <span class="wu">${esc(w.unit)}</span>
+        <span class="wl">${esc(w.label)}</span></div>`).join('');
   }
 
   /* who paid */

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "v23",
+    "version": "v24",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
@@ -1358,5 +1358,37 @@
     "On site: 330 bags Ultratech Super + 30 bags PPC cement · 620 pcs Tiscon steel.",
     "Cash out ₹18,14,847 vs billed ₹16,44,547 — gap ₹1,70,300 = brick credit ₹2,03,250 − Mukesh due ₹32,950.",
     "Project started 07-May-2026 — foundation done, plinth beam & DPC complete."
+  ],
+  "workStats": [
+    {
+      "label": "Mitti Filling",
+      "value": "212",
+      "unit": "trailers",
+      "icon": "🚜"
+    },
+    {
+      "label": "JCB Work",
+      "value": "23.75",
+      "unit": "hours",
+      "icon": "⛏️"
+    },
+    {
+      "label": "Sand Moved",
+      "value": "56",
+      "unit": "trailers",
+      "icon": "🏖️"
+    },
+    {
+      "label": "Gitti Moved",
+      "value": "20",
+      "unit": "trailers",
+      "icon": "🪨"
+    },
+    {
+      "label": "Bricks Delivered",
+      "value": "19,500",
+      "unit": "13 tractors",
+      "icon": "🧱"
+    }
   ]
 }

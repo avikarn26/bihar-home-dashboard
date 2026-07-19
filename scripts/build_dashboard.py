@@ -85,6 +85,7 @@ def read_transactions(wb):
             "desc": str(ws.cell(r, 7).value or "").strip(),
             "vendor": str(vendor).strip(),
             "amount": round(amt),
+            "qty": ws.cell(r, 9).value if isinstance(ws.cell(r, 9).value, (int, float)) else 0,
         })
     return rows
 
@@ -239,6 +240,20 @@ def build(d_old, txs, pays):
         d["brickAdvance"]["advancePaid"] = brick["paid"]
         d["brickAdvance"]["deliveredValue"] = brick["billed"]
         d["brickAdvance"]["creditLeft"] = brick["paid"] - brick["billed"]
+
+    # --- work quantity stats (site progress tiles) ---
+    def qty_sum(sub):
+        return sum(t["qty"] for t in txs if t["sub"] == sub)
+    jcb = qty_sum("JCB Work") + sum(t["qty"] for t in txs if t["sub"] == "Land Levelling/Filling" and "JCB" in t["desc"])
+    mitti = qty_sum("Mitti Filling") + sum(t["qty"] for t in txs if t["sub"] == "Land Levelling/Filling" and "Mitti" in t["desc"])
+    d["workStats"] = [
+        {"label": "Mitti Filling", "value": f"{mitti:g}", "unit": "trailers", "icon": "🚜"},
+        {"label": "JCB Work", "value": f"{jcb:g}", "unit": "hours", "icon": "⛏️"},
+        {"label": "Sand Moved", "value": f"{qty_sum('Sand Movement'):g}", "unit": "trailers", "icon": "🏖️"},
+        {"label": "Gitti Moved", "value": f"{qty_sum('Gitti Movement'):g}", "unit": "trailers", "icon": "🪨"},
+        {"label": "Bricks Delivered", "value": f"{d['brickAdvance']['bricksDelivered']:,}",
+         "unit": f"{d['brickAdvance']['tractorsDelivered']} tractors", "icon": "🧱"},
+    ]
 
     # meta
     start = datetime.strptime(d["meta"]["startDate"], "%d-%b-%Y")
