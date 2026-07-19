@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bihar Home Construction Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #000; }
+    #root { max-width: 390px; margin: 0 auto; }
+  </style>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script id="app-source" type="text/plain">
+const { useState, useEffect, useRef, useMemo } = React;
+
+const VER = 'dashboard-v02';
+
+const fmt = n => n >= 100000 ? `₹${(n/100000).toFixed(2)}L` : n >= 1000 ? `₹${(n/1000).toFixed(1)}K` : `₹${Math.round(n)}`;
+const fmtF = n => `₹${Number(n).toLocaleString('en-IN')}`;
+const monthMap = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
+const parseDate = d => { const [dd,m]=d.split('-'); return (monthMap[m]||0)*100+parseInt(dd,10); };
+
+const INITIAL_DATA = {
+  "updated": "01 Jun 2026",
+  "phase": "Plinth",
+  "phasesDone": [
+    "Land Development",
+    "Foundation"
+  ],
+  "estBudget": 2500000,
+  "kpis": {
+    "totalPaid": 1334422.0,
+    "materialBilled": 1155522.0,
+    "vendorAdvance": 216000.0,
+    "pending": 37100.0,
+    "txns": 58,
+    "payments": 22,
+    "vendors": 10
+  },
+  "alerts": [
+    {
+      "type": "orange",
+      "title": "₹37.1K Due — Mukesh Yadav",
+      "desc": "JCB + Mitti: billed ₹42100, paid ₹5000. Balance pending."
+    },
+    {
+      "type": "blue",
+      "title": "Brick Co. — 41.9% Delivered",
+      "desc": "18000 bricks received of ~43000. Advance remaining ₹216000."
+    }
+  ],
+  "payers": [
+    {
+      "name": "Avinash",
+      "color": "#007aff",
+      "amount": 930262.0,
+      "count": 12,
+      "payments": [
+        {
+          "date": "25-May",
+          "to": "Naveen Hardware",
+          "desc": "Cement 50 bags ₹18,000 + Transport ₹300 + Labour ₹350",
+          "amt": 18650.0,
+          "mode": "Bank Transfer"
+        },
+        {
+          "date": "23-May",
+          "to": "Concrete Supplier",
+          "desc": "Gitti 37.64 Ton @ ₹2,550/ton",
+          "amt": 95982.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "22-May",
+          "to": "Econ Builder",
+          "desc": "Engineer advance - Net Banking",
+          "amt": 50000.0,
+          "mode": "Bank Transfer"
+        },
+        {
+          "date": "21-May",
+          "to": "Pappu Hardware",
+          "desc": "Cement 60bags ₹21,600 + Transport ₹250 + Labour ₹250 + Metal sheet ₹2,700",
+          "amt": 24800.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "19-May",
+          "to": "Pappu Hardware",
+          "desc": "Soft wire ₹1,300 + Cover blocks 6×₹350 + Labour ₹100",
+          "amt": 3500.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "16-May",
+          "to": "Econ Builder",
+          "desc": "Engineer advance for construction supervision",
+          "amt": 50000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "14-May",
+          "to": "Brick Company",
+          "desc": "Brick advance - Self share (₹2L of ₹3.69L total)",
+          "amt": 200000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "13-May",
+          "to": "Pappu Hardware",
+          "desc": "Bill 63 - Part payment 2 of 2 (Final, incl ₹400 extra discount)",
+          "amt": 93000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "11-May",
+          "to": "Pappu Hardware",
+          "desc": "Bill 63 - Part payment 1 of 2 (Cement+Steel+Wire+DrFixit+Nails)",
+          "amt": 90000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "07-May",
+          "to": "Sonbhai-Coordinator",
+          "desc": "Chanarveer - adhoc labour site cleaning",
+          "amt": 1500.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "01-Jun",
+          "to": "Econ Builder",
+          "desc": "Engineer payment ₹1L",
+          "amt": 100000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "01-Jun",
+          "to": "Pappu Hardware",
+          "desc": "Bill 2: Steel 12/10/8/6mm + Cement 50bags + Dr Fixit 20L + Transport + Labour",
+          "amt": 202830.0,
+          "mode": "Bank Transfer"
+        }
+      ]
+    },
+    {
+      "name": "Papa",
+      "color": "#ff9500",
+      "amount": 235160.0,
+      "count": 9,
+      "payments": [
+        {
+          "date": "25-May",
+          "to": "Econ Builder",
+          "desc": "Engineer payment",
+          "amt": 10000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "16-May",
+          "to": "Local Purchase",
+          "desc": "Panni ₹600 + Tegadi/Kudal ₹1,175 + Food ration ₹3,285",
+          "amt": 5060.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "15-May",
+          "to": "Econ Builder",
+          "desc": "Layout mapping / Naksha",
+          "amt": 11000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "15-May",
+          "to": "Concrete Supplier",
+          "desc": "Crushed stone / Gitti 600 CFT - Full payment",
+          "amt": 66000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "12-May",
+          "to": "Mukesh Yadav",
+          "desc": "JCB work 17 hrs @ ₹1,000/hr - Advance payment",
+          "amt": 5000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "12-May",
+          "to": "Sand Truck Wala",
+          "desc": "Sand 2nd truck (918 CFT) - Full payment",
+          "amt": 55000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "07-May",
+          "to": "Econ Builder",
+          "desc": "Advance to Engineer for new construction",
+          "amt": 5000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "04-May",
+          "to": "Sand Truck Wala",
+          "desc": "Sand 1st truck (920 CFT) - Full payment",
+          "amt": 55000.0,
+          "mode": "GPay"
+        },
+        {
+          "date": "01-Jun",
+          "to": "Daily Labour",
+          "desc": "Earth filling labour - 66 labourers @ ₹350",
+          "amt": 23100.0,
+          "mode": "GPay"
+        }
+      ]
+    },
+    {
+      "name": "Chota Bhai",
+      "color": "#34c759",
+      "amount": 169000.0,
+      "count": 1,
+      "payments": [
+        {
+          "date": "14-May",
+          "to": "Brick Company",
+          "desc": "Brick advance - Chota Bhai share",
+          "amt": 169000.0,
+          "mode": "GPay"
+        }
+      ]
+    }
+  ],
+  "vendors": {
+    "action": [
+      {
+        "name": "Mukesh Yadav",
+        "cat": "JCB + Mitti filling",
+        "paid": 5000.0,
+        "badge": "₹37.1K DUE",
+        "badgeType": "y"
+      }
+    ],
+    "brick": {
+      "advance": 369000.0,
+      "received": 18000.0,
+      "total": 43000,
+      "rate": 8.5,
+      "lastDelivery": "Bricks - tractor 12 delivery (1500 pcs)",
+      "pct": 41.9
+    },
+    "mitti": {
+      "totalTrailers": 41.0,
+      "batch1": 19.0,
+      "batch2": 22.0,
+      "rate": 600.0,
+      "totalCost": 24600.0,
+      "paid": 5000.0,
+      "vendor": "Mukesh Yadav"
+    },
+    "settled": [
+      {
+        "name": "Pappu Hardware",
+        "cat": "Building Materials, Steel/Iron, Transport, Labour, Miscellaneous",
+        "amt": 414130.0,
+        "paid": 414130.0,
+        "items": [
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Ultratech Super 40 bags",
+            "qty": 40,
+            "unit": "Bags",
+            "rate": 360,
+            "total": 14400.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Tiscon 12mm 100pcs",
+            "qty": 100,
+            "unit": "Pcs",
+            "rate": 908,
+            "total": 87168.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Tiscon 10mm 100pcs",
+            "qty": 100,
+            "unit": "Pcs",
+            "rate": 642,
+            "total": 61632.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Tiscon 6mm 50pcs",
+            "qty": 50,
+            "unit": "Pcs",
+            "rate": 246,
+            "total": 12300.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Binding Wire 20kg",
+            "qty": 20,
+            "unit": "Kg",
+            "rate": 120,
+            "total": 2400.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Dr Fixit 10L x 2pcs",
+            "qty": 2,
+            "unit": "Litres",
+            "rate": 1400,
+            "total": 2800.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Transport from Pappu Hardware",
+            "qty": 1,
+            "unit": "Trips",
+            "rate": 250,
+            "total": 250.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Loading labour",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 450,
+            "total": 450.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Kanti (Nails) 2\"x1\" 1 bag",
+            "qty": 1,
+            "unit": "Kg/Bags",
+            "rate": 2000,
+            "total": 2000.0
+          },
+          {
+            "date": "11-May",
+            "item": "Bill 63 - Additional discount from Pappu Hardware",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": -400,
+            "total": -400.0
+          },
+          {
+            "date": "19-May",
+            "item": "Soft wire",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 1300,
+            "total": 1300.0
+          },
+          {
+            "date": "19-May",
+            "item": "Cover blocks - 6 packets",
+            "qty": 6,
+            "unit": "Nos",
+            "rate": 350,
+            "total": 2100.0
+          },
+          {
+            "date": "19-May",
+            "item": "Labour charges",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 100,
+            "total": 100.0
+          },
+          {
+            "date": "21-May",
+            "item": "Cement Ultratech Super - 60 bags",
+            "qty": 60,
+            "unit": "Bags",
+            "rate": 360,
+            "total": 21600.0
+          },
+          {
+            "date": "21-May",
+            "item": "Cement transportation",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 250,
+            "total": 250.0
+          },
+          {
+            "date": "21-May",
+            "item": "Labour for cement unloading",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 250,
+            "total": 250.0
+          },
+          {
+            "date": "21-May",
+            "item": "Color metal sheet for temp toilet roof",
+            "qty": 1,
+            "unit": "Nos",
+            "rate": 2700,
+            "total": 2700.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Tiscon 12mm TMT - 100 PC @ ₹908 (Bill 2)",
+            "qty": 100,
+            "unit": "Pcs",
+            "rate": 908,
+            "total": 87168.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Tiscon 10mm TMT - 100 PC @ ₹642 (Bill 2)",
+            "qty": 100,
+            "unit": "Pcs",
+            "rate": 642,
+            "total": 61632.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Tiscon 8mm TMT - 50 PC @ ₹420 (NEW)",
+            "qty": 50,
+            "unit": "Pcs",
+            "rate": 420,
+            "total": 20160.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Tiscon 6mm TMT - 50 PC @ ₹246 (Bill 2)",
+            "qty": 50,
+            "unit": "Pcs",
+            "rate": 246,
+            "total": 12300.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Cement Ultratech Super - 50 bags (Bill 2)",
+            "qty": 50,
+            "unit": "Bags",
+            "rate": 360,
+            "total": 18000.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Dr Fixit 20 litre - 1 pack",
+            "qty": 20,
+            "unit": "L",
+            "rate": 130,
+            "total": 2600.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Transport (Gada) for Bill 2 delivery",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 500,
+            "total": 500.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Loading/unloading labour - Bill 2",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 470,
+            "total": 470.0
+          }
+        ]
+      },
+      {
+        "name": "Econ Builder",
+        "cat": "Professional Fees",
+        "amt": 226000.0,
+        "paid": 226000.0,
+        "items": [
+          {
+            "date": "07-May",
+            "item": "Advance to Engineer",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 5000,
+            "total": 5000.0
+          },
+          {
+            "date": "15-May",
+            "item": "Layout mapping / Naksha by Econ Builder",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 11000,
+            "total": 11000.0
+          },
+          {
+            "date": "16-May",
+            "item": "Engineer advance to Econ Builder (construction supervision)",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 50000,
+            "total": 50000.0
+          },
+          {
+            "date": "22-May",
+            "item": "Engineer advance to Econ Builder",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 50000,
+            "total": 50000.0
+          },
+          {
+            "date": "25-May",
+            "item": "Engineer payment to Econ Builder",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 10000,
+            "total": 10000.0
+          },
+          {
+            "date": "01-Jun",
+            "item": "Engineer payment to Econ Builder",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 100000,
+            "total": 100000.0
+          }
+        ]
+      },
+      {
+        "name": "Concrete Supplier",
+        "cat": "Building Materials",
+        "amt": 161982.0,
+        "paid": 161982.0,
+        "items": [
+          {
+            "date": "15-May",
+            "item": "Crushed stone / Gitti - 27.5 Ton (600 CFT)",
+            "qty": 27.5,
+            "unit": "Ton",
+            "rate": 2400,
+            "total": 66000.0
+          },
+          {
+            "date": "23-May",
+            "item": "Crushed stone / Gitti - 37.64 Ton @ ₹2,550/ton",
+            "qty": 37.64,
+            "unit": "Ton",
+            "rate": 2550,
+            "total": 95982.0
+          }
+        ]
+      },
+      {
+        "name": "Sand Truck Wala",
+        "cat": "Building Materials",
+        "amt": 110000.0,
+        "paid": 110000.0,
+        "items": [
+          {
+            "date": "04-May",
+            "item": "Sand 1st truck (920 CFT)",
+            "qty": 920,
+            "unit": "CFT",
+            "rate": 55000,
+            "total": 55000.0
+          },
+          {
+            "date": "12-May",
+            "item": "Sand 2nd truck (918 CFT)",
+            "qty": 918,
+            "unit": "CFT",
+            "rate": 55000,
+            "total": 55000.0
+          }
+        ]
+      },
+      {
+        "name": "Daily Labour",
+        "cat": "Labour",
+        "amt": 23100.0,
+        "paid": 23100.0,
+        "items": [
+          {
+            "date": "01-Jun",
+            "item": "Earth filling (mitti) labour - 66 labourers @ ₹350 each",
+            "qty": 66,
+            "unit": "Nos",
+            "rate": 350,
+            "total": 23100.0
+          }
+        ]
+      },
+      {
+        "name": "Naveen Hardware",
+        "cat": "Building Materials, Transport, Labour",
+        "amt": 18650.0,
+        "paid": 18650.0,
+        "items": [
+          {
+            "date": "25-May",
+            "item": "Cement Ultratech Super - 50 bags (Naveen Hardware)",
+            "qty": 50,
+            "unit": "Bags",
+            "rate": 360,
+            "total": 18000.0
+          },
+          {
+            "date": "25-May",
+            "item": "Cement transportation",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 300,
+            "total": 300.0
+          },
+          {
+            "date": "25-May",
+            "item": "Loading/unloading labour for cement",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 350,
+            "total": 350.0
+          }
+        ]
+      },
+      {
+        "name": "Local Purchase",
+        "cat": "Miscellaneous, Food/Provisions",
+        "amt": 5060.0,
+        "paid": 5060.0,
+        "items": [
+          {
+            "date": "16-May",
+            "item": "Polythene / Panni",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 600,
+            "total": 600.0
+          },
+          {
+            "date": "16-May",
+            "item": "Construction equipment - Tegadi & Kudal",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 1175,
+            "total": 1175.0
+          },
+          {
+            "date": "16-May",
+            "item": "Food ration for labour",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 3285,
+            "total": 3285.0
+          }
+        ]
+      },
+      {
+        "name": "Sonbhai-Coordinator",
+        "cat": "Labour",
+        "amt": 1500.0,
+        "paid": 1500.0,
+        "items": [
+          {
+            "date": "07-May",
+            "item": "Site cleaning by Chanarveer (adhoc labour)",
+            "qty": 1,
+            "unit": "Lumpsum",
+            "rate": 1500,
+            "total": 1500.0
+          }
+        ]
+      }
+    ]
+  },
+  "materials": [
+    {
+      "name": "Engineering",
+      "amt": 221000.0,
+      "barColor": "#636366",
+      "detail": "5.0 Lumpsum @ ₹11000",
+      "purchases": [
+        {
+          "date": "15-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 11000,
+          "total": 11000.0,
+          "vendor": "Econ Builder"
+        },
+        {
+          "date": "16-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 50000,
+          "total": 50000.0,
+          "vendor": "Econ Builder"
+        },
+        {
+          "date": "22-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 50000,
+          "total": 50000.0,
+          "vendor": "Econ Builder"
+        },
+        {
+          "date": "25-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 10000,
+          "total": 10000.0,
+          "vendor": "Econ Builder"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 100000,
+          "total": 100000.0,
+          "vendor": "Econ Builder"
+        }
+      ]
+    },
+    {
+      "name": "Tiscon 12mm",
+      "amt": 174336.0,
+      "barColor": "#636366",
+      "detail": "200.0 Pcs @ ₹908",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 100,
+          "unit": "Pcs",
+          "rate": 908,
+          "total": 87168.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 100,
+          "unit": "Pcs",
+          "rate": 908,
+          "total": 87168.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Concrete/Gitti",
+      "amt": 161982.0,
+      "barColor": "#636366",
+      "detail": "65.14 Ton @ ₹2400",
+      "purchases": [
+        {
+          "date": "15-May",
+          "qty": 27.5,
+          "unit": "Ton",
+          "rate": 2400,
+          "total": 66000.0,
+          "vendor": "Concrete Supplier"
+        },
+        {
+          "date": "23-May",
+          "qty": 37.64,
+          "unit": "Ton",
+          "rate": 2550,
+          "total": 95982.0,
+          "vendor": "Concrete Supplier"
+        }
+      ]
+    },
+    {
+      "name": "Bricks",
+      "amt": 153000.0,
+      "barColor": "#636366",
+      "detail": "18000.0 Nos @ ₹8.5",
+      "purchases": [
+        {
+          "date": "14-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "15-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "15-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "15-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "15-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "20-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "20-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "23-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "24-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "25-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "26-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        },
+        {
+          "date": "26-May",
+          "qty": 1500,
+          "unit": "Nos",
+          "rate": 8.5,
+          "total": 12750.0,
+          "vendor": "Brick Company"
+        }
+      ]
+    },
+    {
+      "name": "Tiscon 10mm",
+      "amt": 123264.0,
+      "barColor": "#636366",
+      "detail": "200.0 Pcs @ ₹642",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 100,
+          "unit": "Pcs",
+          "rate": 642,
+          "total": 61632.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 100,
+          "unit": "Pcs",
+          "rate": 642,
+          "total": 61632.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Sand",
+      "amt": 110000.0,
+      "barColor": "#636366",
+      "detail": "1838.0 CFT @ ₹55000",
+      "purchases": [
+        {
+          "date": "04-May",
+          "qty": 920,
+          "unit": "CFT",
+          "rate": 55000,
+          "total": 55000.0,
+          "vendor": "Sand Truck Wala"
+        },
+        {
+          "date": "12-May",
+          "qty": 918,
+          "unit": "CFT",
+          "rate": 55000,
+          "total": 55000.0,
+          "vendor": "Sand Truck Wala"
+        }
+      ]
+    },
+    {
+      "name": "Cement-Ultratech Super",
+      "amt": 72000.0,
+      "barColor": "#007aff",
+      "detail": "200.0 Bags @ ₹360",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 40,
+          "unit": "Bags",
+          "rate": 360,
+          "total": 14400.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "21-May",
+          "qty": 60,
+          "unit": "Bags",
+          "rate": 360,
+          "total": 21600.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "25-May",
+          "qty": 50,
+          "unit": "Bags",
+          "rate": 360,
+          "total": 18000.0,
+          "vendor": "Naveen Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 50,
+          "unit": "Bags",
+          "rate": 360,
+          "total": 18000.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Land Levelling/Filling",
+      "amt": 42100.0,
+      "barColor": "#636366",
+      "detail": "58.5 Hrs @ ₹1000",
+      "purchases": [
+        {
+          "date": "12-May",
+          "qty": 17.5,
+          "unit": "Hrs",
+          "rate": 1000,
+          "total": 17500.0,
+          "vendor": "Mukesh Yadav"
+        },
+        {
+          "date": "24-May",
+          "qty": 19,
+          "unit": "Nos",
+          "rate": 600,
+          "total": 11400.0,
+          "vendor": "Mukesh Yadav"
+        },
+        {
+          "date": "26-May",
+          "qty": 22,
+          "unit": "Nos",
+          "rate": 600,
+          "total": 13200.0,
+          "vendor": "Mukesh Yadav"
+        }
+      ]
+    },
+    {
+      "name": "Tiscon 6mm",
+      "amt": 24600.0,
+      "barColor": "#636366",
+      "detail": "100.0 Pcs @ ₹246",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 50,
+          "unit": "Pcs",
+          "rate": 246,
+          "total": 12300.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 50,
+          "unit": "Pcs",
+          "rate": 246,
+          "total": 12300.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Earth Filling Labour",
+      "amt": 23100.0,
+      "barColor": "#636366",
+      "detail": "66.0 Nos @ ₹350",
+      "purchases": [
+        {
+          "date": "01-Jun",
+          "qty": 66,
+          "unit": "Nos",
+          "rate": 350,
+          "total": 23100.0,
+          "vendor": "Daily Labour"
+        }
+      ]
+    },
+    {
+      "name": "Tiscon 8mm",
+      "amt": 20160.0,
+      "barColor": "#636366",
+      "detail": "50.0 Pcs @ ₹420",
+      "purchases": [
+        {
+          "date": "01-Jun",
+          "qty": 50,
+          "unit": "Pcs",
+          "rate": 420,
+          "total": 20160.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Dr Fixit",
+      "amt": 5400.0,
+      "barColor": "#30b0c7",
+      "detail": "22.0 Litres @ ₹1400",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 2,
+          "unit": "Litres",
+          "rate": 1400,
+          "total": 2800.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 20,
+          "unit": "L",
+          "rate": 130,
+          "total": 2600.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Engineer Visit Charge",
+      "amt": 5000.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹5000",
+      "purchases": [
+        {
+          "date": "07-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 5000,
+          "total": 5000.0,
+          "vendor": "Econ Builder"
+        }
+      ]
+    },
+    {
+      "name": "Binding Wire",
+      "amt": 3700.0,
+      "barColor": "#636366",
+      "detail": "21.0 Kg @ ₹120",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 20,
+          "unit": "Kg",
+          "rate": 120,
+          "total": 2400.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "19-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 1300,
+          "total": 1300.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Food/Ration",
+      "amt": 3285.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹3285",
+      "purchases": [
+        {
+          "date": "16-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 3285,
+          "total": 3285.0,
+          "vendor": "Local Purchase"
+        }
+      ]
+    },
+    {
+      "name": "Temp Construction",
+      "amt": 2700.0,
+      "barColor": "#636366",
+      "detail": "1.0 Nos @ ₹2700",
+      "purchases": [
+        {
+          "date": "21-May",
+          "qty": 1,
+          "unit": "Nos",
+          "rate": 2700,
+          "total": 2700.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Cover Block",
+      "amt": 2100.0,
+      "barColor": "#636366",
+      "detail": "6.0 Nos @ ₹350",
+      "purchases": [
+        {
+          "date": "19-May",
+          "qty": 6,
+          "unit": "Nos",
+          "rate": 350,
+          "total": 2100.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Nails",
+      "amt": 1600.0,
+      "barColor": "#636366",
+      "detail": "2.0 Kg/Bags @ ₹2000",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 1,
+          "unit": "Kg/Bags",
+          "rate": 2000,
+          "total": 2000.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "11-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": -400,
+          "total": -400.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Daily Labour-Mitti Bharai",
+      "amt": 1500.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹1500",
+      "purchases": [
+        {
+          "date": "07-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 1500,
+          "total": 1500.0,
+          "vendor": "Sonbhai-Coordinator"
+        }
+      ]
+    },
+    {
+      "name": "Tools/Equipment",
+      "amt": 1175.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹1175",
+      "purchases": [
+        {
+          "date": "16-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 1175,
+          "total": 1175.0,
+          "vendor": "Local Purchase"
+        }
+      ]
+    },
+    {
+      "name": "Helper Labour",
+      "amt": 1170.0,
+      "barColor": "#636366",
+      "detail": "4.0 Lumpsum @ ₹100",
+      "purchases": [
+        {
+          "date": "19-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 100,
+          "total": 100.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "21-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 250,
+          "total": 250.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "25-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 350,
+          "total": 350.0,
+          "vendor": "Naveen Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 470,
+          "total": 470.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Material Transport",
+      "amt": 1050.0,
+      "barColor": "#636366",
+      "detail": "3.0 Lumpsum @ ₹250",
+      "purchases": [
+        {
+          "date": "21-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 250,
+          "total": 250.0,
+          "vendor": "Pappu Hardware"
+        },
+        {
+          "date": "25-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 300,
+          "total": 300.0,
+          "vendor": "Naveen Hardware"
+        },
+        {
+          "date": "01-Jun",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 500,
+          "total": 500.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Kala Panni/Tar",
+      "amt": 600.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹600",
+      "purchases": [
+        {
+          "date": "16-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 600,
+          "total": 600.0,
+          "vendor": "Local Purchase"
+        }
+      ]
+    },
+    {
+      "name": "Skilled Labour",
+      "amt": 450.0,
+      "barColor": "#636366",
+      "detail": "1.0 Lumpsum @ ₹450",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 1,
+          "unit": "Lumpsum",
+          "rate": 450,
+          "total": 450.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    },
+    {
+      "name": "Truck/Tempo Freight",
+      "amt": 250.0,
+      "barColor": "#636366",
+      "detail": "1.0 Trips @ ₹250",
+      "purchases": [
+        {
+          "date": "11-May",
+          "qty": 1,
+          "unit": "Trips",
+          "rate": 250,
+          "total": 250.0,
+          "vendor": "Pappu Hardware"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "name": "Building Materials",
+      "icon": "🧱",
+      "amt": 509782.0,
+      "pct": 44.1,
+      "color": "#ff6b35",
+      "sub": "Concrete/Gitti, Bricks, Sand, Cement-Ultratech Super, Dr Fixit, Binding Wire, Cover Block, Nails",
+      "items": [
+        {
+          "name": "Concrete/Gitti",
+          "amt": 161982.0,
+          "detail": "Crushed stone / Gitti - 27.5 Ton (600 CFT)"
+        },
+        {
+          "name": "Bricks",
+          "amt": 153000.0,
+          "detail": "Bricks - tractor 1 delivery (1500 pcs)"
+        },
+        {
+          "name": "Sand",
+          "amt": 110000.0,
+          "detail": "Sand 1st truck (920 CFT)"
+        },
+        {
+          "name": "Cement-Ultratech Super",
+          "amt": 72000.0,
+          "detail": "Bill 63 - Ultratech Super 40 bags"
+        },
+        {
+          "name": "Dr Fixit",
+          "amt": 5400.0,
+          "detail": "Bill 63 - Dr Fixit 10L x 2pcs"
+        },
+        {
+          "name": "Binding Wire",
+          "amt": 3700.0,
+          "detail": "Bill 63 - Binding Wire 20kg"
+        },
+        {
+          "name": "Cover Block",
+          "amt": 2100.0,
+          "detail": "Cover blocks - 6 packets"
+        },
+        {
+          "name": "Nails",
+          "amt": 1600.0,
+          "detail": "Bill 63 - Kanti (Nails) 2\"x1\" 1 bag"
+        }
+      ]
+    },
+    {
+      "name": "Steel/Iron",
+      "icon": "🔩",
+      "amt": 342360.0,
+      "pct": 29.6,
+      "color": "#888",
+      "sub": "Tiscon 12mm, Tiscon 10mm, Tiscon 6mm, Tiscon 8mm",
+      "items": [
+        {
+          "name": "Tiscon 12mm",
+          "amt": 174336.0,
+          "detail": "Bill 63 - Tiscon 12mm 100pcs"
+        },
+        {
+          "name": "Tiscon 10mm",
+          "amt": 123264.0,
+          "detail": "Bill 63 - Tiscon 10mm 100pcs"
+        },
+        {
+          "name": "Tiscon 6mm",
+          "amt": 24600.0,
+          "detail": "Bill 63 - Tiscon 6mm 50pcs"
+        },
+        {
+          "name": "Tiscon 8mm",
+          "amt": 20160.0,
+          "detail": "Tiscon 8mm TMT - 50 PC @ ₹420 (NEW)"
+        }
+      ]
+    },
+    {
+      "name": "Professional Fees",
+      "icon": "👷",
+      "amt": 226000.0,
+      "pct": 19.6,
+      "color": "#007aff",
+      "sub": "Engineering, Engineer Visit Charge",
+      "items": [
+        {
+          "name": "Engineering",
+          "amt": 221000.0,
+          "detail": "Layout mapping / Naksha by Econ Builder"
+        },
+        {
+          "name": "Engineer Visit Charge",
+          "amt": 5000.0,
+          "detail": "Advance to Engineer"
+        }
+      ]
+    },
+    {
+      "name": "Land Development",
+      "icon": "🚜",
+      "amt": 42100.0,
+      "pct": 3.6,
+      "color": "#ff9500",
+      "sub": "Land Levelling/Filling",
+      "items": [
+        {
+          "name": "Land Levelling/Filling",
+          "amt": 42100.0,
+          "detail": "JCB work 17.5 hrs @ ₹1,000/hr"
+        }
+      ]
+    },
+    {
+      "name": "Labour",
+      "icon": "👥",
+      "amt": 26220.0,
+      "pct": 2.3,
+      "color": "#af52de",
+      "sub": "Earth Filling Labour, Daily Labour-Mitti Bharai, Helper Labour, Skilled Labour",
+      "items": [
+        {
+          "name": "Earth Filling Labour",
+          "amt": 23100.0,
+          "detail": "Earth filling (mitti) labour - 66 labourers @ ₹350 each"
+        },
+        {
+          "name": "Daily Labour-Mitti Bharai",
+          "amt": 1500.0,
+          "detail": "Site cleaning by Chanarveer (adhoc labour)"
+        },
+        {
+          "name": "Helper Labour",
+          "amt": 1170.0,
+          "detail": "Labour charges"
+        },
+        {
+          "name": "Skilled Labour",
+          "amt": 450.0,
+          "detail": "Bill 63 - Loading labour"
+        }
+      ]
+    },
+    {
+      "name": "Miscellaneous",
+      "icon": "📦",
+      "amt": 4475.0,
+      "pct": 0.4,
+      "color": "#636366",
+      "sub": "Temp Construction, Tools/Equipment, Kala Panni/Tar",
+      "items": [
+        {
+          "name": "Temp Construction",
+          "amt": 2700.0,
+          "detail": "Color metal sheet for temp toilet roof"
+        },
+        {
+          "name": "Tools/Equipment",
+          "amt": 1175.0,
+          "detail": "Construction equipment - Tegadi & Kudal"
+        },
+        {
+          "name": "Kala Panni/Tar",
+          "amt": 600.0,
+          "detail": "Polythene / Panni"
+        }
+      ]
+    },
+    {
+      "name": "Food/Provisions",
+      "icon": "🍚",
+      "amt": 3285.0,
+      "pct": 0.3,
+      "color": "#636366",
+      "sub": "Food/Ration",
+      "items": [
+        {
+          "name": "Food/Ration",
+          "amt": 3285.0,
+          "detail": "Food ration for labour"
+        }
+      ]
+    },
+    {
+      "name": "Transport",
+      "icon": "🚛",
+      "amt": 1300.0,
+      "pct": 0.1,
+      "color": "#636366",
+      "sub": "Material Transport, Truck/Tempo Freight",
+      "items": [
+        {
+          "name": "Material Transport",
+          "amt": 1050.0,
+          "detail": "Cement transportation"
+        },
+        {
+          "name": "Truck/Tempo Freight",
+          "amt": 250.0,
+          "detail": "Bill 63 - Transport from Pappu Hardware"
+        }
+      ]
+    }
+  ],
+  "notes": ""
+};
+
+const storage = {
+  async get(key) {
+    if (window.storage?.get) return window.storage.get(key);
+    try { return localStorage.getItem(key); } catch { return null; }
+  },
+  async set(key, val) {
+    if (window.storage?.set) return window.storage.set(key, val);
+    try { localStorage.setItem(key, val); } catch {}
+  }
+};
+
+const TABS = [
+  { icon: '📊', label: 'Overview' },
+  { icon: '🏪', label: 'Vendors' },
+  { icon: '📦', label: 'Materials' },
+  { icon: '💳', label: 'Payments' },
+  { icon: '🥧', label: 'Breakdown' },
+];
+
+function Donut({ categories, total, dark }) {
+  const r = 44, cx = 55, cy = 55, sw = 14, circ = 2 * Math.PI * r;
+  let offset = 0;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      <svg viewBox="0 0 110 110" width={110} height={110}>
+        <circle cx={cx} cy={cy} r={r} fill="none" stroke={dark ? '#2c2c2e' : '#e5e5ea'} strokeWidth={sw} />
+        {categories.map((c, i) => {
+          const pct = total > 0 ? c.amt / total : 0;
+          const dash = pct * circ;
+          const el = (
+            <circle key={i} cx={cx} cy={cy} r={r} fill="none" stroke={c.color} strokeWidth={sw}
+              strokeDasharray={`${dash} ${circ - dash}`} strokeDashoffset={-offset}
+              transform={`rotate(-90 ${cx} ${cy})`} />
+          );
+          offset += dash;
+          return el;
+        })}
+        <text x={cx} y={cy - 4} textAnchor="middle" fill={dark ? '#f2f2f7' : '#1c1c1e'} fontSize="11" fontWeight="700">{fmt(total)}</text>
+        <text x={cx} y={cy + 10} textAnchor="middle" fill={dark ? '#98989d' : '#636366'} fontSize="8">Total</text>
+      </svg>
+      <div style={{ flex: 1 }}>
+        {categories.slice(0, 6).map(c => (
+          <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4, fontSize: 10 }}>
+            <span style={{ width: 8, height: 8, borderRadius: 4, background: c.color, flexShrink: 0 }} />
+            <span style={{ flex: 1, color: 'var(--txt2)' }}>{c.name}</span>
+            <span style={{ fontWeight: 600, fontVariantNumeric: 'tabular-nums' }}>{c.pct}%</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HomeConstructionDashboard() {
+  const [data, setData] = useState(INITIAL_DATA);
+  const [tab, setTab] = useState(0);
+  const [dark, setDark] = useState(true);
+  const [noteEdit, setNoteEdit] = useState(false);
+  const [expandedMat, setExpandedMat] = useState(null);
+  const [expandedVendor, setExpandedVendor] = useState(null);
+  const [expandedCat, setExpandedCat] = useState(null);
+  const [payMonth, setPayMonth] = useState(null);
+  const noteRef = useRef(null);
+
+  
+
+  const save = async (next) => {
+    setData(next);
+    await storage.set(VER, JSON.stringify(next));
+  };
+
+  const theme = dark ? {
+    bg: '#000', s1: '#1c1c1e', s2: '#2c2c2e', s3: '#3a3a3c',
+    txt: '#f2f2f7', txt2: '#98989d', txt3: '#636366', sep: 'rgba(84,84,88,0.25)', expBg: '#111',
+    noteBg: '#1b3a1f', noteBorder: '#4ade80', noteText: '#4ade80'
+  } : {
+    bg: '#f2f2f7', s1: '#fff', s2: '#f0f0f5', s3: '#e5e5ea',
+    txt: '#1c1c1e', txt2: '#636366', txt3: '#aeaeb2', sep: 'rgba(60,60,67,0.12)', expBg: '#f8f8fa',
+    noteBg: '#e8f5e9', noteBorder: '#34c759', noteText: '#1b7a2b'
+  };
+
+  const allPayments = useMemo(() => {
+    if (!data) return [];
+    const list = [];
+    data.payers.forEach(p => p.payments.forEach(pm => list.push({ ...pm, payer: p.name, payerColor: p.color })));
+    return list.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+  }, [data]);
+
+  const monthGroups = useMemo(() => {
+    const map = {};
+    allPayments.forEach(p => {
+      const [, mon] = p.date.split('-');
+      const yr = mon === 'May' ? '2026' : '2026';
+      const key = `${mon} ${yr}`;
+      map[key] = map[key] || { total: 0, count: 0, items: [] };
+      map[key].total += p.amt;
+      map[key].count += 1;
+      map[key].items.push(p);
+    });
+    return Object.entries(map).sort((a, b) => {
+      const order = ['Jun','May','Apr','Mar','Feb','Jan','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return order.indexOf(a[0].split(' ')[0]) - order.indexOf(b[0].split(' ')[0]);
+    });
+  }, [allPayments]);
+
+  useEffect(() => {
+    if (noteRef.current) {
+      noteRef.current.style.height = 'auto';
+      noteRef.current.style.height = noteRef.current.scrollHeight + 'px';
+    }
+  }, [noteEdit, data?.notes]);
+
+  if (!data) return <div style={{ padding: 40, textAlign: 'center', color: '#98989d' }}>Loading…</div>;
+
+  const maxMat = Math.max(...data.materials.map(m => m.amt), 1);
+  const payerTotal = data.payers.reduce((s, p) => s + p.amount, 0) || 1;
+  const noteLines = (data.notes || '').split('\n').filter((_, i, a) => i < a.length);
+
+  const card = { background: theme.s1, borderRadius: 14, border: `0.5px solid ${theme.sep}`, padding: '12px 14px' };
+  const th = { fontSize: 9, color: theme.txt3, textTransform: 'uppercase', padding: '4px 6px', fontWeight: 600 };
+  const td = { fontSize: 10, color: theme.txt, padding: '6px 6px', fontVariantNumeric: 'tabular-nums' };
+
+  const renderOverview = () => (
+    <div style={{ padding: '12px 14px 80px' }}>
+      {data.alerts.map((a, i) => (
+        <div key={i} style={{
+          background: a.type === 'orange' ? 'linear-gradient(135deg, #ff8c00, #ff6b00)' : 'linear-gradient(135deg, #4a90d9, #357abd)',
+          borderRadius: 14, padding: '12px 14px', marginBottom: 10
+        }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{a.title}</div>
+          <div style={{ fontSize: 11, color: '#ffffff', lineHeight: 1.4 }}>{a.desc}</div>
+        </div>
+      ))}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 14 }}>
+        {[
+          { icon: '💰', label: 'Total Spent', val: fmt(data.kpis.totalPaid), sub: 'All payments' },
+          { icon: '📦', label: 'On Site', val: fmt(data.kpis.materialBilled), sub: 'Material billed' },
+          { icon: '🧱', label: 'Advance', val: fmt(data.kpis.vendorAdvance), sub: 'Brick advance left', color: '#ff9500' },
+          { icon: '⚠️', label: 'Pending', val: fmt(data.kpis.pending), sub: 'Vendor balance due', color: '#ff3b30' },
+        ].map((k, i) => (
+          <div key={i} style={card}>
+            <div style={{ fontSize: 16 }}>{k.icon}</div>
+            <div style={{ fontSize: 9, color: theme.txt3, textTransform: 'uppercase', marginTop: 4 }}>{k.label}</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: k.color || theme.txt, fontVariantNumeric: 'tabular-nums' }}>{k.val}</div>
+            <div style={{ fontSize: 9, color: theme.txt3 }}>{k.sub}</div>
+          </div>
+        ))}
+      </div>
+      <div style={card}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+          <span style={{ fontWeight: 700, fontSize: 13 }}>📝 Notes</span>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button onClick={() => setNoteEdit(!noteEdit)} style={{ background: 'none', border: 'none', color: '#007aff', fontSize: 12, cursor: 'pointer' }}>✏️</button>
+            <button onClick={() => save({ ...data, notes: '' })} style={{ background: 'none', border: 'none', color: '#ff3b30', fontSize: 12, cursor: 'pointer' }}>🗑️</button>
+          </div>
+        </div>
+        <div style={{ background: theme.noteBg, border: `1px solid ${theme.noteBorder}`, borderRadius: 10, padding: 10, position: 'relative' }}>
+          {noteEdit ? (
+            <textarea ref={noteRef} value={data.notes || ''} onChange={e => save({ ...data, notes: e.target.value })}
+              style={{ width: '100%', background: 'transparent', border: 'none', color: theme.txt, fontSize: 12, lineHeight: 1.6, resize: 'none', overflow: 'hidden', outline: 'none', fontFamily: 'inherit' }} />
+          ) : noteLines.length ? noteLines.map((line, i) => (
+            <div key={i} style={{ fontSize: 12, lineHeight: 1.6, color: theme.txt }}>
+              <span style={{ color: theme.noteText, fontWeight: 600, marginRight: 6 }}>{i + 1}.</span>{line}
+            </div>
+          )) : <div style={{ fontSize: 12, color: theme.txt3 }}>No notes — tap ✏️</div>}
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderVendors = () => (
+    <div style={{ padding: '12px 14px 80px' }}>
+      {data.vendors.action.length > 0 && (
+        <>
+          <div style={{ color: '#ff3b30', fontWeight: 700, fontSize: 12, marginBottom: 8 }}>⚠️ Action Needed</div>
+          {data.vendors.action.map((v, i) => (
+            <div key={i} style={{ ...card, marginBottom: 8 }}>
+              <div style={{ fontWeight: 700, fontSize: 13 }}>{v.name}</div>
+              <div style={{ fontSize: 10, color: theme.txt2 }}>{v.cat}</div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6 }}>
+                <span style={{ fontSize: 11, color: theme.txt2 }}>Paid {fmt(v.paid)}</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: '#ff9500', background: 'rgba(255,149,0,0.15)', padding: '2px 8px', borderRadius: 8 }}>{v.badge}</span>
+              </div>
+            </div>
+          ))}
+        </>
+      )}
+      <div style={{ color: theme.txt, fontWeight: 700, fontSize: 12, margin: '14px 0 8px' }}>🧱 Brick Delivery Tracker</div>
+      <div style={card}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+          <span style={{ fontWeight: 700 }}>🧱 Brick Company</span>
+          <span style={{ color: '#ff9500', fontWeight: 700, fontSize: 12 }}>{data.vendors.brick.pct}% Delivered</span>
+        </div>
+        {[['Total Advance', fmt(data.vendors.brick.advance)], ['Bricks Received', data.vendors.brick.received.toLocaleString('en-IN')], ['Est. Total Order', data.vendors.brick.total.toLocaleString('en-IN')], ['Rate', `₹${data.vendors.brick.rate}`]].map(([l, v]) => (
+          <div key={l} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 4 }}>
+            <span style={{ color: theme.txt2 }}>{l}</span><span style={{ fontWeight: 600 }}>{v}</span>
+          </div>
+        ))}
+        <div style={{ height: 8, background: theme.s2, borderRadius: 4, margin: '8px 0', overflow: 'hidden' }}>
+          <div style={{ width: `${data.vendors.brick.pct}%`, height: '100%', background: 'linear-gradient(90deg, #ff6b35, #ff9500)', borderRadius: 4 }} />
+        </div>
+        <div style={{ fontSize: 10, color: theme.txt3 }}>{data.vendors.brick.received.toLocaleString('en-IN')} delivered of ~{data.vendors.brick.total.toLocaleString('en-IN')}</div>
+      </div>
+      <div style={{ color: theme.txt, fontWeight: 700, fontSize: 12, margin: '14px 0 8px' }}>🚜 Mitti Delivery Tracker</div>
+      <div style={card}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+          <span style={{ fontWeight: 700 }}>🚜 Mukesh Yadav — Mitti</span>
+          <span style={{ color: '#ff9500', fontWeight: 700 }}>{data.vendors.mitti.totalTrailers} Trailers</span>
+        </div>
+        {[['Batch 1', `${data.vendors.mitti.batch1} trailers`], ['Batch 2', `${data.vendors.mitti.batch2} trailers`], ['Total', data.vendors.mitti.totalTrailers], ['Rate', `₹${data.vendors.mitti.rate}`], ['Total Cost', fmt(data.vendors.mitti.totalCost)], ['Paid', fmt(data.vendors.mitti.paid)], ['Balance Due', fmt(data.vendors.mitti.totalCost - data.vendors.mitti.paid)]].map(([l, v]) => (
+          <div key={l} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 4 }}>
+            <span style={{ color: theme.txt2 }}>{l}</span><span style={{ fontWeight: 600, color: l === 'Balance Due' ? '#ff3b30' : theme.txt }}>{v}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ color: theme.txt3, fontSize: 11, margin: '14px 0 8px' }}>✅ Settled — tap to expand</div>
+      {data.vendors.settled.map((v, i) => (
+        <div key={i} style={{ ...card, marginBottom: 8, cursor: 'pointer' }} onClick={() => setExpandedVendor(expandedVendor === i ? null : i)}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ flex: 1, fontWeight: 700, fontSize: 13 }}>{v.name}</span>
+            <span style={{ fontSize: 11, fontWeight: 600 }}>{fmt(v.amt)}</span>
+            <span style={{ transform: expandedVendor === i ? 'rotate(90deg)' : 'none', transition: 'transform .2s', color: theme.txt3 }}>›</span>
+          </div>
+          <div style={{ fontSize: 10, color: theme.txt2 }}>{v.cat}</div>
+          <span style={{ fontSize: 9, color: '#34c759', fontWeight: 700 }}>PAID</span>
+          {expandedVendor === i && (
+            <div style={{ marginTop: 10, background: theme.expBg, borderRadius: 8, overflow: 'hidden' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead><tr>{['DATE','ITEM','QTY','RATE','TOTAL'].map(h => <th key={h} style={th}>{h}</th>)}</tr></thead>
+                <tbody>
+                  {v.items.map((it, j) => (
+                    <tr key={j}>
+                      <td style={td}>{it.date}</td>
+                      <td style={{ ...td, maxWidth: 100 }}>{it.item}{it.note ? <div style={{ fontStyle: 'italic', fontSize: 9, color: theme.txt3 }}>📝 {it.note}</div> : null}</td>
+                      <td style={td}>{it.qty} {it.unit}</td>
+                      <td style={td}>{it.rate}</td>
+                      <td style={{ ...td, color: '#007aff' }}>{fmtF(it.total)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div style={{ padding: 8, fontSize: 10, fontWeight: 700, textAlign: 'right' }}>Total ({v.items.length} items) {fmtF(v.amt)}</div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderMaterials = () => (
+    <div style={{ padding: '12px 14px 80px' }}>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', fontSize: 9, color: theme.txt3, marginBottom: 12 }}>
+        <span><span style={{ color: '#ff6b35' }}>■</span> Building</span>
+        <span><span style={{ color: '#888' }}>■</span> Steel</span>
+        <span><span style={{ color: '#007aff' }}>■</span> Cement</span>
+        <span><span style={{ color: '#30b0c7' }}>■</span> Chemical</span>
+        <span><span style={{ color: '#636366' }}>■</span> Other</span>
+      </div>
+      {data.materials.map((m, i) => (
+        <div key={i} style={{ ...card, marginBottom: 8, cursor: 'pointer' }} onClick={() => setExpandedMat(expandedMat === i ? null : i)}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ flex: 1, fontWeight: 600, fontSize: 12 }}>{m.name}</span>
+            <span style={{ fontWeight: 700, fontSize: 12 }}>{fmt(m.amt)}</span>
+            <span style={{ transform: expandedMat === i ? 'rotate(90deg)' : 'none', transition: 'transform .2s', color: theme.txt3 }}>›</span>
+          </div>
+          <div style={{ fontSize: 10, color: theme.txt2, marginBottom: 6 }}>{m.detail}</div>
+          <div style={{ height: 4, background: theme.s2, borderRadius: 2 }}>
+            <div style={{ width: `${(m.amt / maxMat) * 100}%`, height: '100%', background: m.barColor, borderRadius: 2 }} />
+          </div>
+          {expandedMat === i && (
+            <div style={{ marginTop: 10, background: theme.expBg, borderRadius: 8, overflow: 'hidden' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead><tr>{['DATE','VENDOR','QTY','RATE','TOTAL'].map(h => <th key={h} style={th}>{h}</th>)}</tr></thead>
+                <tbody>
+                  {m.purchases.map((p, j) => (
+                    <tr key={j}>
+                      <td style={td}>{p.date}</td>
+                      <td style={td}>{p.vendor}</td>
+                      <td style={td}>{p.qty} {p.unit}</td>
+                      <td style={td}>{p.rate}</td>
+                      <td style={{ ...td, color: '#007aff' }}>{fmtF(p.total)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      ))}
+      <div style={{ textAlign: 'center', fontWeight: 700, color: '#007aff', marginTop: 12, fontSize: 13 }}>
+        Net Material {fmtF(data.kpis.materialBilled)}
+      </div>
+    </div>
+  );
+
+  const renderPayments = () => {
+    const filtered = payMonth ? monthGroups.filter(([m]) => m === payMonth) : monthGroups;
+    return (
+      <div style={{ padding: '12px 14px 80px' }}>
+        <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+          {data.payers.map(p => (
+            <div key={p.name} style={{ ...card, flex: 1, textAlign: 'center', padding: 10 }}>
+              <div style={{ fontSize: 10, color: theme.txt2 }}>{p.name}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: p.color, fontVariantNumeric: 'tabular-nums' }}>{fmt(p.amount)}</div>
+              <div style={{ fontSize: 9, color: theme.txt3 }}>{p.count} payments</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ height: 6, display: 'flex', borderRadius: 3, overflow: 'hidden', marginBottom: 4 }}>
+          {data.payers.map(p => (
+            <div key={p.name} style={{ width: `${(p.amount / payerTotal) * 100}%`, background: p.color }} />
+          ))}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
+          {data.payers.map(p => (
+            <span key={p.name} style={{ fontSize: 9, color: p.color }}>{Math.round(p.amount / payerTotal * 100)}%</span>
+          ))}
+        </div>
+        <div style={{ display: 'flex', gap: 8, overflowX: 'auto', marginBottom: 14, paddingBottom: 4 }}>
+          <div onClick={() => setPayMonth(null)} style={{ ...card, flexShrink: 0, padding: '8px 12px', cursor: 'pointer', border: !payMonth ? '1px solid #007aff' : undefined }}>
+            <div style={{ fontSize: 10 }}>All</div>
+          </div>
+          {monthGroups.map(([m, g]) => (
+            <div key={m} onClick={() => setPayMonth(m)} style={{ ...card, flexShrink: 0, padding: '8px 12px', cursor: 'pointer', border: payMonth === m ? '1px solid #007aff' : undefined }}>
+              <div style={{ fontSize: 10, fontWeight: 600 }}>{m}</div>
+              <div style={{ fontSize: 11, color: '#ff6b35', fontWeight: 700 }}>{fmt(g.total)}</div>
+              <div style={{ fontSize: 9, color: theme.txt3 }}>{g.count} payments</div>
+            </div>
+          ))}
+        </div>
+        {filtered.map(([month, g]) => (
+          <div key={month}>
+            <div style={{ position: 'sticky', top: 0, background: theme.bg, padding: '8px 0', zIndex: 2, display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${theme.sep}` }}>
+              <span style={{ fontWeight: 700, fontSize: 13 }}>{month}</span>
+              <span style={{ fontSize: 11, color: theme.txt2 }}>{fmt(g.total)} · {g.count}</span>
+            </div>
+            {g.items.map((p, i) => (
+              <div key={i} style={{ ...card, marginBottom: 8, display: 'flex', gap: 10, alignItems: 'stretch' }}>
+                <div style={{ width: 4, borderRadius: 2, background: p.payerColor, flexShrink: 0 }} />
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 700, fontSize: 13 }}>{p.to}</div>
+                  <div style={{ fontSize: 10, color: theme.txt2 }}>{p.desc}</div>
+                  <div style={{ fontSize: 9, color: theme.txt3 }}>{p.payer} · {p.mode}</div>
+                </div>
+                <div style={{ textAlign: 'right' }}>
+                  <div style={{ color: '#ff6b35', fontWeight: 700, fontSize: 13 }}>{fmtF(p.amt)}</div>
+                  <div style={{ fontSize: 9, color: theme.txt3 }}>{p.date}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const renderBreakdown = () => (
+    <div style={{ padding: '12px 14px 80px' }}>
+      <div style={card}>
+        <Donut categories={data.categories} total={data.kpis.materialBilled} dark={dark} />
+      </div>
+      <div style={{ marginTop: 14 }}>
+        {data.categories.map((c, i) => (
+          <div key={i} style={{ ...card, marginBottom: 8, cursor: 'pointer' }} onClick={() => setExpandedCat(expandedCat === i ? null : i)}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 16 }}>{c.icon}</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 600, fontSize: 12 }}>{c.name}</div>
+                <div style={{ fontSize: 9, color: theme.txt3 }}>{c.sub}</div>
+              </div>
+              <span style={{ fontWeight: 700 }}>{fmt(c.amt)}</span>
+              <span style={{ fontSize: 10, color: theme.txt2, width: 36, textAlign: 'right' }}>{c.pct}%</span>
+              <span style={{ transform: expandedCat === i ? 'rotate(90deg)' : 'none', transition: 'transform .2s', color: theme.txt3 }}>›</span>
+            </div>
+            {expandedCat === i && (
+              <div style={{ marginTop: 10, background: theme.expBg, borderRadius: 8, padding: 8 }}>
+                {c.items.map((it, j) => (
+                  <div key={j} style={{ marginBottom: 8 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ fontSize: 11, fontWeight: 600 }}>{it.name}</span>
+                      <span style={{ fontSize: 11, fontWeight: 700, color: c.color }}>{fmt(it.amt)}</span>
+                    </div>
+                    <div style={{ fontSize: 9, color: theme.txt3 }}>{it.detail}</div>
+                    <div style={{ fontSize: 9, color: theme.txt3 }}>{c.amt > 0 ? Math.round(it.amt / c.amt * 100) : 0}% of category</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const tabContent = [renderOverview, renderVendors, renderMaterials, renderPayments, renderBreakdown][tab]();
+
+  return (
+    <div style={{
+      '--txt2': theme.txt2,
+      maxWidth: 390, margin: '0 auto', minHeight: '100vh', background: theme.bg, color: theme.txt,
+      fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      position: 'relative', overflow: 'hidden'
+    }}>
+      <div style={{
+        background: 'linear-gradient(180deg, #0a0a0a, #1a1a2e 60%, #16213e)',
+        padding: '16px 14px 20px', position: 'relative'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+          <div>
+            <div style={{ fontSize: 9, letterSpacing: 2, color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase' }}>Bihar Home Build</div>
+            <div style={{ display: 'inline-block', marginTop: 6, fontSize: 10, color: '#ff9500', background: 'rgba(255,149,0,0.15)', padding: '2px 8px', borderRadius: 8 }}>
+              🏗️ {data.phase} Phase
+            </div>
+          </div>
+          <button onClick={() => setDark(!dark)} style={{
+            width: 26, height: 26, borderRadius: 13, border: 'none', background: 'rgba(255,255,255,0.15)',
+            color: '#fff', fontSize: 12, cursor: 'pointer'
+          }}>{dark ? '☀️' : '🌙'}</button>
+        </div>
+        <div style={{ fontSize: 22, fontWeight: 700, color: '#fff', marginTop: 10 }}>🏠 Project Dashboard</div>
+        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)' }}>Started 7 May 2026 · Live Tracker</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>Updated: {data.updated}</div>
+      </div>
+      <div style={{ height: 'calc(100vh - 180px)', overflowY: 'auto' }}>{tabContent}</div>
+      <div style={{
+        position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390,
+        background: dark ? 'rgba(28,28,30,0.95)' : 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)',
+        borderTop: `0.5px solid ${theme.sep}`, display: 'flex', padding: '6px 0 10px', zIndex: 100
+      }}>
+        {TABS.map((t, i) => (
+          <button key={i} onClick={() => setTab(i)} style={{
+            flex: 1, background: 'none', border: 'none', cursor: 'pointer', padding: '4px 0',
+            color: tab === i ? '#007aff' : theme.txt3, fontSize: 9
+          }}>
+            <div style={{ fontSize: 18 }}>{t.icon}</div>
+            <div style={{ fontWeight: tab === i ? 600 : 400 }}>{t.label}</div>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<HomeConstructionDashboard />);
+
+  </script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        const src = document.getElementById('app-source').textContent;
+        const code = Babel.transform(src, { presets: ['react'] }).code;
+        eval(code);
+      } catch (e) {
+        document.getElementById('root').innerHTML = '<pre style="color:#ff3b30;padding:20px">' + e.message + '</pre>';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mirofish-landing",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8890", "--directory", "/Users/avinashkarn/Projects/mf_tool/landing"],
+      "port": 8890
+    }
+  ]
+}
