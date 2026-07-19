@@ -908,6 +908,15 @@
       "a": 18000,
       "ds": "Payment to Santosh for shuttering work",
       "md": "GPay"
+    },
+    {
+      "d": "18-Jul",
+      "m": "Jul-2026",
+      "by": "Avinash",
+      "to": "Mukesh Yadav",
+      "a": 40000,
+      "ds": "JCB + Mitti + Sand movement balance payment",
+      "md": "Cash"
     }
   ],
   "unpaid": [
