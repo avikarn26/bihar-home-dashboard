@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "v31",
+    "version": "v32",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
@@ -9,13 +9,13 @@
     "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹1,775,430"
   },
   "summary": {
-    "totalPaid": 1923490,
+    "totalPaid": 1945730,
     "totalBilled": 1775430,
-    "paymentsCount": 44,
+    "paymentsCount": 45,
     "entriesCount": 110,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
-    "balanceDue": 55190
+    "balanceDue": 32950
   },
   "brickAdvance": {
     "advancePaid": 369000,
@@ -31,22 +31,22 @@
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 1333112,
-      "pct": 69.3,
+      "amount": 1355352,
+      "pct": 69.7,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
       "amount": 421378,
-      "pct": 21.9,
+      "pct": 21.7,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 8.8,
+      "pct": 8.7,
       "color": "#A78BFA"
     }
   ],
@@ -69,8 +69,8 @@
       "name": "Pappu Hardware",
       "type": "Hardware · Steel · Cement",
       "billed": 533520,
-      "paid": 511280,
-      "status": "due",
+      "paid": 533520,
+      "status": "paid",
       "tx": [
         [
           "11-May",
@@ -1214,15 +1214,18 @@
       "a": 55768,
       "ds": "Food / Miscellaneous provisions",
       "md": "GPay"
+    },
+    {
+      "d": "21-Jul",
+      "m": "Jul-2026",
+      "by": "Avinash",
+      "to": "Pappu Hardware",
+      "a": 22240,
+      "ds": "Cement 60 bags + wire + transport + labour",
+      "md": "Cash"
     }
   ],
   "unpaid": [
-    {
-      "d": "21-Jul",
-      "to": "Pappu Hardware",
-      "a": 22240,
-      "ds": "Balance due"
-    },
     {
       "d": "18-Jul",
       "to": "Mukesh Yadav",
