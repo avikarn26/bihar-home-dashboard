@@ -1,21 +1,21 @@
 {
   "meta": {
-    "version": "v30",
+    "version": "v31",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
     "lastUpdated": "21-Jul-2026",
     "day": 76,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹1,671,787"
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹1,775,430"
   },
   "summary": {
-    "totalPaid": 1842087,
-    "totalBilled": 1671787,
-    "paymentsCount": 42,
-    "entriesCount": 107,
+    "totalPaid": 1923490,
+    "totalBilled": 1775430,
+    "paymentsCount": 44,
+    "entriesCount": 110,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
-    "balanceDue": 32950
+    "balanceDue": 55190
   },
   "brickAdvance": {
     "advancePaid": 369000,
@@ -31,22 +31,22 @@
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 1355352,
-      "pct": 73.6,
+      "amount": 1333112,
+      "pct": 69.3,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
-      "amount": 317735,
-      "pct": 17.2,
+      "amount": 421378,
+      "pct": 21.9,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 9.2,
+      "pct": 8.8,
       "color": "#A78BFA"
     }
   ],
@@ -61,7 +61,7 @@
     },
     {
       "month": "Jul-2026",
-      "billed": 354540
+      "billed": 458183
     }
   ],
   "vendors": [
@@ -69,8 +69,8 @@
       "name": "Pappu Hardware",
       "type": "Hardware · Steel · Cement",
       "billed": 533520,
-      "paid": 533520,
-      "status": "paid",
+      "paid": 511280,
+      "status": "due",
       "tx": [
         [
           "11-May",
@@ -602,8 +602,8 @@
     {
       "name": "Daily Labour",
       "type": "Earth filling labour",
-      "billed": 51375,
-      "paid": 51375,
+      "billed": 99250,
+      "paid": 99250,
       "status": "paid",
       "tx": [
         [
@@ -625,6 +625,16 @@
           "23-Jun",
           "Kitchen area labour",
           2200
+        ],
+        [
+          "05-Jul",
+          "Mitti bharai additional labour",
+          25000
+        ],
+        [
+          "20-Jul",
+          "Mitti bharai additional labour",
+          22875
         ]
       ]
     },
@@ -655,8 +665,8 @@
     {
       "name": "Local Purchase",
       "type": "Site misc",
-      "billed": 6360,
-      "paid": 6360,
+      "billed": 62128,
+      "paid": 62128,
       "status": "paid",
       "tx": [
         [
@@ -683,6 +693,11 @@
           "17-Jul",
           "Iron wire delivery charges",
           100
+        ],
+        [
+          "20-Jul",
+          "Food and miscellaneous provisions",
+          55768
         ]
       ]
     },
@@ -1174,16 +1189,40 @@
       "md": "GPay"
     },
     {
-      "d": "21-Jul",
+      "d": "05-Jul",
       "m": "Jul-2026",
-      "by": "Avinash",
-      "to": "Pappu Hardware",
-      "a": 22240,
-      "ds": "Cement 60 bags + wire 2 bundles + transport + labour",
-      "md": "Cash"
+      "by": "Papa",
+      "to": "Daily Labour",
+      "a": 25000,
+      "ds": "Mitti bharai labour",
+      "md": "GPay"
+    },
+    {
+      "d": "20-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Daily Labour",
+      "a": 22875,
+      "ds": "Mitti bharai labour",
+      "md": "GPay"
+    },
+    {
+      "d": "20-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Local Purchase",
+      "a": 55768,
+      "ds": "Food / Miscellaneous provisions",
+      "md": "GPay"
     }
   ],
   "unpaid": [
+    {
+      "d": "21-Jul",
+      "to": "Pappu Hardware",
+      "a": 22240,
+      "ds": "Balance due"
+    },
     {
       "d": "18-Jul",
       "to": "Mukesh Yadav",
@@ -1311,15 +1350,15 @@
     {
       "name": "Labour",
       "color": "#EC4899",
-      "amount": 71415,
+      "amount": 119290,
       "subs": [
+        [
+          "Daily Labour-Mitti Bharai",
+          65475
+        ],
         [
           "Earth Filling Labour",
           33075
-        ],
-        [
-          "Daily Labour-Mitti Bharai",
-          17600
         ],
         [
           "Sand Movement",
@@ -1354,11 +1393,11 @@
     {
       "name": "Transport · Food · Misc",
       "color": "#8FA5C0",
-      "amount": 10010,
+      "amount": 65778,
       "subs": [
         [
           "Food/Ration",
-          3285
+          59053
         ],
         [
           "Temp Construction",
