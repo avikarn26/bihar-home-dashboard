@@ -1,18 +1,18 @@
 {
   "meta": {
-    "version": "v24",
+    "version": "v25",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "18-Jul-2026",
-    "day": 73,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹1,644,547"
+    "lastUpdated": "21-Jul-2026",
+    "day": 76,
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹1,649,547"
   },
   "summary": {
-    "totalPaid": 1814847,
-    "totalBilled": 1644547,
-    "paymentsCount": 40,
-    "entriesCount": 100,
+    "totalPaid": 1819847,
+    "totalBilled": 1649547,
+    "paymentsCount": 41,
+    "entriesCount": 101,
     "vendorsCount": 11,
     "vendorAdvance": 216000,
     "balanceDue": 32950
@@ -32,14 +32,14 @@
       "name": "Avinash",
       "sub": "Self GPay + Bank",
       "amount": 1333112,
-      "pct": 73.5,
+      "pct": 73.3,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
-      "amount": 312735,
-      "pct": 17.2,
+      "amount": 317735,
+      "pct": 17.5,
       "color": "#F2A93B"
     },
     {
@@ -61,7 +61,7 @@
     },
     {
       "month": "Jul-2026",
-      "billed": 327300
+      "billed": 332300
     }
   ],
   "vendors": [
@@ -326,8 +326,8 @@
     {
       "name": "Econ Builder",
       "type": "Engineering supervision",
-      "billed": 339000,
-      "paid": 339000,
+      "billed": 344000,
+      "paid": 344000,
       "status": "paid",
       "tx": [
         [
@@ -379,6 +379,11 @@
           "17-Jul",
           "Payment to Santosh for shuttering work",
           18000
+        ],
+        [
+          "21-Jul",
+          "Advance to Santosh for shuttering work",
+          5000
         ]
       ]
     },
@@ -1137,6 +1142,15 @@
       "a": 40000,
       "ds": "JCB + Mitti + Sand movement balance payment",
       "md": "Cash"
+    },
+    {
+      "d": "21-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 5000,
+      "ds": "Payment to Santosh — labour supervision",
+      "md": "GPay"
     }
   ],
   "unpaid": [
@@ -1225,7 +1239,7 @@
     {
       "name": "Professional Fees",
       "color": "#5B9DFF",
-      "amount": 339000,
+      "amount": 344000,
       "subs": [
         [
           "Engineering",
@@ -1237,7 +1251,7 @@
         ],
         [
           "Shuttering Labour",
-          18000
+          23000
         ],
         [
           "Engineer Visit Charge",
