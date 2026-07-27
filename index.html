@@ -372,22 +372,22 @@ body{
 <!-- ═══════════ EMBEDDED DATA (auto-generated from Excel — do not hand-edit) ═══════════ -->
 <script id="site-data" type="application/json">{
   "meta": {
-    "version": "v33",
+    "version": "v34",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
     "lastUpdated": "22-Jul-2026",
     "day": 77,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹1,864,680"
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹1,960,284"
   },
   "summary": {
-    "totalPaid": 1945730,
-    "totalBilled": 1864680,
-    "paymentsCount": 45,
-    "entriesCount": 111,
+    "totalPaid": 2041330,
+    "totalBilled": 1960284,
+    "paymentsCount": 47,
+    "entriesCount": 113,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
-    "balanceDue": 32950
+    "balanceDue": 32954
   },
   "brickAdvance": {
     "advancePaid": 369000,
@@ -403,22 +403,22 @@ body{
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 1355352,
-      "pct": 69.7,
+      "amount": 1445952,
+      "pct": 70.8,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
-      "amount": 421378,
-      "pct": 21.7,
+      "amount": 426378,
+      "pct": 20.9,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 8.7,
+      "pct": 8.3,
       "color": "#A78BFA"
     }
   ],
@@ -433,7 +433,7 @@ body{
     },
     {
       "month": "Jul-2026",
-      "billed": 547433
+      "billed": 643037
     }
   ],
   "vendors": [
@@ -827,9 +827,9 @@ body{
     {
       "name": "Concrete Supplier",
       "type": "Gitti / Concrete",
-      "billed": 161982,
-      "paid": 161982,
-      "status": "paid",
+      "billed": 257586,
+      "paid": 257582,
+      "status": "due",
       "tx": [
         [
           "15-May",
@@ -840,6 +840,16 @@ body{
           "23-May",
           "Crushed stone / Gitti - 37.64 Ton @ ₹2,550/ton",
           95982
+        ],
+        [
+          "21-Jul",
+          "Gitti/Concrete 41.48 MT @ ₹2,300/MT",
+          95404
+        ],
+        [
+          "21-Jul",
+          "Labour for gitti/concrete loading",
+          200
         ]
       ]
     },
@@ -1600,9 +1610,33 @@ body{
       "a": 22240,
       "ds": "Cement 60 bags + wire + transport + labour",
       "md": "Cash"
+    },
+    {
+      "d": "21-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Concrete Supplier",
+      "a": 5000,
+      "ds": "Gitti/Concrete 41.48 MT + labour",
+      "md": "GPay"
+    },
+    {
+      "d": "21-Jul",
+      "m": "Jul-2026",
+      "by": "Avinash",
+      "to": "Concrete Supplier",
+      "a": 90600,
+      "ds": "Gitti/Concrete 41.48 MT + labour",
+      "md": "Bank"
     }
   ],
   "unpaid": [
+    {
+      "d": "21-Jul",
+      "to": "Concrete Supplier",
+      "a": 4,
+      "ds": "Balance due"
+    },
     {
       "d": "18-Jul",
       "to": "Mukesh Yadav",
@@ -1614,8 +1648,12 @@ body{
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 812482,
+      "amount": 907886,
       "subs": [
+        [
+          "Concrete/Gitti",
+          264886
+        ],
         [
           "Bricks",
           255000
@@ -1623,10 +1661,6 @@ body{
         [
           "Sand",
           222500
-        ],
-        [
-          "Concrete/Gitti",
-          169482
         ],
         [
           "Cement-Ultratech Super",
@@ -1730,7 +1764,7 @@ body{
     {
       "name": "Labour",
       "color": "#EC4899",
-      "amount": 119290,
+      "amount": 119490,
       "subs": [
         [
           "Daily Labour-Mitti Bharai",
@@ -1753,12 +1787,12 @@ body{
           2200
         ],
         [
-          "Helper Labour",
-          1400
+          "Site Labour",
+          1490
         ],
         [
-          "Site Labour",
-          1290
+          "Helper Labour",
+          1400
         ],
         [
           "Skilled Labour",
@@ -1853,8 +1887,8 @@ body{
     },
     {
       "label": "Bricks Delivered",
-      "value": "19,500",
-      "unit": "13 tractors",
+      "value": "30,000",
+      "unit": "20 tractors",
       "icon": "🧱"
     }
   ]
