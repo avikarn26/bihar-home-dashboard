@@ -1,21 +1,21 @@
 {
   "meta": {
-    "version": "v38",
+    "version": "v39",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "31-Jul-2026",
-    "day": 86,
+    "lastUpdated": "02-Aug-2026",
+    "day": 88,
     "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,008,984"
   },
   "summary": {
-    "totalPaid": 2090034,
+    "totalPaid": 2122984,
     "totalBilled": 2008984,
-    "paymentsCount": 51,
+    "paymentsCount": 52,
     "entriesCount": 117,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
-    "balanceDue": 32950
+    "balanceDue": 0
   },
   "brickAdvance": {
     "advancePaid": 369000,
@@ -31,22 +31,22 @@
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 1452956,
-      "pct": 69.5,
+      "amount": 1485906,
+      "pct": 70.0,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
       "amount": 468078,
-      "pct": 22.4,
+      "pct": 22.0,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 8.1,
+      "pct": 8.0,
       "color": "#A78BFA"
     }
   ],
@@ -534,8 +534,8 @@
       "name": "Mukesh Yadav",
       "type": "JCB · Mitti · Movement",
       "billed": 166150,
-      "paid": 133200,
-      "status": "due",
+      "paid": 166150,
+      "status": "paid",
       "tx": [
         [
           "12-May",
@@ -1312,16 +1312,18 @@
       "a": 4000,
       "ds": "Santosh aara mil — payment received",
       "md": "Cash"
-    }
-  ],
-  "unpaid": [
+    },
     {
-      "d": "18-Jul",
+      "d": "02-Aug",
+      "m": "Aug-2026",
+      "by": "Avinash",
       "to": "Mukesh Yadav",
       "a": 32950,
-      "ds": "JCB + Mitti + Sand balance (212 trailers + 23.75 hrs JCB total)"
+      "ds": "JCB + Mitti + Sand movement — final settlement",
+      "md": "Cash"
     }
   ],
+  "unpaid": [],
   "categories": [
     {
       "name": "Building Materials",
