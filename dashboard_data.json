@@ -1,18 +1,18 @@
 {
   "meta": {
-    "version": "v39",
+    "version": "v40",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "02-Aug-2026",
-    "day": 88,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,008,984"
+    "lastUpdated": "07-Aug-2026",
+    "day": 93,
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,056,724"
   },
   "summary": {
-    "totalPaid": 2122984,
-    "totalBilled": 2008984,
-    "paymentsCount": 52,
-    "entriesCount": 117,
+    "totalPaid": 2170724,
+    "totalBilled": 2056724,
+    "paymentsCount": 53,
+    "entriesCount": 122,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
     "balanceDue": 0
@@ -31,22 +31,22 @@
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 1485906,
-      "pct": 70.0,
+      "amount": 1533646,
+      "pct": 70.7,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
       "amount": 468078,
-      "pct": 22.0,
+      "pct": 21.6,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 8.0,
+      "pct": 7.8,
       "color": "#A78BFA"
     }
   ],
@@ -62,14 +62,18 @@
     {
       "month": "Jul-2026",
       "billed": 691737
+    },
+    {
+      "month": "Aug-2026",
+      "billed": 47740
     }
   ],
   "vendors": [
     {
       "name": "Pappu Hardware",
       "type": "Hardware · Steel · Cement",
-      "billed": 540520,
-      "paid": 540520,
+      "billed": 588260,
+      "paid": 588260,
       "status": "paid",
       "tx": [
         [
@@ -306,6 +310,31 @@
           "22-Jul",
           "Labour for cement handling/loading",
           400
+        ],
+        [
+          "07-Aug",
+          "Ultratech Super cement 25 bags @ ₹350",
+          8750
+        ],
+        [
+          "07-Aug",
+          "10mm Tata Tiscon Rod 50 pcs @ ₹590 (4% disc)",
+          28320
+        ],
+        [
+          "07-Aug",
+          "6mm Tata Tiscon Rod 40 pcs @ ₹228",
+          9120
+        ],
+        [
+          "07-Aug",
+          "Tata soft wire 10 Kg @ ₹110",
+          1100
+        ],
+        [
+          "07-Aug",
+          "Labour for loading/handling",
+          450
         ]
       ]
     },
@@ -1321,6 +1350,15 @@
       "a": 32950,
       "ds": "JCB + Mitti + Sand movement — final settlement",
       "md": "Cash"
+    },
+    {
+      "d": "07-Aug",
+      "m": "Aug-2026",
+      "by": "Avinash",
+      "to": "Pappu Hardware",
+      "a": 47740,
+      "ds": "Cement + Tata Tiscon rods + wire + labour",
+      "md": "Cash"
     }
   ],
   "unpaid": [],
@@ -1328,7 +1366,7 @@
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 914486,
+      "amount": 923236,
       "subs": [
         [
           "Concrete/Gitti",
@@ -1348,7 +1386,7 @@
         ],
         [
           "Cement",
-          65400
+          74150
         ],
         [
           "Dr Fixit",
@@ -1379,7 +1417,7 @@
     {
       "name": "Steel / Iron",
       "color": "#A8B4C4",
-      "amount": 372180,
+      "amount": 410720,
       "subs": [
         [
           "Tiscon 12mm",
@@ -1387,11 +1425,11 @@
         ],
         [
           "Tiscon 10mm",
-          123264
+          151584
         ],
         [
           "Tiscon 6mm",
-          53220
+          62340
         ],
         [
           "Tiscon 8mm",
@@ -1399,7 +1437,7 @@
         ],
         [
           "Wire",
-          1200
+          2300
         ]
       ]
     },
@@ -1444,7 +1482,7 @@
     {
       "name": "Labour",
       "color": "#EC4899",
-      "amount": 119890,
+      "amount": 120340,
       "subs": [
         [
           "Daily Labour-Mitti Bharai",
@@ -1463,12 +1501,12 @@
           4000
         ],
         [
-          "Daily Labour-Kitchen",
-          2200
+          "Site Labour",
+          2340
         ],
         [
-          "Site Labour",
-          1890
+          "Daily Labour-Kitchen",
+          2200
         ],
         [
           "Helper Labour",
