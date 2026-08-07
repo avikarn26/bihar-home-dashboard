@@ -326,7 +326,7 @@ body{
       <input class="search" id="pq" type="search" placeholder="Search vendor, item or amount…" aria-label="Search payments"/>
       <div class="chips" id="pChips">
         <button class="chip on" data-pf="all">All</button>
-        <button class="chip" data-pf="self">Avinash</button>
+        <button class="chip" data-pf="Avinash">Avinash</button>
         <button class="chip" data-pf="Papa">Papa</button>
         <button class="chip" data-pf="Chota Bhai">Chota Bhai</button>
       </div>
@@ -2159,7 +2159,7 @@ function payRow(p){
 function renderPays(){
   const q = pq.toLowerCase();
   const f = D.payments.filter(p =>
-    (pf==='all' || (pf==='self' ? p.by.startsWith('Self') : p.by===pf)) &&
+    (pf==='all' || p.by===pf) &&
     (!q || p.to.toLowerCase().includes(q) || p.ds.toLowerCase().includes(q) || String(p.a).includes(q)));
   const months = [...new Set(D.payments.map(p=>p.m))];
   let html = '';
