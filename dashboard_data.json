@@ -1,18 +1,18 @@
 {
   "meta": {
-    "version": "v40",
+    "version": "v42",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "07-Aug-2026",
-    "day": 93,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,056,724"
+    "lastUpdated": "09-Aug-2026",
+    "day": 95,
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,094,624"
   },
   "summary": {
-    "totalPaid": 2170724,
-    "totalBilled": 2056724,
-    "paymentsCount": 53,
-    "entriesCount": 122,
+    "totalPaid": 2208624,
+    "totalBilled": 2094624,
+    "paymentsCount": 54,
+    "entriesCount": 127,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
     "balanceDue": 0
@@ -32,21 +32,21 @@
       "name": "Avinash",
       "sub": "Self GPay + Bank",
       "amount": 1533646,
-      "pct": 70.7,
+      "pct": 69.4,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
-      "amount": 468078,
-      "pct": 21.6,
+      "amount": 505978,
+      "pct": 22.9,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 7.8,
+      "pct": 7.7,
       "color": "#A78BFA"
     }
   ],
@@ -65,7 +65,7 @@
     },
     {
       "month": "Aug-2026",
-      "billed": 47740
+      "billed": 85640
     }
   ],
   "vendors": [
@@ -430,8 +430,8 @@
     {
       "name": "Econ Builder",
       "type": "Engineering supervision",
-      "billed": 385700,
-      "paid": 385700,
+      "billed": 423600,
+      "paid": 423600,
       "status": "paid",
       "tx": [
         [
@@ -498,6 +498,31 @@
           "31-Jul",
           "Payment to Santosh — aara mil (received)",
           4000
+        ],
+        [
+          "09-Aug",
+          "Darbhanga labour payment",
+          1200
+        ],
+        [
+          "09-Aug",
+          "Chotu lohabala",
+          5000
+        ],
+        [
+          "09-Aug",
+          "Grilling",
+          1000
+        ],
+        [
+          "09-Aug",
+          "4mm ply",
+          700
+        ],
+        [
+          "09-Aug",
+          "Bayju",
+          30000
         ]
       ]
     },
@@ -1359,6 +1384,15 @@
       "a": 47740,
       "ds": "Cement + Tata Tiscon rods + wire + labour",
       "md": "Cash"
+    },
+    {
+      "d": "09-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 37900,
+      "ds": "Darbhanga labour, chotu lohabala, grilling, 4mm ply, Bayju",
+      "md": "Cash"
     }
   ],
   "unpaid": [],
@@ -1366,7 +1400,7 @@
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 923236,
+      "amount": 923936,
       "subs": [
         [
           "Concrete/Gitti",
@@ -1411,13 +1445,17 @@
         [
           "Wire",
           1200
+        ],
+        [
+          "Plywood/Shuttering",
+          700
         ]
       ]
     },
     {
       "name": "Steel / Iron",
       "color": "#A8B4C4",
-      "amount": 410720,
+      "amount": 416720,
       "subs": [
         [
           "Tiscon 12mm",
@@ -1434,6 +1472,10 @@
         [
           "Tiscon 8mm",
           20160
+        ],
+        [
+          "Fabrication",
+          6000
         ],
         [
           "Wire",
@@ -1482,11 +1524,15 @@
     {
       "name": "Labour",
       "color": "#EC4899",
-      "amount": 120340,
+      "amount": 151540,
       "subs": [
         [
           "Daily Labour-Mitti Bharai",
           65475
+        ],
+        [
+          "Site Labour",
+          33540
         ],
         [
           "Earth Filling Labour",
@@ -1499,10 +1545,6 @@
         [
           "Gitti Movement",
           4000
-        ],
-        [
-          "Site Labour",
-          2340
         ],
         [
           "Daily Labour-Kitchen",
