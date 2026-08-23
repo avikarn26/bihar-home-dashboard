@@ -1,31 +1,31 @@
 {
   "meta": {
-    "version": "v42",
+    "version": "v44",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "09-Aug-2026",
-    "day": 95,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,094,624"
+    "lastUpdated": "22-Aug-2026",
+    "day": 108,
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,183,874"
   },
   "summary": {
     "totalPaid": 2208624,
-    "totalBilled": 2094624,
+    "totalBilled": 2183874,
     "paymentsCount": 54,
-    "entriesCount": 127,
+    "entriesCount": 128,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
     "balanceDue": 0
   },
   "brickAdvance": {
     "advancePaid": 369000,
-    "deliveredValue": 255000,
-    "creditLeft": 114000,
-    "bricksDelivered": 30000,
-    "tractorsDelivered": 20,
+    "deliveredValue": 344250,
+    "creditLeft": 24750,
+    "bricksDelivered": 40500,
+    "tractorsDelivered": 27,
     "tractorCapacity": 29,
     "ratePerBrick": 8.5,
-    "burnPct": 45
+    "burnPct": 93
   },
   "payers": [
     {
@@ -65,7 +65,7 @@
     },
     {
       "month": "Aug-2026",
-      "billed": 85640
+      "billed": 174890
     }
   ],
   "vendors": [
@@ -341,7 +341,7 @@
     {
       "name": "Brick Company",
       "type": "Bricks · prepaid advance",
-      "billed": 255000,
+      "billed": 344250,
       "paid": 369000,
       "status": "advance",
       "tx": [
@@ -423,6 +423,11 @@
         [
           "22-Jul",
           "Brick delivery — tractor 14-20 (10,500 bricks @ ₹8.5)",
+          89250
+        ],
+        [
+          "22-Aug",
+          "Brick delivery — tractor 21-27 (10,500 bricks @ ₹8.5)",
           89250
         ]
       ]
@@ -1400,15 +1405,15 @@
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 923936,
+      "amount": 1013186,
       "subs": [
+        [
+          "Bricks",
+          344250
+        ],
         [
           "Concrete/Gitti",
           264886
-        ],
-        [
-          "Bricks",
-          255000
         ],
         [
           "Sand",
@@ -1649,8 +1654,8 @@
     },
     {
       "label": "Bricks Delivered",
-      "value": "30,000",
-      "unit": "20 tractors",
+      "value": "40,500",
+      "unit": "27 tractors",
       "icon": "🧱"
     }
   ]
