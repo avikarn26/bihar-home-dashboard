@@ -331,6 +331,7 @@ body{
         <button class="chip" data-pf="Chota Bhai">Chota Bhai</button>
       </div>
       <div id="unpaidWrap"></div>
+      <div id="pTotal"></div>
       <div id="pList"></div>
     </section>
 
@@ -2227,15 +2228,25 @@ function payRow(p){
     <span class="tag" style="background:var(--ink2);color:var(--dim)">${esc(p.md)}</span>
   </div></div>`;
 }
+const MONTH_IDX = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+function monthKey(m){ const [mo,yr]=m.split('-'); return parseInt(yr)*12+MONTH_IDX[mo]; }
 function renderPays(){
   const q = pq.toLowerCase();
   const f = D.payments.filter(p =>
     (pf==='all' || p.by===pf) &&
     (!q || p.to.toLowerCase().includes(q) || p.ds.toLowerCase().includes(q) || String(p.a).includes(q)));
-  const months = [...new Set(D.payments.map(p=>p.m))];
+  const grandTotal = f.reduce((s,p)=>s+p.a,0);
+  document.getElementById('pTotal').innerHTML = f.length ?
+    `<div class="mhead" style="border-radius:10px;background:var(--ink2);margin-bottom:8px"><div class="r1">
+      <span class="mn">${pf==='all'?'All Payments':esc(pf)}</span>
+      <span class="mt num" style="font-weight:800">${fmtIN(grandTotal)} · ${f.length} pay</span></div></div>` : '';
+  const months = [...new Set(D.payments.map(p=>p.m))].sort((a,b)=>monthKey(b)-monthKey(a));
   let html = '';
   months.forEach(m=>{
-    const mp = f.filter(p=>p.m===m);
+    const mp = f.filter(p=>p.m===m).sort((a,b)=>{
+      const [da,ma]=a.d.split('-'), [db,mb]=b.d.split('-');
+      return (parseInt(db)-parseInt(da)) || 0;
+    });
     if(!mp.length) return;
     const tot = mp.reduce((s,p)=>s+p.a,0);
     const byPayer = {};
