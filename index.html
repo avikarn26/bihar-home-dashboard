@@ -293,6 +293,12 @@ body{
         </div>
       </div>
 
+      <div class="sec" id="fundingSec" style="display:none">
+        <div class="st"><h2>Unit Funding</h2><span class="hint">B-Unit / C-Unit split</span></div>
+        <div class="card" id="unitSplitCard"></div>
+        <div id="funderCards"></div>
+      </div>
+
       <div class="sec">
         <div class="st"><h2>Monthly Spend</h2><span class="hint">billed value</span></div>
         <div class="card" id="monthly"></div>
@@ -373,7 +379,7 @@ body{
 <!-- ═══════════ EMBEDDED DATA (auto-generated from Excel — do not hand-edit) ═══════════ -->
 <script id="site-data" type="application/json">{
   "meta": {
-    "version": "v45",
+    "version": "v47",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
@@ -2055,7 +2061,25 @@ body{
       "unit": "27 tractors",
       "icon": "🧱"
     }
-  ]
+  ],
+  "unitFunding": {
+    "split": {
+      "bUnit": 1100487,
+      "cUnit": 1100487
+    },
+    "funders": [
+      {
+        "funder": "Deepu",
+        "unit": "C",
+        "commitment": 1500000,
+        "threshold": 1000000,
+        "unitSpend": 1100487,
+        "utilized": 100487,
+        "remaining": 1399513,
+        "notes": "Avinash funds first ₹10L of C-Unit spend; Deepu funds the next ₹15L of C-Unit spend beyond that"
+      }
+    ]
+  }
 }</script>
 
 <script>
@@ -2144,6 +2168,35 @@ function renderOverview(){
   document.getElementById('payerRows').innerHTML = D.payers.map(p=>`
     <div class="lg"><span class="nm"><i class="dot" style="background:${p.color}"></i>${esc(p.name)} <small>${esc(p.sub)}</small></span>
     <span><span class="amt num" style="color:${p.color}">${fmtIN(p.amount)}</span><span class="pc">${p.pct}%</span></span></div>`).join('');
+
+  /* unit funding */
+  const uf = D.unitFunding;
+  const fSec = document.getElementById('fundingSec');
+  if(uf && uf.funders && uf.funders.length){
+    fSec.style.display = '';
+    const {bUnit, cUnit} = uf.split;
+    const ut = bUnit + cUnit;
+    document.getElementById('unitSplitCard').innerHTML = `
+      <div class="split"><div style="flex:${bUnit};background:#818CF8"></div><div style="flex:${cUnit};background:#F59E0B"></div></div>
+      <div class="lg"><span class="nm"><i class="dot" style="background:#818CF8"></i>B-Unit</span>
+        <span><span class="amt num" style="color:#818CF8">${fmtIN(bUnit)}</span><span class="pc">${(bUnit/ut*100).toFixed(0)}%</span></span></div>
+      <div class="lg"><span class="nm"><i class="dot" style="background:#F59E0B"></i>C-Unit</span>
+        <span><span class="amt num" style="color:#F59E0B">${fmtIN(cUnit)}</span><span class="pc">${(cUnit/ut*100).toFixed(0)}%</span></span></div>
+      <div style="font-size:10.5px;color:var(--dim);margin-top:8px">Spend is split 50/50 between units unless a transaction is tagged to one.</div>`;
+    document.getElementById('funderCards').innerHTML = uf.funders.map(f=>{
+      const pct = Math.min(100, f.utilized/f.commitment*100);
+      return `<div class="card" style="margin-top:10px">
+        <div class="r1"><span class="mn">${esc(f.funder)} — ${esc(f.unit)}-Unit fund</span>
+          <span class="ma num">${fmtIN(f.commitment)} committed</span></div>
+        <div class="mbar"><div style="width:${pct.toFixed(1)}%;background:#F59E0B"></div></div>
+        <div class="lg" style="margin-top:6px"><span class="nm">Used</span><span class="amt num">${fmtIN(f.utilized)}</span></div>
+        <div class="lg"><span class="nm">Remaining</span><span class="amt num" style="color:var(--green)">${fmtIN(f.remaining)}</span></div>
+        <div style="font-size:10.5px;color:var(--dim);margin-top:6px">${esc(f.notes)}</div>
+      </div>`;
+    }).join('');
+  } else {
+    fSec.style.display = 'none';
+  }
 
   /* monthly */
   const mx = Math.max(...D.monthly.map(m=>m.billed));

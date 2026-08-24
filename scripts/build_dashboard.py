@@ -86,6 +86,25 @@ def read_transactions(wb):
             "vendor": str(vendor).strip(),
             "amount": round(amt),
             "qty": ws.cell(r, 9).value if isinstance(ws.cell(r, 9).value, (int, float)) else 0,
+            "unit": str(ws.cell(r, 18).value or "").strip().upper(),
+        })
+    return rows
+
+
+def read_unit_funding(wb):
+    ws = wb["Unit Funding"]
+    rows = []
+    for r in range(5, ws.max_row + 1):
+        name = ws.cell(r, 1).value
+        commit = ws.cell(r, 3).value
+        if not name or not isinstance(commit, (int, float)):
+            continue
+        rows.append({
+            "funder": str(name).strip(),
+            "unit": str(ws.cell(r, 2).value or "").strip().upper(),
+            "commitment": round(float(commit)),
+            "threshold": round(float(ws.cell(r, 4).value or 0)),
+            "notes": str(ws.cell(r, 5).value or "").strip(),
         })
     return rows
 
@@ -109,7 +128,7 @@ def read_payments(wb):
     return rows
 
 
-def build(d_old, txs, pays):
+def build(d_old, txs, pays, unit_funding):
     d = json.loads(json.dumps(d_old))  # deep copy; carry over display-only data
 
     total_billed = sum(t["amount"] for t in txs)
@@ -241,6 +260,35 @@ def build(d_old, txs, pays):
         d["brickAdvance"]["deliveredValue"] = brick["billed"]
         d["brickAdvance"]["creditLeft"] = brick["paid"] - brick["billed"]
 
+    # --- unit split (B/C) & external funder utilization ---
+    # explicit tag ("B" or "C") counts fully to that unit; blank/other = joint, split 50/50
+    b_spend, c_spend = 0.0, 0.0
+    for t in txs:
+        if t["unit"] == "B":
+            b_spend += t["amount"]
+        elif t["unit"] == "C":
+            c_spend += t["amount"]
+        else:
+            b_spend += t["amount"] / 2
+            c_spend += t["amount"] / 2
+    unit_split = {"bUnit": round(b_spend), "cUnit": round(c_spend)}
+
+    funders = []
+    for f in unit_funding:
+        unit_spend = unit_split["cUnit"] if f["unit"] == "C" else unit_split["bUnit"] if f["unit"] == "B" else 0
+        utilized = max(0, min(f["commitment"], unit_spend - f["threshold"]))
+        funders.append({
+            "funder": f["funder"],
+            "unit": f["unit"],
+            "commitment": f["commitment"],
+            "threshold": f["threshold"],
+            "unitSpend": round(unit_spend),
+            "utilized": round(utilized),
+            "remaining": round(f["commitment"] - utilized),
+            "notes": f["notes"],
+        })
+    d["unitFunding"] = {"split": unit_split, "funders": funders}
+
     # --- work quantity stats (site progress tiles) ---
     def qty_sum(sub):
         return sum(t["qty"] for t in txs if t["sub"] == sub)
@@ -315,7 +363,8 @@ def main():
     wb = load_workbook(XLSX, data_only=True)
     txs = read_transactions(wb)
     pays = read_payments(wb)
-    d = build(d_old, txs, pays)
+    unit_funding = read_unit_funding(wb)
+    d = build(d_old, txs, pays, unit_funding)
     errs = reconcile(d)
     s = d["summary"]
     print(f"billed ₹{s['totalBilled']:,} | paid ₹{s['totalPaid']:,} | due ₹{s['balanceDue']:,} "
