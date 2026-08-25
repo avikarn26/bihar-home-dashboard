@@ -25,6 +25,21 @@ JSON_PATH = ROOT / "dashboard_data.json"
 HTML_PATH = ROOT / "index.html"
 
 # Excel category -> dashboard category
+# Excel "Unit" column (col 10) -> normalized display unit for Breakdown quantity tags
+UNIT_NORMALIZE = {
+    "Bag": "bags", "Bags": "bags",
+    "Nos": "pcs", "pcs": "pcs", "Pcs": "pcs",
+    "L": "litres", "Litre": "litres", "Litres": "litres",
+    "Kg": "kg",
+    "CFT": "CFT",
+    "Ton": "MT", "MT": "MT", "Tonnes": "MT",
+    "Trailer": "trailers", "Trailor": "trailers",
+    "Kg/Bags": "bags",
+    "Hour": "hours", "Hrs": "hours",
+    "Trips": "trips", "Trip": "trips",
+}
+EXCLUDE_ITEM_UNITS = {"Lumpsum", "Service", "Lot", "Advance", ""}
+
 CATEGORY_MAP = {
     "Building Materials": "Building Materials",
     "Steel/Iron": "Steel / Iron",
@@ -86,6 +101,7 @@ def read_transactions(wb):
             "vendor": str(vendor).strip(),
             "amount": round(amt),
             "qty": ws.cell(r, 9).value if isinstance(ws.cell(r, 9).value, (int, float)) else 0,
+            "itemUnit": str(ws.cell(r, 10).value or "").strip(),
             "unit": str(ws.cell(r, 18).value or "").strip().upper(),
         })
     return rows
@@ -178,10 +194,16 @@ def build(d_old, txs, pays, unit_funding):
     # --- categories (with subs from Excel sub-category) ---
     cat_amounts = defaultdict(int)
     sub_amounts = defaultdict(lambda: defaultdict(int))
+    sub_qty = defaultdict(lambda: defaultdict(float))
+    sub_units_seen = defaultdict(lambda: defaultdict(set))
     for t in txs:
         cat = CATEGORY_MAP.get(t["category"], t["category"])
         cat_amounts[cat] += t["amount"]
         sub_amounts[cat][t["sub"]] += t["amount"]
+        iu = UNIT_NORMALIZE.get(t["itemUnit"], t["itemUnit"])
+        if iu and iu not in EXCLUDE_ITEM_UNITS and t["qty"]:
+            sub_qty[cat][t["sub"]] += t["qty"]
+            sub_units_seen[cat][t["sub"]].add(iu)
     old_cats = {c["name"]: c for c in d_old["categories"]}
     cats = []
     ordered_cats = [n for n in old_cats if n in cat_amounts] + \
@@ -189,11 +211,20 @@ def build(d_old, txs, pays, unit_funding):
     for name in ordered_cats:
         old = old_cats.get(name, {})
         subs = sorted(sub_amounts[name].items(), key=lambda x: -x[1])
+        sub_rows = []
+        for s, a in subs:
+            units = sub_units_seen[name][s]
+            if len(units) == 1:
+                qty = sub_qty[name][s]
+                qty_str = f"{qty:g}" if qty % 1 else f"{int(qty):,}"
+                sub_rows.append([s, a, f"{qty_str} {next(iter(units))}"])
+            else:
+                sub_rows.append([s, a])
         cats.append({
             "name": name,
             "color": old.get("color", "#8884d8"),
             "amount": cat_amounts[name],
-            "subs": [[s, a] for s, a in subs],
+            "subs": sub_rows,
         })
     d["categories"] = cats
 
@@ -334,7 +365,7 @@ def reconcile(d):
         if got != want:
             errs.append(f"{name}: {got:,} != {want:,}")
     for c in d["categories"]:
-        ss = sum(a for _, a in c["subs"])
+        ss = sum(row[1] for row in c["subs"])
         if ss != c["amount"]:
             errs.append(f"category '{c['name']}' subs {ss:,} != {c['amount']:,}")
     for v in d["vendors"]:

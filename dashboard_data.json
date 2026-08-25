@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "v50",
+    "version": "v54",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
@@ -1438,7 +1438,8 @@
       "subs": [
         [
           "Bricks",
-          369750
+          369750,
+          "43,500 pcs"
         ],
         [
           "Concrete/Gitti",
@@ -1446,35 +1447,43 @@
         ],
         [
           "Sand",
-          222500
+          222500,
+          "3,718 CFT"
         ],
         [
           "Cement",
-          180750
+          180750,
+          "515 bags"
         ],
         [
           "Dr Fixit",
-          5400
+          5400,
+          "22 litres"
         ],
         [
           "Binding Wire",
-          5000
+          5000,
+          "30 kg"
         ],
         [
           "Cover Block",
-          2100
+          2100,
+          "6 pcs"
         ],
         [
           "Nails",
-          1600
+          1600,
+          "1 bags"
         ],
         [
           "Chemical",
-          1400
+          1400,
+          "10 litres"
         ],
         [
           "Wire",
-          1200
+          1200,
+          "2 kg"
         ],
         [
           "Plywood/Shuttering",
@@ -1489,19 +1498,23 @@
       "subs": [
         [
           "Tiscon 12mm",
-          174336
+          174336,
+          "200 pcs"
         ],
         [
           "Tiscon 10mm",
-          151584
+          151584,
+          "250 pcs"
         ],
         [
           "Tiscon 6mm",
-          62340
+          62340,
+          "260 pcs"
         ],
         [
           "Tiscon 8mm",
-          20160
+          20160,
+          "50 pcs"
         ],
         [
           "Fabrication",
@@ -1547,7 +1560,8 @@
         ],
         [
           "JCB Work",
-          23750
+          23750,
+          "23.75 hours"
         ]
       ]
     },
@@ -1558,7 +1572,8 @@
       "subs": [
         [
           "Daily Labour-Mitti Bharai",
-          65475
+          65475,
+          "46 Labour"
         ],
         [
           "Site Labour",
@@ -1566,7 +1581,8 @@
         ],
         [
           "Earth Filling Labour",
-          33075
+          33075,
+          "94.5 pcs"
         ],
         [
           "Sand Movement",
@@ -1574,7 +1590,8 @@
         ],
         [
           "Gitti Movement",
-          4000
+          4000,
+          "20 pcs"
         ],
         [
           "Daily Labour-Kitchen",
@@ -1605,7 +1622,8 @@
         ],
         [
           "Temp Construction",
-          2700
+          2700,
+          "1 pcs"
         ],
         [
           "Material Transport",
@@ -1621,11 +1639,13 @@
         ],
         [
           "Transport",
-          600
+          600,
+          "1 trips"
         ],
         [
           "Truck/Tempo Freight",
-          250
+          250,
+          "1 trips"
         ],
         [
           "Delivery",
