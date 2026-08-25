@@ -1,28 +1,28 @@
 {
   "meta": {
-    "version": "v47",
+    "version": "v48",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
     "lastUpdated": "24-Aug-2026",
     "day": 110,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,200,974"
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,226,474"
   },
   "summary": {
     "totalPaid": 2225724,
-    "totalBilled": 2200974,
+    "totalBilled": 2226474,
     "paymentsCount": 55,
-    "entriesCount": 131,
+    "entriesCount": 132,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
     "balanceDue": 0
   },
   "brickAdvance": {
     "advancePaid": 369000,
-    "deliveredValue": 344250,
-    "creditLeft": 24750,
-    "bricksDelivered": 40500,
-    "tractorsDelivered": 27,
+    "deliveredValue": 369750,
+    "creditLeft": -750,
+    "bricksDelivered": 43500,
+    "tractorsDelivered": 29,
     "tractorCapacity": 29,
     "ratePerBrick": 8.5,
     "burnPct": 93
@@ -65,7 +65,7 @@
     },
     {
       "month": "Aug-2026",
-      "billed": 191990
+      "billed": 217490
     }
   ],
   "vendors": [
@@ -356,7 +356,7 @@
     {
       "name": "Brick Company",
       "type": "Bricks · prepaid advance",
-      "billed": 344250,
+      "billed": 369750,
       "paid": 369000,
       "status": "advance",
       "tx": [
@@ -444,6 +444,11 @@
           "22-Aug",
           "Brick delivery — tractor 21-27 (10,500 bricks @ ₹8.5)",
           89250
+        ],
+        [
+          "23-Aug",
+          "Brick delivery — tractor 28-29 (3,000 bricks @ ₹8.5)",
+          25500
         ]
       ]
     },
@@ -1429,11 +1434,11 @@
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 1029786,
+      "amount": 1055286,
       "subs": [
         [
           "Bricks",
-          344250
+          369750
         ],
         [
           "Concrete/Gitti",
@@ -1678,15 +1683,15 @@
     },
     {
       "label": "Bricks Delivered",
-      "value": "40,500",
-      "unit": "27 tractors",
+      "value": "43,500",
+      "unit": "29 tractors",
       "icon": "🧱"
     }
   ],
   "unitFunding": {
     "split": {
-      "bUnit": 1100487,
-      "cUnit": 1100487
+      "bUnit": 1113237,
+      "cUnit": 1113237
     },
     "funders": [
       {
@@ -1694,9 +1699,9 @@
         "unit": "C",
         "commitment": 1500000,
         "threshold": 1000000,
-        "unitSpend": 1100487,
-        "utilized": 100487,
-        "remaining": 1399513,
+        "unitSpend": 1113237,
+        "utilized": 113237,
+        "remaining": 1386763,
         "notes": "Avinash funds first ₹10L of C-Unit spend; Deepu funds the next ₹15L of C-Unit spend beyond that"
       }
     ]
