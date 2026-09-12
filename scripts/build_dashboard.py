@@ -358,7 +358,8 @@ def reconcile(d):
         ("payer sum", sum(p["amount"] for p in d["payers"]), tp),
         ("payments list sum", sum(p["a"] for p in d["payments"]), tp),
         ("unpaid sum", sum(u["a"] for u in d["unpaid"]), bd),
-        ("gap", tp - tb, d["brickAdvance"]["creditLeft"] - bd),
+        ("gap", tp - tb, sum(max(0, v["paid"] - v["billed"]) for v in d["vendors"]) - bd -
+         next((max(0, v["billed"] - v["paid"]) for v in d["vendors"] if v["name"] == BRICK_VENDOR), 0)),
         ("vendor paid sum", sum(v["paid"] for v in d["vendors"]), tp),
     ]
     for name, got, want in checks:
