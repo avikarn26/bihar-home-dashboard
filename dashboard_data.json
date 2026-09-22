@@ -1,18 +1,18 @@
 {
   "meta": {
-    "version": "v57",
+    "version": "v58",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "12-Sep-2026",
-    "day": 129,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,338,684"
+    "lastUpdated": "16-Sep-2026",
+    "day": 133,
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹2,427,174"
   },
   "summary": {
-    "totalPaid": 2337934,
-    "totalBilled": 2338684,
-    "paymentsCount": 57,
-    "entriesCount": 136,
+    "totalPaid": 2435334,
+    "totalBilled": 2427174,
+    "paymentsCount": 94,
+    "entriesCount": 169,
     "vendorsCount": 10,
     "vendorAdvance": 216000,
     "balanceDue": 0
@@ -32,32 +32,32 @@
       "name": "Avinash",
       "sub": "Self GPay + Bank",
       "amount": 1662956,
-      "pct": 71.1,
+      "pct": 68.3,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
-      "amount": 505978,
-      "pct": 21.6,
+      "amount": 603378,
+      "pct": 24.8,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 7.2,
+      "pct": 6.9,
       "color": "#A78BFA"
     }
   ],
   "monthly": [
     {
       "month": "May-2026",
-      "billed": 829592
+      "billed": 804682
     },
     {
       "month": "Jun-2026",
-      "billed": 487655
+      "billed": 498255
     },
     {
       "month": "Jul-2026",
@@ -65,11 +65,11 @@
     },
     {
       "month": "Aug-2026",
-      "billed": 217490
+      "billed": 238390
     },
     {
       "month": "Sep-2026",
-      "billed": 112210
+      "billed": 194110
     }
   ],
   "vendors": [
@@ -474,20 +474,10 @@
     {
       "name": "Econ Builder",
       "type": "Engineering supervision",
-      "billed": 523600,
-      "paid": 523600,
+      "billed": 621000,
+      "paid": 621000,
       "status": "paid",
       "tx": [
-        [
-          "07-May",
-          "Advance to Engineer",
-          5000
-        ],
-        [
-          "15-May",
-          "Layout mapping / Naksha by Econ Builder",
-          11000
-        ],
         [
           "16-May",
           "Engineer advance to Econ Builder (construction supervision)",
@@ -499,19 +489,9 @@
           50000
         ],
         [
-          "25-May",
-          "Engineer payment to Econ Builder",
-          10000
-        ],
-        [
           "01-Jun",
           "Engineer payment to Econ Builder",
           100000
-        ],
-        [
-          "22-Jun",
-          "Engineer supervision fee — Jun payment",
-          5000
         ],
         [
           "05-Jul",
@@ -519,59 +499,244 @@
           75000
         ],
         [
-          "17-Jul",
-          "Engineer supervision fee — iron wiring works",
-          15000
-        ],
-        [
-          "17-Jul",
-          "Payment to Santosh for shuttering work",
-          18000
-        ],
-        [
-          "21-Jul",
-          "Advance to Santosh for shuttering work",
-          5000
-        ],
-        [
-          "21-Jul",
-          "Engineer supervision and site coordination",
-          37700
-        ],
-        [
-          "31-Jul",
-          "Payment to Santosh — aara mil (received)",
-          4000
-        ],
-        [
-          "09-Aug",
-          "Darbhanga labour payment",
-          1200
-        ],
-        [
-          "09-Aug",
-          "Chotu lohabala",
-          5000
-        ],
-        [
-          "09-Aug",
-          "Grilling",
-          1000
-        ],
-        [
-          "09-Aug",
-          "4mm ply",
-          700
-        ],
-        [
-          "09-Aug",
-          "Bayju",
-          30000
-        ],
-        [
           "12-Sep",
           "Construction work done — general site supervision & labour (Sep)",
           100000
+        ],
+        [
+          "25-May",
+          "Mixer machine — Equipment (Papa notebook)",
+          10000
+        ],
+        [
+          "17-Jun",
+          "Chhotu Lohawala — Steel/Iron (Loha) (Papa notebook)",
+          5000
+        ],
+        [
+          "20-Jun",
+          "Tank bala — Water Tank/Materials (Papa notebook)",
+          10000
+        ],
+        [
+          "27-Jun",
+          "Labour — Labour (Papa notebook)",
+          500
+        ],
+        [
+          "30-Jun",
+          "Santosh — Labour/Supervisor (Papa notebook)",
+          100
+        ],
+        [
+          "17-Jul",
+          "Chhotu Lohawala — Steel/Iron (Loha) (Papa notebook)",
+          15000
+        ],
+        [
+          "18-Jul",
+          "Santosh — Labour/Payment (Papa notebook)",
+          18000
+        ],
+        [
+          "20-Jul",
+          "Santosh (Chhotu) — Steel/Iron (Chhotu) (Papa notebook)",
+          5000
+        ],
+        [
+          "25-Jul",
+          "Santosh (Pintu) — Labour/Advance (Papa notebook)",
+          200
+        ],
+        [
+          "25-Jul",
+          "Santosh (Pintu) — Labour/Advance (Papa notebook)",
+          100
+        ],
+        [
+          "26-Jul",
+          "Santosh (Pintu) — Labour/Advance (Papa notebook)",
+          200
+        ],
+        [
+          "26-Jul",
+          "Santosh (Baiju) — Labour/Baiju (Papa notebook)",
+          500
+        ],
+        [
+          "28-Jul",
+          "Santosh (Baiju) — Labour/Baiju (Papa notebook)",
+          30000
+        ],
+        [
+          "28-Jul",
+          "Santosh (Pintu) — Labour/Pintu (Papa notebook)",
+          500
+        ],
+        [
+          "28-Jul",
+          "Santosh (Labor payment) — Labour Payment (Papa notebook)",
+          6200
+        ],
+        [
+          "31-Jul",
+          "Santosh — Labour/Payment (Papa notebook)",
+          4000
+        ],
+        [
+          "06-Aug",
+          "Santosh (Pintu) — Labour (Papa notebook)",
+          500
+        ],
+        [
+          "06-Aug",
+          "Santosh (Pintu) — Labour (Papa notebook)",
+          100
+        ],
+        [
+          "06-Aug",
+          "Santosh (Pintu) — Labour (Papa notebook)",
+          500
+        ],
+        [
+          "07-Aug",
+          "Santosh (Chhotu) — Steel/Iron (Chhotu) (Papa notebook)",
+          5000
+        ],
+        [
+          "07-Aug",
+          "Petrol — Fuel/Site Expense (Papa notebook)",
+          100
+        ],
+        [
+          "07-Aug",
+          "4mm ply — Formwork/Material (Papa notebook)",
+          700
+        ],
+        [
+          "08-Aug",
+          "Grilling — Fabrication/Grills (Papa notebook)",
+          1000
+        ],
+        [
+          "08-Aug",
+          "Labour — Labour (Papa notebook)",
+          3400
+        ],
+        [
+          "09-Aug",
+          "Baiju — Contractor/Labour (Papa notebook)",
+          15000
+        ],
+        [
+          "12-Aug",
+          "Baiju — Contractor/Labour (Papa notebook)",
+          15000
+        ],
+        [
+          "14-Aug",
+          "Paswan — Labour (Papa notebook)",
+          500
+        ],
+        [
+          "18-Aug",
+          "Mukesh Kr — Site Staff/Material (Papa notebook)",
+          3300
+        ],
+        [
+          "22-Aug",
+          "Paswan — Labour (Papa notebook)",
+          1000
+        ],
+        [
+          "22-Aug",
+          "Lohawala — Steel/Iron (Loha) (Papa notebook)",
+          1000
+        ],
+        [
+          "23-Aug",
+          "Labour - 4 — Labour (4 workers) (Papa notebook)",
+          1600
+        ],
+        [
+          "25-Aug",
+          "Chhotu — Steel/Iron (Loha) (Papa notebook)",
+          8000
+        ],
+        [
+          "30-Aug",
+          "Santosh — Labour/Payment (Papa notebook)",
+          2000
+        ],
+        [
+          "30-Aug",
+          "Santosh — Labour/Payment (Papa notebook)",
+          100
+        ],
+        [
+          "01-Sep",
+          "Mama — Expense (Papa notebook)",
+          500
+        ],
+        [
+          "02-Sep",
+          "Santosh — Labour (Papa notebook)",
+          1000
+        ],
+        [
+          "02-Sep",
+          "Labour (brick) — Material Unloading/Masonry (Papa notebook)",
+          1600
+        ],
+        [
+          "03-Sep",
+          "Santosh — Labour (Papa notebook)",
+          2000
+        ],
+        [
+          "04-Sep",
+          "Santosh — Labour (Papa notebook)",
+          1100
+        ],
+        [
+          "04-Sep",
+          "Labour — Labour (Papa notebook)",
+          1600
+        ],
+        [
+          "09-Sep",
+          "Santosh — Labour (Papa notebook)",
+          2000
+        ],
+        [
+          "09-Sep",
+          "Labour (brick) — Material Unloading/Masonry (Papa notebook)",
+          700
+        ],
+        [
+          "09-Sep",
+          "Shuttering — Formwork/Shuttering (Papa notebook)",
+          30000
+        ],
+        [
+          "10-Sep",
+          "Shuttering — Formwork/Shuttering (Papa notebook)",
+          20000
+        ],
+        [
+          "13-Sep",
+          "Hammer bala — Tools/Labour (Papa notebook)",
+          1400
+        ],
+        [
+          "16-Sep",
+          "Shuttering — Formwork/Shuttering (Papa notebook)",
+          5000
+        ],
+        [
+          "16-Sep",
+          "Shuttering — Formwork/Shuttering (Papa notebook)",
+          15000
         ]
       ]
     },
@@ -607,19 +772,19 @@
     {
       "name": "Sand Truck Wala",
       "type": "Sand",
-      "billed": 222500,
+      "billed": 213590,
       "paid": 222500,
       "status": "paid",
       "tx": [
         [
           "04-May",
           "Sand 1st truck (920 CFT)",
-          55000
+          50600
         ],
         [
           "12-May",
           "Sand 2nd truck (918 CFT)",
-          55000
+          50490
         ],
         [
           "05-Jul",
@@ -969,15 +1134,6 @@
     {
       "d": "07-May",
       "m": "May-2026",
-      "by": "Papa",
-      "to": "Econ Builder",
-      "a": 5000,
-      "ds": "Advance to engineer",
-      "md": "GPay"
-    },
-    {
-      "d": "07-May",
-      "m": "May-2026",
       "by": "Avinash",
       "to": "Sonbhai-Coordinator",
       "a": 1500,
@@ -1048,15 +1204,6 @@
       "md": "GPay"
     },
     {
-      "d": "15-May",
-      "m": "May-2026",
-      "by": "Papa",
-      "to": "Econ Builder",
-      "a": 11000,
-      "ds": "Layout / Naksha",
-      "md": "GPay"
-    },
-    {
       "d": "16-May",
       "m": "May-2026",
       "by": "Avinash",
@@ -1118,15 +1265,6 @@
       "a": 18650,
       "ds": "Cement 50B + transport + labour",
       "md": "Bank"
-    },
-    {
-      "d": "25-May",
-      "m": "May-2026",
-      "by": "Papa",
-      "to": "Econ Builder",
-      "a": 10000,
-      "ds": "Engineer payment",
-      "md": "GPay"
     },
     {
       "d": "01-Jun",
@@ -1228,15 +1366,6 @@
       "md": "GPay"
     },
     {
-      "d": "22-Jun",
-      "m": "Jun-2026",
-      "by": "Papa",
-      "to": "Econ Builder",
-      "a": 5000,
-      "ds": "Engineer supervision fee — Jun payment",
-      "md": "GPay"
-    },
-    {
       "d": "05-Jul",
       "m": "Jul-2026",
       "by": "Avinash",
@@ -1285,27 +1414,9 @@
       "d": "17-Jul",
       "m": "Jul-2026",
       "by": "Papa",
-      "to": "Econ Builder",
-      "a": 15000,
-      "ds": "Engineer supervision — iron wiring works",
-      "md": "GPay"
-    },
-    {
-      "d": "17-Jul",
-      "m": "Jul-2026",
-      "by": "Papa",
       "to": "Local Purchase",
       "a": 1300,
       "ds": "Iron wire 2kg + delivery",
-      "md": "GPay"
-    },
-    {
-      "d": "17-Jul",
-      "m": "Jul-2026",
-      "by": "Papa",
-      "to": "Econ Builder",
-      "a": 18000,
-      "ds": "Payment to Santosh for shuttering work",
       "md": "GPay"
     },
     {
@@ -1316,15 +1427,6 @@
       "a": 40000,
       "ds": "JCB + Mitti + Sand movement balance payment",
       "md": "Cash"
-    },
-    {
-      "d": "21-Jul",
-      "m": "Jul-2026",
-      "by": "Papa",
-      "to": "Econ Builder",
-      "a": 5000,
-      "ds": "Payment to Santosh — labour supervision",
-      "md": "GPay"
     },
     {
       "d": "05-Jul",
@@ -1390,30 +1492,12 @@
       "md": "Cash"
     },
     {
-      "d": "21-Jul",
-      "m": "Jul-2026",
-      "by": "Papa",
-      "to": "Econ Builder",
-      "a": 37700,
-      "ds": "Engineer supervision and coordination",
-      "md": "GPay"
-    },
-    {
       "d": "22-Jul",
       "m": "Jul-2026",
       "by": "Avinash",
       "to": "Pappu Hardware",
       "a": 7000,
       "ds": "Cement 20 bags + labour",
-      "md": "Cash"
-    },
-    {
-      "d": "31-Jul",
-      "m": "Jul-2026",
-      "by": "Papa",
-      "to": "Econ Builder",
-      "a": 4000,
-      "ds": "Santosh aara mil — payment received",
       "md": "Cash"
     },
     {
@@ -1432,15 +1516,6 @@
       "to": "Pappu Hardware",
       "a": 47740,
       "ds": "Cement + Tata Tiscon rods + wire + labour",
-      "md": "Cash"
-    },
-    {
-      "d": "09-Aug",
-      "m": "Aug-2026",
-      "by": "Papa",
-      "to": "Econ Builder",
-      "a": 37900,
-      "ds": "Darbhanga labour, chotu lohabala, grilling, 4mm ply, Bayju",
       "md": "Cash"
     },
     {
@@ -1469,6 +1544,429 @@
       "a": 100000,
       "ds": "Construction work done — general site supervision & labour (Sep)",
       "md": "Cash"
+    },
+    {
+      "d": "25-May",
+      "m": "May-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 10000,
+      "ds": "Mixer machine — Equipment (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "17-Jun",
+      "m": "Jun-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 5000,
+      "ds": "Chhotu Lohawala — Steel/Iron (Loha) (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "20-Jun",
+      "m": "Jun-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 10000,
+      "ds": "Tank bala — Water Tank/Materials (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "27-Jun",
+      "m": "Jun-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 500,
+      "ds": "Labour — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "30-Jun",
+      "m": "Jun-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 100,
+      "ds": "Santosh — Labour/Supervisor (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "17-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 15000,
+      "ds": "Chhotu Lohawala — Steel/Iron (Loha) (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "18-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 18000,
+      "ds": "Santosh — Labour/Payment (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "20-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 5000,
+      "ds": "Santosh (Chhotu) — Steel/Iron (Chhotu) (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "25-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 200,
+      "ds": "Santosh (Pintu) — Labour/Advance (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "25-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 100,
+      "ds": "Santosh (Pintu) — Labour/Advance (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "26-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 200,
+      "ds": "Santosh (Pintu) — Labour/Advance (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "26-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 500,
+      "ds": "Santosh (Baiju) — Labour/Baiju (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "28-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 30000,
+      "ds": "Santosh (Baiju) — Labour/Baiju (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "28-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 500,
+      "ds": "Santosh (Pintu) — Labour/Pintu (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "28-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 6200,
+      "ds": "Santosh (Labor payment) — Labour Payment (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "31-Jul",
+      "m": "Jul-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 4000,
+      "ds": "Santosh — Labour/Payment (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "06-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 500,
+      "ds": "Santosh (Pintu) — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "06-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 100,
+      "ds": "Santosh (Pintu) — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "06-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 500,
+      "ds": "Santosh (Pintu) — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "07-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 5000,
+      "ds": "Santosh (Chhotu) — Steel/Iron (Chhotu) (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "07-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 100,
+      "ds": "Petrol — Fuel/Site Expense (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "07-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 700,
+      "ds": "4mm ply — Formwork/Material (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "08-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 1000,
+      "ds": "Grilling — Fabrication/Grills (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "08-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 3400,
+      "ds": "Labour — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "09-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 15000,
+      "ds": "Baiju — Contractor/Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "12-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 15000,
+      "ds": "Baiju — Contractor/Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "14-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 500,
+      "ds": "Paswan — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "18-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 3300,
+      "ds": "Mukesh Kr — Site Staff/Material (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "22-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 1000,
+      "ds": "Paswan — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "22-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 1000,
+      "ds": "Lohawala — Steel/Iron (Loha) (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "23-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 1600,
+      "ds": "Labour - 4 — Labour (4 workers) (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "25-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 8000,
+      "ds": "Chhotu — Steel/Iron (Loha) (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "30-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 2000,
+      "ds": "Santosh — Labour/Payment (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "30-Aug",
+      "m": "Aug-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 100,
+      "ds": "Santosh — Labour/Payment (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "01-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 500,
+      "ds": "Mama — Expense (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "02-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 1000,
+      "ds": "Santosh — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "02-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 1600,
+      "ds": "Labour (brick) — Material Unloading/Masonry (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "03-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 2000,
+      "ds": "Santosh — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "04-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 1100,
+      "ds": "Santosh — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "04-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 1600,
+      "ds": "Labour — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "09-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 2000,
+      "ds": "Santosh — Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "09-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 700,
+      "ds": "Labour (brick) — Material Unloading/Masonry (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "09-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 30000,
+      "ds": "Shuttering — Formwork/Shuttering (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "10-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 20000,
+      "ds": "Shuttering — Formwork/Shuttering (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "13-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 1400,
+      "ds": "Hammer bala — Tools/Labour (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "16-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 5000,
+      "ds": "Shuttering — Formwork/Shuttering (Papa notebook)",
+      "md": "Cash"
+    },
+    {
+      "d": "16-Sep",
+      "m": "Sep-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 15000,
+      "ds": "Shuttering — Formwork/Shuttering (Papa notebook)",
+      "md": "Cash"
     }
   ],
   "unpaid": [],
@@ -1476,7 +1974,7 @@
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 1067496,
+      "amount": 1068586,
       "subs": [
         [
           "Bricks",
@@ -1489,13 +1987,17 @@
         ],
         [
           "Sand",
-          222500,
+          213590,
           "3,718 CFT"
         ],
         [
           "Cement",
           192510,
           "551 bags"
+        ],
+        [
+          "Water Tank",
+          10000
         ],
         [
           "Dr Fixit",
@@ -1541,7 +2043,7 @@
     {
       "name": "Steel / Iron",
       "color": "#A8B4C4",
-      "amount": 416720,
+      "amount": 450720,
       "subs": [
         [
           "Tiscon 12mm",
@@ -1559,13 +2061,13 @@
           "260 pcs"
         ],
         [
+          "Fabrication",
+          40000
+        ],
+        [
           "Tiscon 8mm",
           20160,
           "50 pcs"
-        ],
-        [
-          "Fabrication",
-          6000
         ],
         [
           "Wire",
@@ -1576,23 +2078,19 @@
     {
       "name": "Professional Fees",
       "color": "#5B9DFF",
-      "amount": 485700,
+      "amount": 445000,
       "subs": [
         [
-          "Engineer Supervision",
-          236700
+          "Engineering",
+          200000
         ],
         [
-          "Engineering",
-          221000
+          "Engineer Supervision",
+          175000
         ],
         [
           "Shuttering Labour",
-          23000
-        ],
-        [
-          "Engineer Visit Charge",
-          5000
+          70000
         ]
       ]
     },
@@ -1615,16 +2113,16 @@
     {
       "name": "Labour",
       "color": "#EC4899",
-      "amount": 152040,
+      "amount": 234140,
       "subs": [
+        [
+          "Site Labour",
+          113840
+        ],
         [
           "Daily Labour-Mitti Bharai",
           65475,
           "46 Labour"
-        ],
-        [
-          "Site Labour",
-          34040
         ],
         [
           "Earth Filling Labour",
@@ -1641,6 +2139,10 @@
           "20 pcs"
         ],
         [
+          "Daily Labour-Unloading",
+          2500
+        ],
+        [
           "Daily Labour-Kitchen",
           2200
         ],
@@ -1651,21 +2153,21 @@
         [
           "Skilled Labour",
           450
-        ],
-        [
-          "Daily Labour-Unloading",
-          200
         ]
       ]
     },
     {
       "name": "Transport · Food · Misc",
       "color": "#8FA5C0",
-      "amount": 65778,
+      "amount": 77778,
       "subs": [
         [
           "Food/Ration",
           59053
+        ],
+        [
+          "Tools/Equipment",
+          12575
         ],
         [
           "Temp Construction",
@@ -1677,17 +2179,17 @@
           1300
         ],
         [
-          "Tools/Equipment",
-          1175
+          "Transport",
+          700,
+          "1 trips"
         ],
         [
           "Kala Panni/Tar",
           600
         ],
         [
-          "Transport",
-          600,
-          "1 trips"
+          "Misc Expense",
+          500
         ],
         [
           "Truck/Tempo Freight",
@@ -1753,8 +2255,8 @@
   ],
   "unitFunding": {
     "split": {
-      "bUnit": 1169342,
-      "cUnit": 1169342
+      "bUnit": 1213587,
+      "cUnit": 1213587
     },
     "funders": [
       {
@@ -1762,9 +2264,9 @@
         "unit": "C",
         "commitment": 1500000,
         "threshold": 1000000,
-        "unitSpend": 1169342,
-        "utilized": 169342,
-        "remaining": 1330658,
+        "unitSpend": 1213587,
+        "utilized": 213587,
+        "remaining": 1286413,
         "notes": "Avinash funds first ₹10L of C-Unit spend; Deepu funds the next ₹15L of C-Unit spend beyond that"
       }
     ]
