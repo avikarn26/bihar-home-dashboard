@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "v63",
+    "version": "v65",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
@@ -1219,103 +1219,201 @@
   ],
   "materials": [
     {
-      "name": "Tiscon 12mm",
-      "group": "steel",
-      "amount": 174336,
-      "qty": "200 Pcs",
-      "rate": "₹908",
-      "note": "₹7,264 saved",
-      "disc": true
-    },
-    {
-      "name": "Concrete / Gitti",
-      "group": "building",
-      "amount": 169482,
-      "qty": "65.14 Ton",
-      "rate": "₹2,487 avg",
-      "note": "2 deliveries",
-      "disc": false
-    },
-    {
       "name": "Bricks",
       "group": "building",
-      "amount": 153000,
-      "qty": "18,000 nos",
-      "rate": "₹8.5",
-      "note": "12 tractors",
+      "amount": 369750,
+      "qty": "43,500 pcs",
+      "rate": "₹8.5 avg",
+      "note": "",
       "disc": false
     },
     {
       "name": "Tiscon 10mm",
       "group": "steel",
-      "amount": 123264,
-      "qty": "200 Pcs",
-      "rate": "₹642",
-      "note": "₹5,136 saved",
-      "disc": true
+      "amount": 361759,
+      "qty": "606 pcs",
+      "rate": "₹597 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Concrete/Gitti",
+      "group": "building",
+      "amount": 344386,
+      "qty": "—",
+      "rate": "mixed",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Cement",
+      "group": "building",
+      "amount": 303510,
+      "qty": "851 bags",
+      "rate": "₹357 avg",
+      "note": "",
+      "disc": false
     },
     {
       "name": "Sand",
       "group": "building",
-      "amount": 222500,
-      "qty": "3,718 CFT",
-      "rate": "4 trucks",
-      "note": "—",
+      "amount": 270790,
+      "qty": "4,662 CFT",
+      "rate": "₹58.08 avg",
+      "note": "",
       "disc": false
     },
     {
-      "name": "Cement Ultratech Super",
-      "group": "cement",
-      "amount": 118500,
-      "qty": "330 Bags",
-      "rate": "₹360→₹350/bag",
-      "note": "+30 bags 5-Jul @ ₹350",
+      "name": "Tiscon 12mm",
+      "group": "steel",
+      "amount": 222256,
+      "qty": "258 pcs",
+      "rate": "₹861 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Tiscon 8mm",
+      "group": "steel",
+      "amount": 120453,
+      "qty": "312 pcs",
+      "rate": "₹386 avg",
+      "note": "",
       "disc": false
     },
     {
       "name": "Tiscon 6mm",
       "group": "steel",
-      "amount": 53220,
-      "qty": "220 Pcs",
-      "rate": "₹246→₹228",
-      "note": "+50 pcs 5-Jul @ ₹228",
-      "disc": false,
-      "nodisc": true
+      "amount": 91270,
+      "qty": "382 pcs",
+      "rate": "₹239 avg",
+      "note": "",
+      "disc": false
     },
     {
-      "name": "Tiscon 8mm",
+      "name": "Wood",
+      "group": "building",
+      "amount": 68578,
+      "qty": "20.78 cft",
+      "rate": "₹3,300 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Fabrication",
       "group": "steel",
-      "amount": 20160,
-      "qty": "50 Pcs",
-      "rate": "₹420",
-      "note": "₹840 saved",
-      "disc": true
+      "amount": 40000,
+      "qty": "—",
+      "rate": "mixed",
+      "note": "",
+      "disc": false
     },
     {
       "name": "Dr Fixit",
-      "group": "chemical",
-      "amount": 6800,
-      "qty": "32 L",
-      "rate": "₹245 avg",
-      "note": "Waterproofing",
-      "disc": false
-    },
-    {
-      "name": "Cement Ultratech PPC",
-      "group": "cement",
-      "amount": 9900,
-      "qty": "30 Bags",
-      "rate": "₹330/bag",
-      "note": "5-Jul Babloo Hardware",
-      "disc": false
-    },
-    {
-      "name": "Binding / Soft Wire",
       "group": "building",
-      "amount": 6200,
-      "qty": "32 Kg + lots",
+      "amount": 11000,
+      "qty": "62 litres",
+      "rate": "₹177 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Water Tank",
+      "group": "building",
+      "amount": 10000,
+      "qty": "—",
       "rate": "mixed",
-      "note": "+iron wire 2 Kg 17-Jul",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Tiscon 16mm",
+      "group": "steel",
+      "amount": 8755,
+      "qty": "6 pcs",
+      "rate": "₹1,459 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Binding Wire",
+      "group": "building",
+      "amount": 6700,
+      "qty": "30 kg",
+      "rate": "₹223 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Wire",
+      "group": "steel",
+      "amount": 5600,
+      "qty": "—",
+      "rate": "mixed",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Rings",
+      "group": "steel",
+      "amount": 4040,
+      "qty": "—",
+      "rate": "mixed",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Cover Block",
+      "group": "building",
+      "amount": 2100,
+      "qty": "6 pcs",
+      "rate": "₹350 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Nails",
+      "group": "building",
+      "amount": 1600,
+      "qty": "1 bags",
+      "rate": "₹1,600 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Chemical",
+      "group": "building",
+      "amount": 1400,
+      "qty": "10 litres",
+      "rate": "₹140 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Wire",
+      "group": "building",
+      "amount": 1200,
+      "qty": "2 kg",
+      "rate": "₹600 avg",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Plywood/Shuttering",
+      "group": "building",
+      "amount": 700,
+      "qty": "—",
+      "rate": "mixed",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Material Transport",
+      "group": "building",
+      "amount": 450,
+      "qty": "1 trips",
+      "rate": "₹450 avg",
+      "note": "",
       "disc": false
     }
   ],

@@ -228,6 +228,21 @@ def build(d_old, txs, pays, unit_funding):
         })
     d["categories"] = cats
 
+    # --- materials tab (derived: Building Materials + Steel / Iron subs) ---
+    mats = []
+    for cat, group in (("Building Materials", "building"), ("Steel / Iron", "steel")):
+        for sub, amt in sub_amounts.get(cat, {}).items():
+            units = sub_units_seen[cat][sub]
+            if len(units) == 1 and sub_qty[cat][sub]:
+                q, u = sub_qty[cat][sub], next(iter(units))
+                qty_s = (f"{q:,.2f}".rstrip("0").rstrip(".") if q % 1 else f"{int(q):,}") + f" {u}"
+                rate_s = (f"₹{amt / q:,.0f}" if amt / q >= 100 else f"₹{amt / q:,.2f}".rstrip("0").rstrip(".")) + " avg"
+            else:
+                qty_s, rate_s = "—", "mixed"
+            mats.append({"name": sub, "group": group, "amount": amt, "qty": qty_s,
+                         "rate": rate_s, "note": "", "disc": False})
+    d["materials"] = sorted(mats, key=lambda m: -m["amount"])
+
     # --- monthly ---
     monthly = defaultdict(int)
     for t in txs:
