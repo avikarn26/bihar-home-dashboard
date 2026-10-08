@@ -1,19 +1,19 @@
 {
   "meta": {
-    "version": "v66",
+    "version": "v67",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "07-Oct-2026",
-    "day": 154,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹3,210,605"
+    "lastUpdated": "08-Oct-2026",
+    "day": 155,
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹3,276,670"
   },
   "summary": {
-    "totalPaid": 3211412,
-    "totalBilled": 3210605,
-    "paymentsCount": 100,
-    "entriesCount": 206,
-    "vendorsCount": 11,
+    "totalPaid": 3277477,
+    "totalBilled": 3276670,
+    "paymentsCount": 103,
+    "entriesCount": 209,
+    "vendorsCount": 12,
     "vendorAdvance": 216000,
     "balanceDue": 7353
   },
@@ -31,22 +31,22 @@
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 2389034,
-      "pct": 74.4,
+      "amount": 2410099,
+      "pct": 73.5,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
-      "amount": 653378,
-      "pct": 20.3,
+      "amount": 698378,
+      "pct": 21.3,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 5.3,
+      "pct": 5.2,
       "color": "#A78BFA"
     }
   ],
@@ -73,7 +73,7 @@
     },
     {
       "month": "Oct-2026",
-      "billed": 676231
+      "billed": 742296
     }
   ],
   "vendors": [
@@ -598,8 +598,8 @@
     {
       "name": "Econ Builder",
       "type": "Engineering supervision",
-      "billed": 671000,
-      "paid": 671000,
+      "billed": 716000,
+      "paid": 716000,
       "status": "paid",
       "tx": [
         [
@@ -866,6 +866,16 @@
           "28-Sep",
           "Construction work done — general site supervision & labour (Papa, 28-Sep)",
           50000
+        ],
+        [
+          "07-Oct",
+          "Construction work done — general site supervision & labour (Papa, 7-Oct)",
+          25000
+        ],
+        [
+          "08-Oct",
+          "Construction work done — general site supervision & labour (Papa, 8-Oct)",
+          20000
         ]
       ]
     },
@@ -1213,6 +1223,20 @@
           "07-Oct",
           "Labour (gate frame wood, B unit)",
           400
+        ]
+      ]
+    },
+    {
+      "name": "Mittal Electric",
+      "type": "",
+      "billed": 21065,
+      "paid": 21065,
+      "status": "paid",
+      "tx": [
+        [
+          "08-Oct",
+          "Electrical items — Mittal Electric, Darbhanga",
+          21065
         ]
       ]
     }
@@ -2317,6 +2341,33 @@
       "a": 70000,
       "ds": "Part payment against Oct bills",
       "md": "Cash"
+    },
+    {
+      "d": "07-Oct",
+      "m": "Oct-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 25000,
+      "ds": "Construction work done — general (Papa, 7-Oct)",
+      "md": "Cash"
+    },
+    {
+      "d": "08-Oct",
+      "m": "Oct-2026",
+      "by": "Papa",
+      "to": "Econ Builder",
+      "a": 20000,
+      "ds": "Construction work done — general (Papa, 8-Oct)",
+      "md": "Cash"
+    },
+    {
+      "d": "08-Oct",
+      "m": "Oct-2026",
+      "by": "Avinash",
+      "to": "Mittal Electric",
+      "a": 21065,
+      "ds": "Electrical items — Mittal Electric, Darbhanga",
+      "md": "Cash"
     }
   ],
   "unpaid": [
@@ -2449,11 +2500,11 @@
     {
       "name": "Professional Fees",
       "color": "#5B9DFF",
-      "amount": 495000,
+      "amount": 540000,
       "subs": [
         [
           "Engineer Supervision",
-          225000
+          270000
         ],
         [
           "Engineering",
@@ -2572,6 +2623,17 @@
           100
         ]
       ]
+    },
+    {
+      "name": "Electrical",
+      "color": "#8884d8",
+      "amount": 21065,
+      "subs": [
+        [
+          "Electrical Items",
+          21065
+        ]
+      ]
     }
   ],
   "notes": [
@@ -2626,8 +2688,8 @@
   ],
   "unitFunding": {
     "split": {
-      "bUnit": 1597482,
-      "cUnit": 1613122
+      "bUnit": 1630515,
+      "cUnit": 1646155
     },
     "funders": [
       {
@@ -2635,9 +2697,9 @@
         "unit": "C",
         "commitment": 1500000,
         "threshold": 1000000,
-        "unitSpend": 1613122,
-        "utilized": 613122,
-        "remaining": 886878,
+        "unitSpend": 1646155,
+        "utilized": 646155,
+        "remaining": 853845,
         "notes": "Avinash funds first ₹10L of C-Unit spend; Deepu funds the next ₹15L of C-Unit spend beyond that"
       }
     ]
