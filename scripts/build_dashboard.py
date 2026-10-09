@@ -169,10 +169,10 @@ def build(d_old, txs, pays, unit_funding):
         old = old_vendors.get(name, {})
         billed = billed_by_vendor.get(name, 0)
         paid = paid_by_vendor.get(name, 0)
-        if name == BRICK_VENDOR:
-            status = "advance"
-        elif billed > paid:
+        if billed > paid:
             status = "due"
+        elif name == BRICK_VENDOR and paid > billed:
+            status = "advance"
         else:
             status = "paid"
         v = {
@@ -279,8 +279,6 @@ def build(d_old, txs, pays, unit_funding):
     last_date = max(p["date"] for p in pays).strftime("%d-%b")
     unpaid = []
     for v in vendors:
-        if v["name"] == BRICK_VENDOR:
-            continue
         due = v["billed"] - v["paid"]
         if due > 0:
             old_u = next((u for u in d_old.get("unpaid", []) if u["to"] == v["name"]), {})
@@ -304,7 +302,7 @@ def build(d_old, txs, pays, unit_funding):
     if brick:
         d["brickAdvance"]["advancePaid"] = brick["paid"]
         d["brickAdvance"]["deliveredValue"] = brick["billed"]
-        d["brickAdvance"]["creditLeft"] = brick["paid"] - brick["billed"]
+        d["brickAdvance"]["creditLeft"] = max(0, brick["paid"] - brick["billed"])
 
     # --- unit split (B/C) & external funder utilization ---
     # explicit tag ("B" or "C") counts fully to that unit; blank/other = joint, split 50/50
@@ -373,8 +371,7 @@ def reconcile(d):
         ("payer sum", sum(p["amount"] for p in d["payers"]), tp),
         ("payments list sum", sum(p["a"] for p in d["payments"]), tp),
         ("unpaid sum", sum(u["a"] for u in d["unpaid"]), bd),
-        ("gap", tp - tb, sum(max(0, v["paid"] - v["billed"]) for v in d["vendors"]) - bd -
-         next((max(0, v["billed"] - v["paid"]) for v in d["vendors"] if v["name"] == BRICK_VENDOR), 0)),
+        ("gap", tp - tb, sum(max(0, v["paid"] - v["billed"]) for v in d["vendors"]) - bd),
         ("vendor paid sum", sum(v["paid"] for v in d["vendors"]), tp),
     ]
     for name, got, want in checks:
@@ -416,6 +413,9 @@ def main():
     s = d["summary"]
     print(f"billed ₹{s['totalBilled']:,} | paid ₹{s['totalPaid']:,} | due ₹{s['balanceDue']:,} "
           f"| {s['entriesCount']} entries | {s['paymentsCount']} payments | {s['vendorsCount']} vendors")
+    for v in d["vendors"]:
+        if v["paid"] > v["billed"]:
+            print(f"WARNING: {v['name']} paid ₹{v['paid']:,} > billed ₹{v['billed']:,} (advance or missing bill?)")
     if errs:
         print("RECONCILIATION FAILED:")
         for e in errs:

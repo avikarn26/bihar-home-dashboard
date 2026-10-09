@@ -379,27 +379,27 @@ body{
 <!-- ═══════════ EMBEDDED DATA (auto-generated from Excel — do not hand-edit) ═══════════ -->
 <script id="site-data" type="application/json">{
   "meta": {
-    "version": "v68",
+    "version": "v72",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
     "lastUpdated": "09-Oct-2026",
     "day": 156,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹3,333,670"
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹3,342,580"
   },
   "summary": {
     "totalPaid": 3334477,
-    "totalBilled": 3333670,
+    "totalBilled": 3342580,
     "paymentsCount": 105,
     "entriesCount": 211,
     "vendorsCount": 12,
     "vendorAdvance": 216000,
-    "balanceDue": 7353
+    "balanceDue": 8103
   },
   "brickAdvance": {
     "advancePaid": 369000,
     "deliveredValue": 369750,
-    "creditLeft": -750,
+    "creditLeft": 0,
     "bricksDelivered": 43500,
     "tractorsDelivered": 29,
     "tractorCapacity": 29,
@@ -432,7 +432,7 @@ body{
   "monthly": [
     {
       "month": "May-2026",
-      "billed": 804682
+      "billed": 813592
     },
     {
       "month": "Jun-2026",
@@ -880,7 +880,7 @@ body{
       "type": "Bricks · prepaid advance",
       "billed": 369750,
       "paid": 369000,
-      "status": "advance",
+      "status": "due",
       "tx": [
         [
           "14-May",
@@ -1295,19 +1295,19 @@ body{
     {
       "name": "Sand Truck Wala",
       "type": "Sand",
-      "billed": 326790,
+      "billed": 335700,
       "paid": 335700,
       "status": "paid",
       "tx": [
         [
           "04-May",
           "Sand 1st truck (920 CFT)",
-          50600
+          55000
         ],
         [
           "12-May",
           "Sand 2nd truck (918 CFT)",
-          50490
+          55000
         ],
         [
           "05-Jul",
@@ -1661,7 +1661,7 @@ body{
     {
       "name": "Sand",
       "group": "building",
-      "amount": 326790,
+      "amount": 335700,
       "qty": "—",
       "rate": "mixed",
       "note": "",
@@ -2783,13 +2783,19 @@ body{
       "to": "Pappu Hardware",
       "a": 7353,
       "ds": "Balance due"
+    },
+    {
+      "d": "09-Oct",
+      "to": "Brick Company",
+      "a": 750,
+      "ds": "Balance due"
     }
   ],
   "categories": [
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 1448164,
+      "amount": 1457074,
       "subs": [
         [
           "Bricks",
@@ -2802,7 +2808,7 @@ body{
         ],
         [
           "Sand",
-          326790
+          335700
         ],
         [
           "Cement",
@@ -3099,8 +3105,8 @@ body{
   ],
   "unitFunding": {
     "split": {
-      "bUnit": 1659015,
-      "cUnit": 1674655
+      "bUnit": 1663470,
+      "cUnit": 1679110
     },
     "funders": [
       {
@@ -3108,9 +3114,9 @@ body{
         "unit": "C",
         "commitment": 1500000,
         "threshold": 1000000,
-        "unitSpend": 1674655,
-        "utilized": 674655,
-        "remaining": 825345,
+        "unitSpend": 1679110,
+        "utilized": 679110,
+        "remaining": 820890,
         "notes": "Avinash funds first ₹10L of C-Unit spend; Deepu funds the next ₹15L of C-Unit spend beyond that"
       }
     ]
