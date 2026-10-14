@@ -1,18 +1,18 @@
 {
   "meta": {
-    "version": "v74",
+    "version": "v76",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "09-Oct-2026",
-    "day": 156,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹3,342,580"
+    "lastUpdated": "13-Oct-2026",
+    "day": 160,
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹3,485,423"
   },
   "summary": {
-    "totalPaid": 3334477,
-    "totalBilled": 3342580,
-    "paymentsCount": 105,
-    "entriesCount": 211,
+    "totalPaid": 3477320,
+    "totalBilled": 3485423,
+    "paymentsCount": 106,
+    "entriesCount": 222,
     "vendorsCount": 12,
     "vendorAdvance": 216000,
     "balanceDue": 8103
@@ -31,22 +31,22 @@
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 2467099,
-      "pct": 74.0,
+      "amount": 2609942,
+      "pct": 75.1,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
       "amount": 698378,
-      "pct": 20.9,
+      "pct": 20.1,
       "color": "#F2A93B"
     },
     {
       "name": "Chota Bhai",
       "sub": "GPay",
       "amount": 169000,
-      "pct": 5.1,
+      "pct": 4.9,
       "color": "#A78BFA"
     }
   ],
@@ -73,15 +73,15 @@
     },
     {
       "month": "Oct-2026",
-      "billed": 799296
+      "billed": 942139
     }
   ],
   "vendors": [
     {
       "name": "Pappu Hardware",
       "type": "Hardware · Steel · Cement",
-      "billed": 1144923,
-      "paid": 1137570,
+      "billed": 1287766,
+      "paid": 1280413,
       "status": "due",
       "tx": [
         [
@@ -493,6 +493,61 @@
           "06-Oct",
           "Labour",
           430
+        ],
+        [
+          "13-Oct",
+          "Tiscon 12mm rod 6 pcs",
+          5412
+        ],
+        [
+          "13-Oct",
+          "Labour",
+          350
+        ],
+        [
+          "13-Oct",
+          "Binding wire 60 kg @ ₹110",
+          6600
+        ],
+        [
+          "13-Oct",
+          "Tiscon 10mm rod 32 pcs",
+          19856
+        ],
+        [
+          "13-Oct",
+          "Tiscon 8mm rod 84 pcs",
+          34045
+        ],
+        [
+          "13-Oct",
+          "Tiscon 8mm rod 24 pcs",
+          9700
+        ],
+        [
+          "13-Oct",
+          "Nails",
+          150
+        ],
+        [
+          "13-Oct",
+          "Tiscon 10mm rod 3 pcs",
+          1830
+        ],
+        [
+          "13-Oct",
+          "Gitti 4 trailers @ ₹9,500",
+          38000
+        ],
+        [
+          "13-Oct",
+          "Concreto Uno cement 65 bags @ ₹380",
+          24700
+        ],
+        [
+          "13-Oct",
+          "Labour",
+          2200
         ]
       ]
     },
@@ -1253,29 +1308,29 @@
   ],
   "materials": [
     {
-      "name": "Bricks",
-      "group": "building",
-      "amount": 369750,
-      "qty": "43,500 pcs",
-      "rate": "₹8.5 avg",
-      "note": "",
-      "disc": false
-    },
-    {
       "name": "Tiscon 10mm",
       "group": "steel",
-      "amount": 361759,
-      "qty": "606 pcs",
-      "rate": "₹597 avg",
+      "amount": 383445,
+      "qty": "641 pcs",
+      "rate": "₹598 avg",
       "note": "",
       "disc": false
     },
     {
       "name": "Concrete/Gitti",
       "group": "building",
-      "amount": 344386,
+      "amount": 382386,
       "qty": "—",
       "rate": "mixed",
+      "note": "",
+      "disc": false
+    },
+    {
+      "name": "Bricks",
+      "group": "building",
+      "amount": 369750,
+      "qty": "43,500 pcs",
+      "rate": "₹8.5 avg",
       "note": "",
       "disc": false
     },
@@ -1291,27 +1346,27 @@
     {
       "name": "Cement",
       "group": "building",
-      "amount": 303510,
-      "qty": "851 bags",
-      "rate": "₹357 avg",
+      "amount": 328210,
+      "qty": "916 bags",
+      "rate": "₹358 avg",
       "note": "",
       "disc": false
     },
     {
       "name": "Tiscon 12mm",
       "group": "steel",
-      "amount": 222256,
-      "qty": "258 pcs",
-      "rate": "₹861 avg",
+      "amount": 227668,
+      "qty": "264 pcs",
+      "rate": "₹862 avg",
       "note": "",
       "disc": false
     },
     {
       "name": "Tiscon 8mm",
       "group": "steel",
-      "amount": 120453,
-      "qty": "312 pcs",
-      "rate": "₹386 avg",
+      "amount": 164198,
+      "qty": "420 pcs",
+      "rate": "₹391 avg",
       "note": "",
       "disc": false
     },
@@ -1334,6 +1389,15 @@
       "disc": false
     },
     {
+      "name": "Binding Wire",
+      "group": "building",
+      "amount": 13300,
+      "qty": "90 kg",
+      "rate": "₹148 avg",
+      "note": "",
+      "disc": false
+    },
+    {
       "name": "Dr Fixit",
       "group": "building",
       "amount": 11000,
@@ -1348,15 +1412,6 @@
       "amount": 8755,
       "qty": "6 pcs",
       "rate": "₹1,459 avg",
-      "note": "",
-      "disc": false
-    },
-    {
-      "name": "Binding Wire",
-      "group": "building",
-      "amount": 6700,
-      "qty": "30 kg",
-      "rate": "₹223 avg",
       "note": "",
       "disc": false
     },
@@ -1390,9 +1445,9 @@
     {
       "name": "Nails",
       "group": "building",
-      "amount": 1600,
+      "amount": 1750,
       "qty": "1 bags",
-      "rate": "₹1,600 avg",
+      "rate": "₹1,750 avg",
       "note": "",
       "disc": false
     },
@@ -2369,6 +2424,15 @@
       "a": 1000,
       "ds": "Diesel 10 litres",
       "md": "Cash"
+    },
+    {
+      "d": "13-Oct",
+      "m": "Oct-2026",
+      "by": "Avinash",
+      "to": "Pappu Hardware",
+      "a": 142843,
+      "ds": "Full payment — 13-Oct bill (₹1,42,843)",
+      "md": "Cash"
     }
   ],
   "unpaid": [
@@ -2389,16 +2453,16 @@
     {
       "name": "Building Materials",
       "color": "#E8603A",
-      "amount": 1446374,
+      "amount": 1515824,
       "subs": [
+        [
+          "Concrete/Gitti",
+          382386
+        ],
         [
           "Bricks",
           369750,
           "43,500 pcs"
-        ],
-        [
-          "Concrete/Gitti",
-          344386
         ],
         [
           "Sand",
@@ -2406,8 +2470,8 @@
         ],
         [
           "Cement",
-          303510,
-          "851 bags"
+          328210,
+          "916 bags"
         ],
         [
           "Wood",
@@ -2415,14 +2479,14 @@
           "20.7812 cft"
         ],
         [
+          "Binding Wire",
+          13300,
+          "90 kg"
+        ],
+        [
           "Dr Fixit",
           11000,
           "62 litres"
-        ],
-        [
-          "Binding Wire",
-          6700,
-          "30 kg"
         ],
         [
           "Cover Block",
@@ -2431,7 +2495,7 @@
         ],
         [
           "Nails",
-          1600,
+          1750,
           "1 bags"
         ],
         [
@@ -2454,22 +2518,22 @@
     {
       "name": "Steel / Iron",
       "color": "#A8B4C4",
-      "amount": 814133,
+      "amount": 884976,
       "subs": [
         [
           "Tiscon 10mm",
-          361759,
-          "606 pcs"
+          383445,
+          "641 pcs"
         ],
         [
           "Tiscon 12mm",
-          222256,
-          "258 pcs"
+          227668,
+          "264 pcs"
         ],
         [
           "Tiscon 8mm",
-          120453,
-          "312 pcs"
+          164198,
+          "420 pcs"
         ],
         [
           "Tiscon 6mm",
@@ -2561,7 +2625,7 @@
     {
       "name": "Labour",
       "color": "#EC4899",
-      "amount": 124910,
+      "amount": 127460,
       "subs": [
         [
           "Daily Labour-Mitti Bharai",
@@ -2579,7 +2643,7 @@
         ],
         [
           "Site Labour",
-          6910
+          9460
         ],
         [
           "Gitti Movement",
@@ -2719,8 +2783,8 @@
   ],
   "unitFunding": {
     "split": {
-      "bUnit": 1663470,
-      "cUnit": 1679110
+      "bUnit": 1734892,
+      "cUnit": 1750532
     },
     "funders": [
       {
@@ -2728,9 +2792,9 @@
         "unit": "C",
         "commitment": 1500000,
         "threshold": 1000000,
-        "unitSpend": 1679110,
-        "utilized": 679110,
-        "remaining": 820890,
+        "unitSpend": 1750532,
+        "utilized": 750532,
+        "remaining": 749468,
         "notes": "Avinash funds first ₹10L of C-Unit spend; Deepu funds the next ₹15L of C-Unit spend beyond that"
       }
     ]
