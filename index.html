@@ -379,20 +379,20 @@ body{
 <!-- ═══════════ EMBEDDED DATA (auto-generated from Excel — do not hand-edit) ═══════════ -->
 <script id="site-data" type="application/json">{
   "meta": {
-    "version": "v79",
+    "version": "v80",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "14-Oct-2026",
-    "day": 161,
-    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹3,668,323"
+    "lastUpdated": "05-Nov-2026",
+    "day": 183,
+    "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹3,681,323"
   },
   "summary": {
-    "totalPaid": 3667573,
-    "totalBilled": 3668323,
-    "paymentsCount": 113,
-    "entriesCount": 228,
-    "vendorsCount": 14,
+    "totalPaid": 3680573,
+    "totalBilled": 3681323,
+    "paymentsCount": 115,
+    "entriesCount": 230,
+    "vendorsCount": 15,
     "vendorAdvance": 216000,
     "balanceDue": 750
   },
@@ -410,15 +410,15 @@ body{
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 2770195,
-      "pct": 75.5,
+      "amount": 2783195,
+      "pct": 75.6,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
       "amount": 728378,
-      "pct": 19.9,
+      "pct": 19.8,
       "color": "#F2A93B"
     },
     {
@@ -453,6 +453,10 @@ body{
     {
       "month": "Oct-2026",
       "billed": 1125039
+    },
+    {
+      "month": "Nov-2026",
+      "billed": 13000
     }
   ],
   "vendors": [
@@ -1399,8 +1403,8 @@ body{
     {
       "name": "Mukesh Yadav",
       "type": "JCB · Mitti · Movement",
-      "billed": 166150,
-      "paid": 166150,
+      "billed": 176150,
+      "paid": 176150,
       "status": "paid",
       "tx": [
         [
@@ -1497,6 +1501,11 @@ body{
           "16-Jul",
           "JCB work 20 min (0.33 hr) @ ₹1,000/hr",
           333
+        ],
+        [
+          "05-Nov",
+          "JCB work payment",
+          10000
         ]
       ]
     },
@@ -1729,6 +1738,20 @@ body{
           "14-Oct",
           "Electrician payment",
           20000
+        ]
+      ]
+    },
+    {
+      "name": "Tractor Wala",
+      "type": "",
+      "billed": 3000,
+      "paid": 3000,
+      "status": "paid",
+      "tx": [
+        [
+          "05-Nov",
+          "Tractor work payment",
+          3000
         ]
       ]
     }
@@ -2923,6 +2946,24 @@ body{
       "a": 3000,
       "ds": "Vegetables",
       "md": "Cash"
+    },
+    {
+      "d": "05-Nov",
+      "m": "Nov-2026",
+      "by": "Avinash",
+      "to": "Mukesh Yadav",
+      "a": 10000,
+      "ds": "JCB work payment",
+      "md": "Cash"
+    },
+    {
+      "d": "05-Nov",
+      "m": "Nov-2026",
+      "by": "Avinash",
+      "to": "Tractor Wala",
+      "a": 3000,
+      "ds": "Tractor work payment",
+      "md": "Cash"
     }
   ],
   "unpaid": [
@@ -3093,7 +3134,7 @@ body{
     {
       "name": "Land Development",
       "color": "#2DD4BF",
-      "amount": 150950,
+      "amount": 163950,
       "subs": [
         [
           "Mitti Filling",
@@ -3101,8 +3142,12 @@ body{
         ],
         [
           "JCB Work",
-          23750,
+          33750,
           "23.75 hours"
+        ],
+        [
+          "Tractor Work",
+          3000
         ]
       ]
     },
@@ -3246,7 +3291,7 @@ body{
     },
     {
       "label": "JCB Work",
-      "value": "23.75",
+      "value": "24.75",
       "unit": "hours",
       "icon": "⛏️"
     },
@@ -3271,8 +3316,8 @@ body{
   ],
   "unitFunding": {
     "split": {
-      "bUnit": 1826342,
-      "cUnit": 1841982
+      "bUnit": 1832842,
+      "cUnit": 1848482
     },
     "funders": [
       {
@@ -3280,9 +3325,9 @@ body{
         "unit": "C",
         "commitment": 1500000,
         "threshold": 1000000,
-        "unitSpend": 1841982,
-        "utilized": 841982,
-        "remaining": 658018,
+        "unitSpend": 1848482,
+        "utilized": 848482,
+        "remaining": 651518,
         "notes": "Avinash funds first ₹10L of C-Unit spend; Deepu funds the next ₹15L of C-Unit spend beyond that"
       }
     ]
