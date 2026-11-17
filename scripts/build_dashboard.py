@@ -295,6 +295,7 @@ def build(d_old, txs, pays, unit_funding):
         "entriesCount": len(txs),
         "vendorsCount": len(vendors),
         "balanceDue": balance_due,
+        "vendorAdvance": sum(max(0, v["paid"] - v["billed"]) for v in vendors),
     })
 
     # brick advance derived fields

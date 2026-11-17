@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "v80",
+    "version": "v82",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
@@ -14,7 +14,7 @@
     "paymentsCount": 115,
     "entriesCount": 230,
     "vendorsCount": 15,
-    "vendorAdvance": 216000,
+    "vendorAdvance": 0,
     "balanceDue": 750
   },
   "brickAdvance": {
