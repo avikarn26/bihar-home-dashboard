@@ -1,20 +1,20 @@
 {
   "meta": {
-    "version": "v82",
+    "version": "v84",
     "projectName": "Gaon ka Ghar",
     "phase": "DPC Done · Brick Work Started · B-Unit",
     "startDate": "07-May-2026",
-    "lastUpdated": "05-Nov-2026",
-    "day": 183,
+    "lastUpdated": "17-Nov-2026",
+    "day": 195,
     "validationStatus": "PASSED — vendors, categories & monthly all reconcile to ₹3,681,323"
   },
   "summary": {
-    "totalPaid": 3680573,
+    "totalPaid": 3710573,
     "totalBilled": 3681323,
-    "paymentsCount": 115,
+    "paymentsCount": 116,
     "entriesCount": 230,
-    "vendorsCount": 15,
-    "vendorAdvance": 0,
+    "vendorsCount": 16,
+    "vendorAdvance": 30000,
     "balanceDue": 750
   },
   "brickAdvance": {
@@ -31,15 +31,15 @@
     {
       "name": "Avinash",
       "sub": "Self GPay + Bank",
-      "amount": 2783195,
-      "pct": 75.6,
+      "amount": 2813195,
+      "pct": 75.8,
       "color": "#5B9DFF"
     },
     {
       "name": "Papa",
       "sub": "GPay",
       "amount": 728378,
-      "pct": 19.8,
+      "pct": 19.6,
       "color": "#F2A93B"
     },
     {
@@ -562,16 +562,6 @@
       "paid": 369000,
       "status": "due",
       "tx": [
-        [
-          "14-May",
-          "Brick advance — Avinash share",
-          200000
-        ],
-        [
-          "14-May",
-          "Brick advance — Chota Bhai share",
-          169000
-        ],
         [
           "14-May",
           "Bricks - tractor 1 delivery (1500 pcs)",
@@ -1373,6 +1363,25 @@
           "05-Nov",
           "Tractor work payment",
           3000
+        ]
+      ]
+    },
+    {
+      "name": "Babloo (Grill Contractor)",
+      "type": "Grill contractor",
+      "billed": 0,
+      "paid": 30000,
+      "status": "advance",
+      "tx": [
+        [
+          "17-Nov",
+          "Advance — grill work (no bill yet)",
+          30000
+        ],
+        [
+          "17-Nov",
+          "Advance — grill work (no bill yet)",
+          30000
         ]
       ]
     }
@@ -2584,6 +2593,15 @@
       "to": "Tractor Wala",
       "a": 3000,
       "ds": "Tractor work payment",
+      "md": "Cash"
+    },
+    {
+      "d": "17-Nov",
+      "m": "Nov-2026",
+      "by": "Avinash",
+      "to": "Babloo (Grill Contractor)",
+      "a": 30000,
+      "ds": "Advance — grill work (no bill yet)",
       "md": "Cash"
     }
   ],

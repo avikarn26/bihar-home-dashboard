@@ -171,7 +171,7 @@ def build(d_old, txs, pays, unit_funding):
         paid = paid_by_vendor.get(name, 0)
         if billed > paid:
             status = "due"
-        elif name == BRICK_VENDOR and paid > billed:
+        elif paid > billed:
             status = "advance"
         else:
             status = "paid"
@@ -183,10 +183,10 @@ def build(d_old, txs, pays, unit_funding):
             "status": status,
             "tx": tx_by_vendor.get(name, old.get("tx", [])),
         }
-        # Brick Company: show advance payment rows in tx for display (design choice)
-        if name == BRICK_VENDOR:
+        # advance vendors: show advance payment rows in tx for display (design choice)
+        if status == "advance":
             adv = [[p["date"].strftime("%d-%b"), p["desc"], p["amount"]]
-                   for p in pays if p["to"] == BRICK_VENDOR]
+                   for p in pays if p["to"] == name]
             v["tx"] = adv + v["tx"]
         vendors.append(v)
     d["vendors"] = vendors
@@ -383,7 +383,7 @@ def reconcile(d):
         if ss != c["amount"]:
             errs.append(f"category '{c['name']}' subs {ss:,} != {c['amount']:,}")
     for v in d["vendors"]:
-        if v["name"] == BRICK_VENDOR:
+        if v["status"] == "advance":
             continue
         ts = sum(t[2] for t in v["tx"])
         if ts != v["billed"]:
